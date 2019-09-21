@@ -5,40 +5,39 @@ import s3 = require('../lib/s3');
 import util = require('../lib/util');
 
 test('SQS Queue Created', () => {
-    const app = new cdk.App();
-    const stack = new cdk.Stack(app, "TestStack");
-    // WHEN
-    new Infra.Infra(stack, 'MyTestConstruct');
-    // THEN
-    expectCDK(stack).to(haveResource("AWS::SQS::Queue"));
+  const app = new cdk.App();
+  const stack = new cdk.Stack(app, 'TestStack');
+  // WHEN
+  const sqsTestStack = new Infra.Infra(stack, 'MyTestConstruct');
+  // THEN
+  expectCDK(stack).to(haveResource('AWS::SQS::Queue'));
 });
 
 test('SNS Topic Created', () => {
   const app = new cdk.App();
-  const stack = new cdk.Stack(app, "TestStack");
+  const stack = new cdk.Stack(app, 'TestStack');
   // WHEN
-  new Infra.Infra(stack, 'MyTestConstruct');
+  const snsTestStack = new Infra.Infra(stack, 'MyTestConstruct');
   // THEN
-  expectCDK(stack).to(haveResource("AWS::SNS::Topic"));
+  expectCDK(stack).to(haveResource('AWS::SNS::Topic'));
 });
 
 test('Bucket Created', () => {
   const app = new cdk.App();
-  const stack = new cdk.Stack(app, "TestStack");
+  const stack = new cdk.Stack(app, 'TestStack');
   // WHEN
-  const props = 
-        {
-      content: "log",
-      description: "logging",
-      env: "dev",
-      log_bucket_name: "",
-      label: "log",
-      owner: "log",
-      product: "mywidget",
-      security_level: "1",
-      zone: "log"
-    };
-  new s3.Bucket(stack, "MyTestBucket", props);
+  const props = {
+    content: 'log',
+    description: 'logging',
+    env: 'dev',
+    label: 'log',
+    log_bucket_name: '',
+    owner: 'log',
+    product: 'mywidget',
+    security_level: '1',
+    zone: 'log',
+  };
+  const bucket = new s3.Bucket(stack, 'MyTestBucket', props);
   // THEN
-  expectCDK(stack).to(haveResource("AWS::S3::Bucket"));
+  expectCDK(stack).to(haveResource('AWS::S3::Bucket'));
 });
