@@ -3,14 +3,58 @@ import cdk = require('@aws-cdk/core');
 import util = require('../lib/util');
 
 export interface IBucketProps {
+  /**
+   * bucket description, hopefully infomative to humans.
+   * @attribute
+   */
   content: string;
+
+  /**
+   * bucket description, hopefully infomative to humans.
+   * @attribute
+   */
   description: string;
+
+  /**
+   * bucket environment.
+   * @attribute
+   */
   env: string;
+
+  /**
+   * bucket log destination.
+   * @attribute
+   */
   log_bucket_name: string;
+
+  /**
+   * The label applied to the bucket.
+   * @attribute
+   */
   label: string;
+
+  /**
+   * The owner of the bucket contents.
+   * @attribute
+   */
   owner: string;
+
+  /**
+   * The product using the bucket, aka app or service.
+   * @attribute
+   */
   product: string;
+
+  /**
+   * security level of the bucket, needs map to PII, etc
+   * @attribute
+   */
   security_level: string;
+
+  /**
+   * bucket zone, cd data lake useage
+   * @attribute
+   */
   zone: string;
 }
 
@@ -52,14 +96,14 @@ export class Bucket extends cdk.Construct {
     }
 
     // output bucket name
-    const e1 = new cdk.CfnOutput(this, props.label + 'BucketName', {
-      exportName: util.makeExportName(props.product, props.env, props.label, 'BucketName'),
+    const e1 = new cdk.CfnOutput(this, 'BucketName', {
+      exportName: util.makeExportName(props.env, props.label, props.product, 'BucketName'),
       value: newBucket.bucketName,
     });
 
     // output bucket arn
-    const e2 = new cdk.CfnOutput(this, props.label + 'BucketArn', {
-      exportName: util.makeExportName(props.product, props.env, props.label, 'BucketArn'),
+    const e2 = new cdk.CfnOutput(this, 'BucketArn', {
+      exportName: util.makeExportName(props.env, props.label, props.product, 'BucketArn'),
       value: newBucket.bucketArn,
     });
   }
