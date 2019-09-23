@@ -1,13 +1,13 @@
 import iam = require('@aws-cdk/aws-iam');
 import cdk = require('@aws-cdk/core');
 
-export interface IGroupProps {
+export interface IAnalystGroupProps {
   name: string;
 }
 
 export class AnalystGroup extends cdk.Construct {
   public readonly group: iam.Group;
-  constructor(parent: cdk.Construct, name: string, props: IGroupProps) {
+  constructor(parent: cdk.Construct, name: string, props: IAnalystGroupProps) {
     super(parent, name);
 
     // create analyst role
