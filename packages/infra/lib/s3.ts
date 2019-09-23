@@ -40,10 +40,10 @@ export interface IBucketProps {
   owner: string;
 
   /**
-   * The product using the bucket, aka app or service.
+   * The project using the bucket, aka app or service.
    * @attribute
    */
-  product: string;
+  project: string;
 
   /**
    * security level of the bucket, needs map to PII, etc
@@ -80,7 +80,7 @@ export class Bucket extends cdk.Construct {
       { Key: 'Description', Value: props.description },
       { Key: 'Environment', Value: props.env },
       { Key: 'Owner', Value: props.owner },
-      { Key: 'Product', Value: props.product },
+      { Key: 'Project', Value: props.project },
       { Key: 'SecurityLevel', Value: props.security_level },
       { Key: 'Zone', Value: props.zone },
     ]);
@@ -97,13 +97,13 @@ export class Bucket extends cdk.Construct {
 
     // output bucket name
     const e1 = new cdk.CfnOutput(this, 'BucketName', {
-      exportName: util.makeExportName(props.env, props.label, props.product, 'BucketName'),
+      exportName: util.makeExportName(props.env, props.label, props.project, 'BucketName'),
       value: newBucket.bucketName,
     });
 
     // output bucket arn
     const e2 = new cdk.CfnOutput(this, 'BucketArn', {
-      exportName: util.makeExportName(props.env, props.label, props.product, 'BucketArn'),
+      exportName: util.makeExportName(props.env, props.label, props.project, 'BucketArn'),
       value: newBucket.bucketArn,
     });
   }

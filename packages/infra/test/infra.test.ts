@@ -16,7 +16,7 @@ test('Bucket Created', () => {
     label: 'log',
     log_bucket_name: '',
     owner: 'log',
-    product: 'mywidget',
+    project: 'mywidget',
     security_level: '1',
     zone: 'log',
   };
