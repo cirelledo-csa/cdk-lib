@@ -1,7 +1,11 @@
 {
-  "name": "root",
-  "private": true,
   "devDependencies": {
     "lerna": "^3.16.4"
+  },
+  "name": "root",
+  "private": true,
+  "scripts": {
+    "pkglint": "lerna --scope pkglint run build && lerna run pkglint",
+    "build-all": "tsc -b"
   }
 }
