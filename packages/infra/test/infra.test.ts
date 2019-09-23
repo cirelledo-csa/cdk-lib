@@ -32,7 +32,7 @@ test('Admin Group Created', () => {
   const props = {
     name: 'admins',
   };
-  const group = new lakeformationAdminGroup.AdminGroup(stack, 'MyTestGroup', props);
+  const group = new lakeformationAdminGroup.LakeformationAdminGroup(stack, 'MyTestGroup', props);
   // THEN
   expectCDK(stack).to(haveResource('AWS::IAM::Group'));
 });
@@ -44,7 +44,7 @@ test('Analyst Group Created', () => {
   const props = {
     name: 'analysts',
   };
-  const group = new lakeformationAnalystGroup.AnalystGroup(stack, 'MyTestGroup', props);
+  const group = new lakeformationAnalystGroup.LakeformationAnalystGroup(stack, 'MyTestGroup', props);
   // THEN
   expectCDK(stack).to(haveResource('AWS::IAM::Group'));
 });

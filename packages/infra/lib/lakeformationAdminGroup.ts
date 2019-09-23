@@ -5,7 +5,7 @@ export interface IGroupProps {
   name: string;
 }
 
-export class AdminGroup extends cdk.Construct {
+export class LakeformationAdminGroup extends cdk.Construct {
   public readonly group: iam.Group;
   public readonly role: iam.Role;
   constructor(parent: cdk.Construct, name: string, props: IGroupProps) {
