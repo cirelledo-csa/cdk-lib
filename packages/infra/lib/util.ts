@@ -1,3 +1,5 @@
+import s3 = require('@aws-cdk/aws-s3');
+import cdk = require('@aws-cdk/core');
 // functions
 
 export function toUpperCase(str: string): string {
@@ -24,4 +26,51 @@ export function mapBranchToEnvironment() {
   }
   //  console.info("git branch maps to  " + env_branch + " environment");
   return envBranch;
+}
+
+export interface IStackTagsProps {
+  /**
+   * build url, you're automating right?
+   * @attribute
+   */
+  buildUrl: string;
+
+  /**
+   * environment, eg dev/qa/prod
+   * @attribute
+   */
+  env: string;
+
+  /**
+   * functional description, hopefully informative to humans.
+   * @attribute
+   */
+  description: string;
+
+  /**
+   * project owner
+   * @attribute
+   */
+  owner: string;
+
+  /**
+   * project name, main identification key
+   * @attribute
+   */
+  project: string;
+
+  /**
+   * git repo project source
+   * @attribute
+   */
+  source: string;
+}
+
+export function tagStack(stack: cdk.Stack, props: IStackTagsProps) {
+  cdk.Tag.add(stack, 'BuildUrl', props.buildUrl);
+  cdk.Tag.add(stack, 'Environment', props.env);
+  cdk.Tag.add(stack, 'Description', props.description);
+  cdk.Tag.add(stack, 'Owner', props.owner);
+  cdk.Tag.add(stack, 'Project', props.project);
+  cdk.Tag.add(stack, 'Source', props.source);
 }
