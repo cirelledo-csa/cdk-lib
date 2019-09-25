@@ -4,7 +4,8 @@ import util = require('../lib/util');
 
 export interface IBucketProps {
   /**
-   * bucket description, hopefully infomative to humans.
+   * bucket content, hopefully infomative to humans.
+   * should be constained to list of log, data, code, artifact, etc
    * @attribute
    */
   content: string;
@@ -58,53 +59,63 @@ export interface IBucketProps {
   zone: string;
 }
 
+export function tagBucket(cfnBucket: s3.CfnBucket, props: IBucketProps) {
+  cfnBucket.addPropertyOverride('Tags', [
+    { Key: 'Content', Value: props.content },
+    { Key: 'Description', Value: props.description },
+    { Key: 'Environment', Value: props.env },
+    { Key: 'Owner', Value: props.owner },
+    { Key: 'Project', Value: props.project },
+    { Key: 'SecurityLevel', Value: props.security_level },
+    { Key: 'Zone', Value: props.zone },
+  ]);
+}
+
+export function setLogBucket(cfnBucket: s3.CfnBucket, props: IBucketProps) {
+  cfnBucket.addPropertyOverride('LoggingConfiguration.DestinationBucketName', props.log_bucket_name);
+}
+
+export function enableLogBucket(cfnBucket: s3.CfnBucket) {
+  cfnBucket.addPropertyOverride('AccessControl', 'LogDeliveryWrite');
+}
+
 export class Bucket extends cdk.Construct {
   public readonly bucket: s3.Bucket;
   constructor(scope: cdk.Construct, id: string, props: IBucketProps) {
     super(scope, id);
 
     // create a bucket resource with encryption and disable public access
-    const newBucket = new s3.Bucket(this, 'Bucket', {
+    const getMeABucket = new s3.Bucket(this, 'Bucket', {
       blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
       encryption: s3.BucketEncryption.KMS_MANAGED,
     });
 
-    this.bucket = newBucket;
+    this.bucket = getMeABucket;
 
     // configure bucket resource properties
-    const cfnBucket = newBucket.node.defaultChild as s3.CfnBucket;
-
-    // add tags to bucket
-    cfnBucket.addPropertyOverride('Tags', [
-      { Key: 'Content', Value: props.content },
-      { Key: 'Description', Value: props.description },
-      { Key: 'Environment', Value: props.env },
-      { Key: 'Owner', Value: props.owner },
-      { Key: 'Project', Value: props.project },
-      { Key: 'SecurityLevel', Value: props.security_level },
-      { Key: 'Zone', Value: props.zone },
-    ]);
+    const cfnBucket = getMeABucket.node.defaultChild as s3.CfnBucket;
+    tagBucket(cfnBucket, props);
 
     // if data bucket then log data bucket to logging bucket
     if (props.content.match('data')) {
-      cfnBucket.addPropertyOverride('LoggingConfiguration.DestinationBucketName', props.log_bucket_name);
+      setLogBucket(cfnBucket, props);
     }
 
     // if log bucket then enable logging
     if (props.content.match('log')) {
-      cfnBucket.addPropertyOverride('AccessControl', 'LogDeliveryWrite');
+      enableLogBucket(cfnBucket);
     }
 
     // output bucket name
     const e1 = new cdk.CfnOutput(this, 'BucketName', {
       exportName: util.makeExportName(props.env, props.label, props.project, 'BucketName'),
-      value: newBucket.bucketName,
+      value: getMeABucket.bucketName,
     });
 
     // output bucket arn
     const e2 = new cdk.CfnOutput(this, 'BucketArn', {
       exportName: util.makeExportName(props.env, props.label, props.project, 'BucketArn'),
-      value: newBucket.bucketArn,
+      value: getMeABucket.bucketArn,
     });
   }
 }
