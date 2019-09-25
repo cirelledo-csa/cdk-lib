@@ -1,5 +1,6 @@
 */*.js
 */*.d.ts
+*/*.d.ts.map
 node_modules
 
 # CDK asset staging directory
