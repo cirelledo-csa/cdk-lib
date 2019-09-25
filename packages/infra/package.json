@@ -12,8 +12,8 @@
     "aws",
     "cdk"
   ],
-  "name": "@ucop-acme/aws-infra",
   "main": "lib/index.js",
+  "name": "@ucop-acme/aws-infra",
   "repository": {
     "url": "git+https://github.com/aws/aws-cdk.git",
     "type": "git",
