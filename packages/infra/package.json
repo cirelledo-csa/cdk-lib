@@ -21,6 +21,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "doc": "typedoc",
     "format": "prettier --write \"lib/*.ts\"  \"test/*.ts\"",
     "lint": "tslint -p tsconfig.json",
     "test": "jest",
@@ -36,6 +37,7 @@
     "ts-jest": "^24.1.0",
     "tslint": "^5.20.0",
     "tslint-config-prettier": "^1.18.0",
+    "typedoc": "^0.15.0",
     "typescript": "~3.6.2"
   },
   "peerDependencies": {
