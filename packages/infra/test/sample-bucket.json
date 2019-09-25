@@ -1,0 +1,78 @@
+{
+  "Resources": {
+    "MyTestBucketEA41CB10": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "AccessControl": "LogDeliveryWrite",
+        "BucketEncryption": {
+          "ServerSideEncryptionConfiguration": [
+            {
+              "ServerSideEncryptionByDefault": {
+                "SSEAlgorithm": "aws:kms"
+              }
+            }
+          ]
+        },
+        "PublicAccessBlockConfiguration": {
+          "BlockPublicAcls": true,
+          "BlockPublicPolicy": true,
+          "IgnorePublicAcls": true,
+          "RestrictPublicBuckets": true
+        },
+        "Tags": [
+          {
+            "Key": "Content",
+            "Value": "log"
+          },
+          {
+            "Key": "Description",
+            "Value": "logging"
+          },
+          {
+            "Key": "Environment",
+            "Value": "dev"
+          },
+          {
+            "Key": "Owner",
+            "Value": "log"
+          },
+          {
+            "Key": "Project",
+            "Value": "mywidget"
+          },
+          {
+            "Key": "SecurityLevel",
+            "Value": "1"
+          },
+          {
+            "Key": "Zone",
+            "Value": "log"
+          }
+        ]
+      },
+      "UpdateReplacePolicy": "Retain",
+      "DeletionPolicy": "Retain"
+    }
+  },
+  "Outputs": {
+    "MyTestBucketBucketName488FA3E8": {
+      "Value": {
+        "Ref": "MyTestBucketEA41CB10"
+      },
+      "Export": {
+        "Name": "mywidgetDevLogBucketName"
+      }
+    },
+    "MyTestBucketBucketArn8507BCE2": {
+      "Value": {
+        "Fn::GetAtt": [
+          "MyTestBucketEA41CB10",
+          "Arn"
+        ]
+      },
+      "Export": {
+        "Name": "mywidgetDevLogBucketArn"
+      }
+    }
+  }
+}
