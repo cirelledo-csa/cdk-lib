@@ -2,6 +2,40 @@ import s3 = require('@aws-cdk/aws-s3');
 import cdk = require('@aws-cdk/core');
 // functions
 
+export interface IBaseProps {
+  /**
+   * The Project description.
+   * @attribute
+   */
+  description: string;
+
+  /**
+   * The Project environment
+   * @attribute
+   */
+  env: string;
+
+  /**
+   * The Project Owner
+   * @attribute
+   */
+  owner: string;
+
+  /**
+   * The Project, aka app or service.
+   * @attribute
+   */
+  project: string;
+}
+
+export interface IGroupProps extends IBaseProps {
+  /**
+   * The label applied to the group.
+   * @attribute
+   */
+  label: string;
+}
+
 export function toUpperCase(str: string): string {
   return str.toUpperCase();
 }

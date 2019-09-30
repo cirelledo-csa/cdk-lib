@@ -4,7 +4,8 @@ import lakeformationAdminGroup = require('../lib/lakeformationAdminGroup');
 import lakeformationAnalystGroup = require('../lib/lakeformationAnalystGroup');
 import s3 = require('../lib/s3');
 import util = require('../lib/util');
-import sample from './sample-bucket.json';
+import sampleBucket from './sample-bucket.json';
+import sampleLakeformationAdminGroup from './sample-lakeformation-admin-group.json';
 
 test('Bucket Created', () => {
   const app = new cdk.App();
@@ -24,7 +25,7 @@ test('Bucket Created', () => {
   const bucket = new s3.Bucket(stack, 'MyTestBucket', props);
   // THEN
   expectCDK(stack).to(haveResource('AWS::S3::Bucket'));
-  expectCDK(stack).toMatch(sample);
+  expectCDK(stack).toMatch(sampleBucket);
 });
 
 test('Admin Group Created', () => {
@@ -32,11 +33,16 @@ test('Admin Group Created', () => {
   const stack = new cdk.Stack(app, 'TestStack');
   // WHEN
   const props = {
-    name: 'admins',
+    description: 'my lake group',
+    env: 'dev',
+    label: 'lfadmins',
+    owner: 'alfred smithee',
+    project: 'mydataproj',
   };
-  const group = new lakeformationAdminGroup.LakeformationAdminGroup(stack, 'MyTestGroup', props);
+  const group = new lakeformationAdminGroup.LakeformationAdminGroup(stack, props);
   // THEN
   expectCDK(stack).to(haveResource('AWS::IAM::Group'));
+  expectCDK(stack).toMatch(sampleLakeformationAdminGroup);
 });
 
 test('Analyst Group Created', () => {
@@ -44,9 +50,13 @@ test('Analyst Group Created', () => {
   const stack = new cdk.Stack(app, 'TestStack');
   // WHEN
   const props = {
-    name: 'analysts',
+    description: 'my lake group',
+    env: 'dev',
+    label: 'lfanalysts',
+    owner: 'alfred smithee',
+    project: 'mydataproj',
   };
-  const group = new lakeformationAnalystGroup.LakeformationAnalystGroup(stack, 'MyTestGroup', props);
+  const group = new lakeformationAnalystGroup.LakeformationAnalystGroup(stack, props);
   // THEN
   expectCDK(stack).to(haveResource('AWS::IAM::Group'));
 });
@@ -65,9 +75,13 @@ test('stack creation with tags', () => {
   const stack = new cdk.Stack(app, 'TestStack');
   util.tagStack(stack, TagProps);
   const props = {
-    name: 'analysts',
+    description: 'my lake group',
+    env: 'dev',
+    label: 'lfanalysts',
+    owner: 'alfred smithee',
+    project: 'mydataproj',
   };
-  const group = new lakeformationAnalystGroup.LakeformationAnalystGroup(stack, 'MyTestGroup', props);
+  const group = new lakeformationAnalystGroup.LakeformationAnalystGroup(stack, props);
 
   // THEN
   expectCDK(stack).to(haveResource('AWS::IAM::Group'));
