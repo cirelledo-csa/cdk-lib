@@ -153,10 +153,7 @@
     },
     "lfadminsRoleName1F2F5496": {
       "Value": {
-        "Fn::GetAtt": [
-          "lfadminsworkFlowRole46035F96",
-          "Arn"
-        ]
+        "Ref": "lfadminsworkFlowRole46035F96"
       },
       "Export": {
         "Name": "mydataprojDevLfadminsWorkFlowRoleName"

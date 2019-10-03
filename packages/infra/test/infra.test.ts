@@ -18,7 +18,7 @@ test('Bucket Created', () => {
     label: 'log',
     log_bucket_name: '',
     owner: 'log',
-    project: 'mywidget',
+    product: 'mywidget',
     security_level: '1',
     zone: 'log',
   };
@@ -37,7 +37,7 @@ test('Admin Group Created', () => {
     env: 'dev',
     label: 'lfadmins',
     owner: 'alfred smithee',
-    project: 'mydataproj',
+    product: 'mydataproj',
   };
   const group = new lakeformationAdminGroup.LakeformationAdminGroup(stack, props);
   // THEN
@@ -54,7 +54,7 @@ test('Analyst Group Created', () => {
     env: 'dev',
     label: 'lfanalysts',
     owner: 'alfred smithee',
-    project: 'mydataproj',
+    product: 'mydataproj',
   };
   const group = new lakeformationAnalystGroup.LakeformationAnalystGroup(stack, props);
   // THEN
@@ -69,7 +69,7 @@ test('stack creation with tags', () => {
     description: 'Stop Plate Tectonics Now',
     env: 'dev',
     owner: 'alfred.smithee@dot.com',
-    project: 'SPTN',
+    product: 'SPTN',
     source: 'https://github.com',
   };
   const stack = new cdk.Stack(app, 'TestStack');
@@ -79,7 +79,7 @@ test('stack creation with tags', () => {
     env: 'dev',
     label: 'lfanalysts',
     owner: 'alfred smithee',
-    project: 'mydataproj',
+    product: 'mydataproj',
   };
   const group = new lakeformationAnalystGroup.LakeformationAnalystGroup(stack, props);
 

@@ -4,28 +4,28 @@ import cdk = require('@aws-cdk/core');
 
 export interface IBaseProps {
   /**
-   * The Project description.
+   * The Product description.
    * @attribute
    */
   description: string;
 
   /**
-   * The Project environment
+   * The Product environment
    * @attribute
    */
   env: string;
 
   /**
-   * The Project Owner
+   * The Product Owner
    * @attribute
    */
   owner: string;
 
   /**
-   * The Project, aka app or service.
+   * The Product, aka app or service.
    * @attribute
    */
-  project: string;
+  product: string;
 }
 
 export interface IGroupProps extends IBaseProps {
@@ -82,19 +82,19 @@ export interface IStackTagsProps {
   description: string;
 
   /**
-   * project owner
+   * product owner
    * @attribute
    */
   owner: string;
 
   /**
-   * project name, main identification key
+   * product name, main identification key
    * @attribute
    */
-  project: string;
+  product: string;
 
   /**
-   * git repo project source
+   * git repo product source
    * @attribute
    */
   source: string;
@@ -105,6 +105,6 @@ export function tagStack(stack: cdk.Stack, props: IStackTagsProps) {
   cdk.Tag.add(stack, 'Environment', props.env);
   cdk.Tag.add(stack, 'Description', props.description);
   cdk.Tag.add(stack, 'Owner', props.owner);
-  cdk.Tag.add(stack, 'Project', props.project);
+  cdk.Tag.add(stack, 'Product', props.product);
   cdk.Tag.add(stack, 'Source', props.source);
 }

@@ -33,11 +33,11 @@
             "Value": "dev"
           },
           {
-            "Key": "Owner",
+            "Key": "DataOwner",
             "Value": "log"
           },
           {
-            "Key": "Project",
+            "Key": "Product",
             "Value": "mywidget"
           },
           {

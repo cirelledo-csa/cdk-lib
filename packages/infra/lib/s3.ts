@@ -41,10 +41,10 @@ export interface IBucketProps {
   owner: string;
 
   /**
-   * The project using the bucket, aka app or service.
+   * The product using the bucket, aka app or service.
    * @attribute
    */
-  project: string;
+  product: string;
 
   /**
    * security level of the bucket, needs map to PII, etc
@@ -64,8 +64,8 @@ export function tagBucket(cfnBucket: s3.CfnBucket, props: IBucketProps) {
     { Key: 'Content', Value: props.content },
     { Key: 'Description', Value: props.description },
     { Key: 'Environment', Value: props.env },
-    { Key: 'Owner', Value: props.owner },
-    { Key: 'Project', Value: props.project },
+    { Key: 'DataOwner', Value: props.owner },
+    { Key: 'Product', Value: props.product },
     { Key: 'SecurityLevel', Value: props.security_level },
     { Key: 'Zone', Value: props.zone },
   ]);
@@ -108,13 +108,13 @@ export class Bucket extends cdk.Construct {
 
     // output bucket name
     const e1 = new cdk.CfnOutput(this, 'BucketName', {
-      exportName: util.makeExportName(props.env, props.label, props.project, 'BucketName'),
+      exportName: util.makeExportName(props.env, props.label, props.product, 'BucketName'),
       value: getMeABucket.bucketName,
     });
 
     // output bucket arn
     const e2 = new cdk.CfnOutput(this, 'BucketArn', {
-      exportName: util.makeExportName(props.env, props.label, props.project, 'BucketArn'),
+      exportName: util.makeExportName(props.env, props.label, props.product, 'BucketArn'),
       value: getMeABucket.bucketArn,
     });
   }
