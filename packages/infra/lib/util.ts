@@ -52,6 +52,18 @@ export function makeResourceName(prefix: string, name: string, postfix: string, 
   return prefix + separator + name + separator + postfix;
 }
 
+export function makeStackName(props: IStackProps) {
+  return props.product + cap(props.env) + cap(props.label);
+}
+
+export interface IStackProps extends IBaseProps {
+  /**
+   * The label applied to the Stack.
+   * @attribute
+   */
+  label: string;
+}
+
 export function mapBranchToEnvironment() {
   const envBranch: string = process.env.CODEPIPELINE_GIT_BRANCH_NAME || '';
   // console.info("git branch is " + env_branch);

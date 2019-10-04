@@ -7,9 +7,25 @@ import util = require('../lib/util');
 import sampleBucket from './sample-bucket.json';
 import sampleLakeformationAdminGroup from './sample-lakeformation-admin-group.json';
 
+const projectProps = {
+  description: 'Stop Plate Tectonics Now',
+  env: 'dev',
+  owner: 'alfred smithee',
+  product: 'sptn',
+};
+
+const stackProps = {
+  description: 'Stop Plate Tectonics Now',
+  env: 'dev',
+  label: 'Buckets',
+  owner: 'alfred smithee',
+  product: 'sptn',
+};
+
 test('Bucket Created', () => {
   const app = new cdk.App();
-  const stack = new cdk.Stack(app, 'TestStack');
+  const stackName = util.makeStackName(stackProps);
+  const stack = new cdk.Stack(app, stackName);
   // WHEN
   const props = {
     content: 'log',
