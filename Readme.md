@@ -90,9 +90,9 @@ module.exports = {
   }
 ```
 
-## package.json in review
+## scriptes section of package.json in review
 
-might look something like:
+may look something like:
 
 ```
   "scripts": {
