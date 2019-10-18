@@ -120,3 +120,7 @@ export function tagStack(stack: cdk.Stack, props: IStackTagsProps) {
   cdk.Tag.add(stack, 'Product', props.product);
   cdk.Tag.add(stack, 'Source', props.source);
 }
+
+// https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-restrictions
+// letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+// export function tagValidate(tag: string) {}

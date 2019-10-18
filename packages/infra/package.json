@@ -8,23 +8,24 @@
   },
   "description": "CDK libraries for basic infrastructure architecture patterns",
   "dependencies": {
-    "@aws-cdk/aws-sns": "^1.10.0",
-    "@aws-cdk/aws-sns-subscriptions": "^1.10.0",
-    "@aws-cdk/aws-sqs": "^1.10.0",
-    "@aws-cdk/core": "^1.10.0",
-    "@types/node": "^12.7.5",
-    "aws-cdk": "^1.10.0"
+    "@aws-cdk/aws-sns": "^1.13.1",
+    "@aws-cdk/aws-sns-subscriptions": "^1.13.1",
+    "@aws-cdk/aws-sqs": "^1.13.1",
+    "@aws-cdk/core": "^1.13.1",
+    "@types/node": "^12.11.1",
+    "aws-cdk": "^1.13.1",
+    "https-proxy-agent": "^3.0.0"
   },
   "devDependencies": {
-    "@aws-cdk/assert": "^1.10.0",
-    "@types/jest": "^24.0.18",
+    "@aws-cdk/assert": "^1.13.1",
+    "@types/jest": "^24.0.19",
     "jest": "^24.9.0",
     "prettier": "^1.18.2",
     "ts-jest": "^24.1.0",
     "tslint": "^5.20.0",
     "tslint-config-prettier": "^1.18.0",
     "typedoc": "^0.15.0",
-    "typescript": "~3.6.2"
+    "typescript": "~3.6.4"
   },
   "homepage": "https://github.com/ucopacme/cdk-lib",
   "keywords": [
@@ -34,7 +35,7 @@
   "main": "lib/index.js",
   "name": "@ucop-acme/aws-infra",
   "peerDependencies": {
-    "@aws-cdk/core": "^1.10.0"
+    "@aws-cdk/core": "^1.13.1"
   },
   "repository": {
     "url": "https://github.com/ucopacme/cdk-lib.git",
