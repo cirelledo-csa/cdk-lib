@@ -44,8 +44,8 @@ export function cap(word: string) {
   return word.charAt(0).toUpperCase() + word.slice(1);
 }
 
-export function makeExportName(env: string, label: string, product: string, resourceType: string) {
-  return product + cap(env) + cap(label) + cap(resourceType);
+export function makeExportName(props: IResourceProps) {
+  return props.product + cap(props.env) + cap(props.label) + cap(props.type);
 }
 
 export function makeResourceName(prefix: string, name: string, postfix: string, separator: string) {
@@ -62,6 +62,14 @@ export interface IStackProps extends IBaseProps {
    * @attribute
    */
   label: string;
+}
+
+export interface IResourceProps extends IStackProps {
+  /**
+   * The type of Resource
+   * @attribute
+   */
+  type: string;
 }
 
 export function mapBranchToEnvironment() {

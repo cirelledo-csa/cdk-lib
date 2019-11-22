@@ -11,7 +11,7 @@ export interface IBucketProps {
   content: string;
 
   /**
-   * bucket description, hopefully infomative to humans.
+   * bucket description, hopefully informative to humans.
    * @attribute
    */
   description: string;
@@ -108,13 +108,27 @@ export class Bucket extends cdk.Construct {
 
     // output bucket name
     const e1 = new cdk.CfnOutput(this, 'BucketName', {
-      exportName: util.makeExportName(props.env, props.label, props.product, 'BucketName'),
+      exportName: util.makeExportName({
+        description: props.description,
+        env: props.env,
+        label: props.label,
+        owner: props.owner,
+        product: props.product,
+        type: 'BucketName',
+      }),
       value: getMeABucket.bucketName,
     });
 
     // output bucket arn
     const e2 = new cdk.CfnOutput(this, 'BucketArn', {
-      exportName: util.makeExportName(props.env, props.label, props.product, 'BucketArn'),
+      exportName: util.makeExportName({
+        description: props.description,
+        env: props.env,
+        label: props.label,
+        owner: props.owner,
+        product: props.product,
+        type: 'BucketArn',
+      }),
       value: getMeABucket.bucketArn,
     });
   }

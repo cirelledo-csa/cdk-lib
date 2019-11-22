@@ -17,13 +17,27 @@ export class LakeformationAdminGroup extends cdk.Construct {
 
     // output role arn
     const e1 = new cdk.CfnOutput(this, 'RoleArn', {
-      exportName: util.makeExportName(props.env, props.label, props.product, 'WorkFlowRoleArn'),
+      exportName: util.makeExportName({
+        description: props.description,
+        env: props.env,
+        label: props.label,
+        owner: props.owner,
+        product: props.product,
+        type: 'WorkFlowRoleArn',
+      }),
       value: this.role.roleArn,
     });
 
     // output role name
     const e2 = new cdk.CfnOutput(this, 'RoleName', {
-      exportName: util.makeExportName(props.env, props.label, props.product, 'WorkFlowRoleName'),
+      exportName: util.makeExportName({
+        description: props.description,
+        env: props.env,
+        label: props.label,
+        owner: props.owner,
+        product: props.product,
+        type: 'WorkFlowRoleName',
+      }),
       value: this.role.roleName,
     });
 
