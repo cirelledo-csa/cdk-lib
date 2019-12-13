@@ -1,5 +1,6 @@
-import s3 = require('@aws-cdk/aws-s3');
 import cdk = require('@aws-cdk/core');
+import { execSync } from 'child_process';
+
 // functions
 
 export interface IBaseProps {
@@ -72,14 +73,46 @@ export interface IResourceProps extends IStackProps {
   type: string;
 }
 
-export function mapBranchToEnvironment() {
-  const envBranch: string = process.env.CODEPIPELINE_GIT_BRANCH_NAME || '';
-  // console.info("git branch is " + env_branch);
-  if (envBranch.match('master')) {
+export default function getGitBranch() {
+  const gitCommand: string = 'git rev-parse --abbrev-ref HEAD';
+  // try{
+  return execSync(gitCommand, { encoding: 'utf8' });
+  // }
+  // catch (error) {
+  // else{
+  //   console.log("error status " + error.status);  // Might be 127 in your example.
+  // console.log("error message " + error.message); // Holds the message you typically want.
+  // console.log("error stderr " + error.stderr);  // Holds the stderr output. Use `.toString()`.
+  // console.log("error stdout " + error.stdout);
+  // }
+}
+
+export function translateBranchToEnvironment(branch: string) {
+  if (branch.match('master')) {
     return 'prod';
   }
   //  console.info("git branch maps to  " + env_branch + " environment");
-  return envBranch;
+  return branch;
+}
+
+export function mapBranchToEnvironment() {
+  try {
+    const gitBranch = getGitBranch();
+    // console.info("git branch is " + gitBranch);
+    return translateBranchToEnvironment(gitBranch);
+  } catch (error) {
+    if (error.stderr.toString().startsWith('fatal')) {
+      const envBranch: string = process.env.CODEPIPELINE_GIT_BRANCH_NAME || '';
+      // console.log('error stderr to string is ' + error.stderr.toString()); // Holds the stderr output. Use `.toString()`.
+      return translateBranchToEnvironment(envBranch);
+    } else {
+      // console.log('error status ' + error.status); // Might be 127 in your example.
+      // console.log('error message ' + error.message); // Holds the message you typically want.
+      // console.log('error stderr ' + error.stderr); // Holds the stderr output. Use `.toString()`.
+      // console.log('error stdout ' + error.stdout);
+    }
+  }
+  return '';
 }
 
 export interface IStackTagsProps {
