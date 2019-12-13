@@ -9,14 +9,14 @@ import sampleLakeformationAdminGroup from './sample-lakeformation-admin-group.js
 
 const projectProps = {
   description: 'Stop Plate Tectonics Now',
-  env: 'dev',
+  env: util.mapBranchToEnvironment(),
   owner: 'alfred smithee',
   product: 'sptn',
 };
 
 const stackProps = {
   description: 'Stop Plate Tectonics Now',
-  env: 'dev',
+  env: util.mapBranchToEnvironment(),
   label: 'Buckets',
   owner: 'alfred smithee',
   product: 'sptn',
@@ -30,7 +30,7 @@ test('Bucket Created', () => {
   const props = {
     content: 'log',
     description: 'logging',
-    env: 'dev',
+    env: util.mapBranchToEnvironment(),
     label: 'log',
     log_bucket_name: '',
     owner: 'log',

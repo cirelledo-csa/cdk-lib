@@ -30,7 +30,7 @@
           },
           {
             "Key": "Environment",
-            "Value": "dev"
+            "Value": "prod"
           },
           {
             "Key": "DataOwner",
@@ -60,7 +60,7 @@
         "Ref": "MyTestBucketEA41CB10"
       },
       "Export": {
-        "Name": "mywidgetDevLogBucketName"
+        "Name": "mywidgetProdLogBucketName"
       }
     },
     "MyTestBucketBucketArn8507BCE2": {
@@ -71,7 +71,7 @@
         ]
       },
       "Export": {
-        "Name": "mywidgetDevLogBucketArn"
+        "Name": "mywidgetProdLogBucketArn"
       }
     }
   }
