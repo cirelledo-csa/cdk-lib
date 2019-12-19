@@ -37,6 +37,22 @@ export interface IGroupProps extends IBaseProps {
   label: string;
 }
 
+export interface IStackProps extends IBaseProps {
+  /**
+   * The label applied to the Stack.
+   * @attribute
+   */
+  label: string;
+}
+
+export interface IResourceProps extends IStackProps {
+  /**
+   * The type of Resource
+   * @attribute
+   */
+  type: string;
+}
+
 export function toUpperCase(str: string): string {
   return str.toUpperCase();
 }
@@ -55,22 +71,6 @@ export function makeResourceName(prefix: string, name: string, postfix: string, 
 
 export function makeStackName(props: IStackProps) {
   return props.product + cap(props.env) + cap(props.label);
-}
-
-export interface IStackProps extends IBaseProps {
-  /**
-   * The label applied to the Stack.
-   * @attribute
-   */
-  label: string;
-}
-
-export interface IResourceProps extends IStackProps {
-  /**
-   * The type of Resource
-   * @attribute
-   */
-  type: string;
 }
 
 export default function getGitBranch() {
