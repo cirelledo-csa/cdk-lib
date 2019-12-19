@@ -4,6 +4,7 @@ import lakeformationAdminGroup = require('../lib/lakeformationAdminGroup');
 import lakeformationAnalystGroup = require('../lib/lakeformationAnalystGroup');
 import s3 = require('../lib/s3');
 import util = require('../lib/util');
+import params from './config.json';
 import sampleBucket from './sample-bucket.json';
 import sampleLakeformationAdminGroup from './sample-lakeformation-admin-group.json';
 
