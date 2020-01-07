@@ -139,7 +139,7 @@
           "Ref": "MyTestBucketEA41CB10"
         },
         "Export": {
-          "Name": "mywidgetProdLogBucketName"
+          "Name": "mywidgetDevLogBucketName"
         }
       },
       "MyTestBucketBucketArn8507BCE2": {
@@ -150,7 +150,7 @@
           ]
         },
         "Export": {
-          "Name": "mywidgetProdLogBucketArn"
+          "Name": "mywidgetDevLogBucketArn"
         }
       }
     }

@@ -8,7 +8,8 @@ import params from './config.json';
 import sampleBucket from './sample-bucket.json';
 import sampleLakeformationAdminGroup from './sample-lakeformation-admin-group.json';
 
-const branchEnv = util.mapBranchToEnvironment();
+// const branchEnv = util.mapBranchToEnvironment().replace(/\n|\r/g, "");
+const branchEnv = util.mapBranchToEnvironment().trim();
 // const branchEnv = "dev";
 
 const projectProps = {
@@ -48,7 +49,7 @@ test('Bucket Created', () => {
   const bucket = new s3.Bucket(stack, 'MyTestBucket', props);
   // THEN
   expectCDK(stack).to(haveResource('AWS::S3::Bucket'));
-  expectCDK(stack).toMatch(sampleBucket.prod);
+  expectCDK(stack).toMatch(sampleBucket.dev);
 });
 
 test('Admin Group Created', () => {
