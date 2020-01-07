@@ -76,7 +76,7 @@ export function makeStackName(props: IStackProps) {
 export default function getGitBranch() {
   const gitCommand: string = 'git rev-parse --abbrev-ref HEAD';
   // try{
-  return execSync(gitCommand, { encoding: 'utf8' });
+  return execSync(gitCommand.replace(/\n|\r/g, ""), { encoding: 'utf8' });
   // }
   // catch (error) {
   // else{

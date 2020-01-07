@@ -8,16 +8,21 @@ import params from './config.json';
 import sampleBucket from './sample-bucket.json';
 import sampleLakeformationAdminGroup from './sample-lakeformation-admin-group.json';
 
+const branchEnv = util.mapBranchToEnvironment();
+// const branchEnv = "dev";
+
 const projectProps = {
   description: 'Stop Plate Tectonics Now',
-  env: util.mapBranchToEnvironment(),
+  // env: util.mapBranchToEnvironment(),
+  env: branchEnv,
   owner: 'alfred smithee',
   product: 'sptn',
 };
 
 const stackProps = {
   description: 'Stop Plate Tectonics Now',
-  env: util.mapBranchToEnvironment(),
+  // env: util.mapBranchToEnvironment(),
+  env: branchEnv,
   label: 'Buckets',
   owner: 'alfred smithee',
   product: 'sptn',
@@ -31,7 +36,8 @@ test('Bucket Created', () => {
   const props = {
     content: 'log',
     description: 'logging',
-    env: util.mapBranchToEnvironment(),
+    // env: util.mapBranchToEnvironment(),
+    env: branchEnv,
     label: 'log',
     log_bucket_name: '',
     owner: 'log',
@@ -42,7 +48,7 @@ test('Bucket Created', () => {
   const bucket = new s3.Bucket(stack, 'MyTestBucket', props);
   // THEN
   expectCDK(stack).to(haveResource('AWS::S3::Bucket'));
-  expectCDK(stack).toMatch(sampleBucket);
+  expectCDK(stack).toMatch(sampleBucket.prod);
 });
 
 test('Admin Group Created', () => {
