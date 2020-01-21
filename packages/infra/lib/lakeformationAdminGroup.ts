@@ -2,11 +2,11 @@ import iam = require('@aws-cdk/aws-iam');
 import cdk = require('@aws-cdk/core');
 import util = require('../lib/util');
 
-export class LakeformationAdminGroup extends cdk.Construct {
+export class LakeformationAdminGroup extends util.BaseStack {
   public readonly group: iam.Group;
   public readonly role: iam.Role;
-  constructor(parent: cdk.Construct, props: util.IGroupProps) {
-    super(parent, props.label);
+  constructor(parent: cdk.Construct, props: util.IBaseStackProps) {
+    super(parent, props);
 
     // create workflow role
 
@@ -18,11 +18,13 @@ export class LakeformationAdminGroup extends cdk.Construct {
     // output role arn
     const e1 = new cdk.CfnOutput(this, 'RoleArn', {
       exportName: util.makeExportName({
-        description: props.description,
-        env: props.env,
-        label: props.label,
-        owner: props.owner,
-        product: props.product,
+        buildUrl: props.baseprops.buildUrl,
+        description: props.baseprops.description,
+        env: props.baseprops.env,
+        label: props.baseprops.label,
+        owner: props.baseprops.owner,
+        product: props.baseprops.product,
+        source: props.baseprops.source,
         type: 'WorkFlowRoleArn',
       }),
       value: this.role.roleArn,
@@ -31,11 +33,13 @@ export class LakeformationAdminGroup extends cdk.Construct {
     // output role name
     const e2 = new cdk.CfnOutput(this, 'RoleName', {
       exportName: util.makeExportName({
-        description: props.description,
-        env: props.env,
-        label: props.label,
-        owner: props.owner,
-        product: props.product,
+        buildUrl: props.baseprops.buildUrl,
+        description: props.baseprops.description,
+        env: props.baseprops.env,
+        label: props.baseprops.label,
+        owner: props.baseprops.owner,
+        product: props.baseprops.product,
+        source: props.baseprops.source,
         type: 'WorkFlowRoleName',
       }),
       value: this.role.roleName,
@@ -85,7 +89,7 @@ export class LakeformationAdminGroup extends cdk.Construct {
       effect: iam.Effect.ALLOW,
       resources: [workFlowRole.roleArn],
     });
-    const group = new iam.Group(this, props.label, {});
+    const group = new iam.Group(this, props.baseprops.label, {});
     this.group = group;
     group.addManagedPolicy(iam.ManagedPolicy.fromAwsManagedPolicyName('AWSGlueConsoleFullAccess'));
     group.addManagedPolicy(iam.ManagedPolicy.fromAwsManagedPolicyName('AmazonAthenaFullAccess'));

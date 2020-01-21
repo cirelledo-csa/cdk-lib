@@ -2,10 +2,10 @@ import iam = require('@aws-cdk/aws-iam');
 import cdk = require('@aws-cdk/core');
 import util = require('../lib/util');
 
-export class LakeformationAnalystGroup extends cdk.Construct {
+export class LakeformationAnalystGroup extends util.BaseStack {
   public readonly group: iam.Group;
-  constructor(parent: cdk.Construct, props: util.IGroupProps) {
-    super(parent, props.label);
+  constructor(parent: cdk.Construct, props: util.IBaseStackProps) {
+    super(parent, props);
 
     // create analyst role
     const PolicyStatement = new iam.PolicyStatement({
@@ -21,7 +21,7 @@ export class LakeformationAnalystGroup extends cdk.Construct {
       effect: iam.Effect.ALLOW,
       resources: ['*'],
     });
-    const group = new iam.Group(this, props.label, {});
+    const group = new iam.Group(this, props.baseprops.label, {});
     this.group = group;
     group.addToPolicy(PolicyStatement);
   }

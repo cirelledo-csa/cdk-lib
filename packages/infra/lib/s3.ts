@@ -17,34 +17,16 @@ export interface IBucketProps {
   description: string;
 
   /**
-   * bucket environment.
-   * @attribute
-   */
-  env: string;
-
-  /**
    * bucket log destination.
    * @attribute
    */
   log_bucket_name: string;
 
   /**
-   * The label applied to the bucket.
-   * @attribute
-   */
-  label: string;
-
-  /**
-   * The owner of the bucket contents.
+   * owner of bucket data.
    * @attribute
    */
   owner: string;
-
-  /**
-   * The product using the bucket, aka app or service.
-   * @attribute
-   */
-  product: string;
 
   /**
    * security level of the bucket, needs map to PII, etc
@@ -59,13 +41,19 @@ export interface IBucketProps {
   zone: string;
 }
 
+export interface IBucketStackProps extends util.IBaseStackProps {
+  /**
+   * The label applied to the Stack.
+   * @attribute
+   */
+  bucketprops: IBucketProps;
+}
+
 export function tagBucket(cfnBucket: s3.CfnBucket, props: IBucketProps) {
   cfnBucket.addPropertyOverride('Tags', [
     { Key: 'Content', Value: props.content },
     { Key: 'Description', Value: props.description },
-    { Key: 'Environment', Value: props.env },
     { Key: 'DataOwner', Value: props.owner },
-    { Key: 'Product', Value: props.product },
     { Key: 'SecurityLevel', Value: props.security_level },
     { Key: 'Zone', Value: props.zone },
   ]);
@@ -79,10 +67,10 @@ export function enableLogBucket(cfnBucket: s3.CfnBucket) {
   cfnBucket.addPropertyOverride('AccessControl', 'LogDeliveryWrite');
 }
 
-export class Bucket extends cdk.Construct {
+export class Bucket extends util.BaseStack {
   public readonly bucket: s3.Bucket;
-  constructor(scope: cdk.Construct, id: string, props: IBucketProps) {
-    super(scope, id);
+  constructor(scope: cdk.Construct, props: IBucketStackProps) {
+    super(scope, props);
 
     // create a bucket resource with encryption and disable public access
     const getMeABucket = new s3.Bucket(this, 'Bucket', {
@@ -94,26 +82,28 @@ export class Bucket extends cdk.Construct {
 
     // configure bucket resource properties
     const cfnBucket = getMeABucket.node.defaultChild as s3.CfnBucket;
-    tagBucket(cfnBucket, props);
+    tagBucket(cfnBucket, props.bucketprops);
 
     // if data bucket then log data bucket to logging bucket
-    if (props.content.match('data')) {
-      setLogBucket(cfnBucket, props);
+    if (props.bucketprops.content.match('data')) {
+      setLogBucket(cfnBucket, props.bucketprops);
     }
 
     // if log bucket then enable logging
-    if (props.content.match('log')) {
+    if (props.bucketprops.content.match('log')) {
       enableLogBucket(cfnBucket);
     }
 
     // output bucket name
     const e1 = new cdk.CfnOutput(this, 'BucketName', {
       exportName: util.makeExportName({
-        description: props.description,
-        env: props.env,
-        label: props.label,
-        owner: props.owner,
-        product: props.product,
+        buildUrl: props.baseprops.buildUrl,
+        description: props.baseprops.description,
+        env: props.baseprops.env,
+        label: props.baseprops.label,
+        owner: props.baseprops.owner,
+        product: props.baseprops.product,
+        source: props.baseprops.source,
         type: 'BucketName',
       }),
       value: getMeABucket.bucketName,
@@ -122,11 +112,13 @@ export class Bucket extends cdk.Construct {
     // output bucket arn
     const e2 = new cdk.CfnOutput(this, 'BucketArn', {
       exportName: util.makeExportName({
-        description: props.description,
-        env: props.env,
-        label: props.label,
-        owner: props.owner,
-        product: props.product,
+        buildUrl: props.baseprops.buildUrl,
+        description: props.baseprops.description,
+        env: props.baseprops.env,
+        label: props.baseprops.label,
+        owner: props.baseprops.owner,
+        product: props.baseprops.product,
+        source: props.baseprops.source,
         type: 'BucketArn',
       }),
       value: getMeABucket.bucketArn,

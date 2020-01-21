@@ -1,162 +1,349 @@
 {
-  "Resources": {
-    "lfadminsworkFlowRole46035F96": {
-      "Type": "AWS::IAM::Role",
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "glue.amazonaws.com"
+  "junk": {
+    "Resources": {
+      "workFlowRole02EDE8BD": {
+        "Type": "AWS::IAM::Role",
+        "Properties": {
+          "AssumeRolePolicyDocument": {
+            "Statement": [
+              {
+                "Action": "sts:AssumeRole",
+                "Effect": "Allow",
+                "Principal": {
+                  "Service": "glue.amazonaws.com"
+                }
               }
-            }
-          ],
-          "Version": "2012-10-17"
-        },
-        "ManagedPolicyArns": [
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition"
-                },
-                ":iam::aws:policy/service-role/AWSGlueServiceRole"
-              ]
-            ]
-          }
-        ]
-      }
-    },
-    "lfadminsworkFlowRoleDefaultPolicyA46910D1": {
-      "Type": "AWS::IAM::Policy",
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "lakeformation:GetDataAccess",
-                "lakeformation:GrantPermissions"
-              ],
-              "Effect": "Allow",
-              "Resource": "*"
-            },
-            {
-              "Action": "iam:PassRole",
-              "Effect": "Allow",
-              "Resource": {
-                "Fn::GetAtt": [
-                  "lfadminsworkFlowRole46035F96",
-                  "Arn"
-                ]
-              }
-            }
-          ],
-          "Version": "2012-10-17"
-        },
-        "PolicyName": "lfadminsworkFlowRoleDefaultPolicyA46910D1",
-        "Roles": [
-          {
-            "Ref": "lfadminsworkFlowRole46035F96"
-          }
-        ]
-      }
-    },
-    "lfadmins0355737D": {
-      "Type": "AWS::IAM::Group",
-      "Properties": {
-        "ManagedPolicyArns": [
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition"
-                },
-                ":iam::aws:policy/AWSGlueConsoleFullAccess"
-              ]
-            ]
+            ],
+            "Version": "2012-10-17"
           },
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition"
-                },
-                ":iam::aws:policy/AmazonAthenaFullAccess"
-              ]
-            ]
-          }
-        ]
-      }
-    },
-    "lfadminsDefaultPolicyF70D7535": {
-      "Type": "AWS::IAM::Policy",
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
+          "ManagedPolicyArns": [
             {
-              "Action": [
-                "lakeformation:*",
-                "cloudtrail:DescribeTrails",
-                "cloudtrail:LookupEvents",
-                "iam:PutRolePolicy",
-                "iam:CreateServiceLinkedRole"
-              ],
-              "Effect": "Allow",
-              "Resource": "*"
-            },
-            {
-              "Action": "lakeformation:PutDataLakeSettings",
-              "Effect": "Deny",
-              "Resource": "*"
-            },
-            {
-              "Action": "iam:PassRole",
-              "Effect": "Allow",
-              "Resource": {
-                "Fn::GetAtt": [
-                  "lfadminsworkFlowRole46035F96",
-                  "Arn"
+              "Fn::Join": [
+                "",
+                [
+                  "arn:",
+                  {
+                    "Ref": "AWS::Partition"
+                  },
+                  ":iam::aws:policy/service-role/AWSGlueServiceRole"
                 ]
-              }
+              ]
             }
           ],
-          "Version": "2012-10-17"
+          "Tags": [
+            {
+              "Key": "buildUrl",
+              "Value": "nope"
+            },
+            {
+              "Key": "env",
+              "Value": "prod"
+            },
+            {
+              "Key": "owner",
+              "Value": "alfred smithee"
+            },
+            {
+              "Key": "product",
+              "Value": "sptn"
+            },
+            {
+              "Key": "source",
+              "Value": "git"
+            }
+          ]
+        }
+      },
+      "workFlowRoleDefaultPolicy56758980": {
+        "Type": "AWS::IAM::Policy",
+        "Properties": {
+          "PolicyDocument": {
+            "Statement": [
+              {
+                "Action": [
+                  "lakeformation:GetDataAccess",
+                  "lakeformation:GrantPermissions"
+                ],
+                "Effect": "Allow",
+                "Resource": "*"
+              },
+              {
+                "Action": "iam:PassRole",
+                "Effect": "Allow",
+                "Resource": {
+                  "Fn::GetAtt": [
+                    "workFlowRole02EDE8BD",
+                    "Arn"
+                  ]
+                }
+              }
+            ],
+            "Version": "2012-10-17"
+          },
+          "PolicyName": "workFlowRoleDefaultPolicy56758980",
+          "Roles": [
+            {
+              "Ref": "workFlowRole02EDE8BD"
+            }
+          ]
+        }
+      },
+      "log751C81CB": {
+        "Type": "AWS::IAM::Group",
+        "Properties": {
+          "ManagedPolicyArns": [
+            {
+              "Fn::Join": [
+                "",
+                [
+                  "arn:",
+                  {
+                    "Ref": "AWS::Partition"
+                  },
+                  ":iam::aws:policy/AWSGlueConsoleFullAccess"
+                ]
+              ]
+            },
+            {
+              "Fn::Join": [
+                "",
+                [
+                  "arn:",
+                  {
+                    "Ref": "AWS::Partition"
+                  },
+                  ":iam::aws:policy/AmazonAthenaFullAccess"
+                ]
+              ]
+            }
+          ]
+        }
+      },
+      "logDefaultPolicy5170832F": {
+        "Type": "AWS::IAM::Policy",
+        "Properties": {
+          "PolicyDocument": {
+            "Statement": [
+              {
+                "Action": [
+                  "lakeformation:*",
+                  "cloudtrail:DescribeTrails",
+                  "cloudtrail:LookupEvents",
+                  "iam:PutRolePolicy",
+                  "iam:CreateServiceLinkedRole"
+                ],
+                "Effect": "Allow",
+                "Resource": "*"
+              },
+              {
+                "Action": "lakeformation:PutDataLakeSettings",
+                "Effect": "Deny",
+                "Resource": "*"
+              },
+              {
+                "Action": "iam:PassRole",
+                "Effect": "Allow",
+                "Resource": {
+                  "Fn::GetAtt": [
+                    "workFlowRole02EDE8BD",
+                    "Arn"
+                  ]
+                }
+              }
+            ],
+            "Version": "2012-10-17"
+          },
+          "PolicyName": "logDefaultPolicy5170832F",
+          "Groups": [
+            {
+              "Ref": "log751C81CB"
+            }
+          ]
+        }
+      }
+    },
+    "Outputs": {
+      "RoleArn": {
+        "Value": {
+          "Fn::GetAtt": [
+            "workFlowRole02EDE8BD",
+            "Arn"
+          ]
         },
-        "PolicyName": "lfadminsDefaultPolicyF70D7535",
-        "Groups": [
-          {
-            "Ref": "lfadmins0355737D"
-          }
-        ]
+        "Export": {
+          "Name": "sptnProdLogWorkFlowRoleArn"
+        }
+      },
+      "RoleName": {
+        "Value": {
+          "Ref": "workFlowRole02EDE8BD"
+        },
+        "Export": {
+          "Name": "sptnProdLogWorkFlowRoleName"
+        }
       }
     }
   },
-  "Outputs": {
-    "lfadminsRoleArn576FF164": {
-      "Value": {
-        "Fn::GetAtt": [
-          "lfadminsworkFlowRole46035F96",
-          "Arn"
-        ]
+  "prod": {
+    "Resources": {
+      "lfadminsworkFlowRole46035F96": {
+        "Type": "AWS::IAM::Role",
+        "Properties": {
+          "AssumeRolePolicyDocument": {
+            "Statement": [
+              {
+                "Action": "sts:AssumeRole",
+                "Effect": "Allow",
+                "Principal": {
+                  "Service": "glue.amazonaws.com"
+                }
+              }
+            ],
+            "Version": "2012-10-17"
+          },
+          "ManagedPolicyArns": [
+            {
+              "Fn::Join": [
+                "",
+                [
+                  "arn:",
+                  {
+                    "Ref": "AWS::Partition"
+                  },
+                  ":iam::aws:policy/service-role/AWSGlueServiceRole"
+                ]
+              ]
+            }
+          ]
+        }
       },
-      "Export": {
-        "Name": "mydataprojDevLfadminsWorkFlowRoleArn"
+      "lfadminsworkFlowRoleDefaultPolicyA46910D1": {
+        "Type": "AWS::IAM::Policy",
+        "Properties": {
+          "PolicyDocument": {
+            "Statement": [
+              {
+                "Action": [
+                  "lakeformation:GetDataAccess",
+                  "lakeformation:GrantPermissions"
+                ],
+                "Effect": "Allow",
+                "Resource": "*"
+              },
+              {
+                "Action": "iam:PassRole",
+                "Effect": "Allow",
+                "Resource": {
+                  "Fn::GetAtt": [
+                    "lfadminsworkFlowRole46035F96",
+                    "Arn"
+                  ]
+                }
+              }
+            ],
+            "Version": "2012-10-17"
+          },
+          "PolicyName": "lfadminsworkFlowRoleDefaultPolicyA46910D1",
+          "Roles": [
+            {
+              "Ref": "lfadminsworkFlowRole46035F96"
+            }
+          ]
+        }
+      },
+      "lfadmins0355737D": {
+        "Type": "AWS::IAM::Group",
+        "Properties": {
+          "ManagedPolicyArns": [
+            {
+              "Fn::Join": [
+                "",
+                [
+                  "arn:",
+                  {
+                    "Ref": "AWS::Partition"
+                  },
+                  ":iam::aws:policy/AWSGlueConsoleFullAccess"
+                ]
+              ]
+            },
+            {
+              "Fn::Join": [
+                "",
+                [
+                  "arn:",
+                  {
+                    "Ref": "AWS::Partition"
+                  },
+                  ":iam::aws:policy/AmazonAthenaFullAccess"
+                ]
+              ]
+            }
+          ]
+        }
+      },
+      "lfadminsDefaultPolicyF70D7535": {
+        "Type": "AWS::IAM::Policy",
+        "Properties": {
+          "PolicyDocument": {
+            "Statement": [
+              {
+                "Action": [
+                  "lakeformation:*",
+                  "cloudtrail:DescribeTrails",
+                  "cloudtrail:LookupEvents",
+                  "iam:PutRolePolicy",
+                  "iam:CreateServiceLinkedRole"
+                ],
+                "Effect": "Allow",
+                "Resource": "*"
+              },
+              {
+                "Action": "lakeformation:PutDataLakeSettings",
+                "Effect": "Deny",
+                "Resource": "*"
+              },
+              {
+                "Action": "iam:PassRole",
+                "Effect": "Allow",
+                "Resource": {
+                  "Fn::GetAtt": [
+                    "lfadminsworkFlowRole46035F96",
+                    "Arn"
+                  ]
+                }
+              }
+            ],
+            "Version": "2012-10-17"
+          },
+          "PolicyName": "lfadminsDefaultPolicyF70D7535",
+          "Groups": [
+            {
+              "Ref": "lfadmins0355737D"
+            }
+          ]
+        }
       }
     },
-    "lfadminsRoleName1F2F5496": {
-      "Value": {
-        "Ref": "lfadminsworkFlowRole46035F96"
+    "Outputs": {
+      "lfadminsRoleArn576FF164": {
+        "Value": {
+          "Fn::GetAtt": [
+            "lfadminsworkFlowRole46035F96",
+            "Arn"
+          ]
+        },
+        "Export": {
+          "Name": "mydataprojDevLfadminsWorkFlowRoleArn"
+        }
       },
-      "Export": {
-        "Name": "mydataprojDevLfadminsWorkFlowRoleName"
+      "lfadminsRoleName1F2F5496": {
+        "Value": {
+          "Ref": "lfadminsworkFlowRole46035F96"
+        },
+        "Export": {
+          "Name": "mydataprojDevLfadminsWorkFlowRoleName"
+        }
       }
     }
   }

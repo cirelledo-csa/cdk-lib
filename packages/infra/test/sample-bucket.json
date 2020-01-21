@@ -1,4 +1,74 @@
 {
+  "junk": {
+    "Resources": {
+      "Bucket83908E77": {
+        "Type": "AWS::S3::Bucket",
+        "Properties": {
+          "AccessControl": "LogDeliveryWrite",
+          "BucketEncryption": {
+            "ServerSideEncryptionConfiguration": [
+              {
+                "ServerSideEncryptionByDefault": {
+                  "SSEAlgorithm": "aws:kms"
+                }
+              }
+            ]
+          },
+          "PublicAccessBlockConfiguration": {
+            "BlockPublicAcls": true,
+            "BlockPublicPolicy": true,
+            "IgnorePublicAcls": true,
+            "RestrictPublicBuckets": true
+          },
+          "Tags": [
+            {
+              "Key": "Content",
+              "Value": "log"
+            },
+            {
+              "Key": "Description",
+              "Value": "Super Duper Data From the Earth"
+            },
+            {
+              "Key": "DataOwner",
+              "Value": "alfredette smithee"
+            },
+            {
+              "Key": "SecurityLevel",
+              "Value": "1"
+            },
+            {
+              "Key": "Zone",
+              "Value": "log"
+            }
+          ]
+        },
+        "UpdateReplacePolicy": "Retain",
+        "DeletionPolicy": "Retain"
+      }
+    },
+    "Outputs": {
+      "BucketName": {
+        "Value": {
+          "Ref": "Bucket83908E77"
+        },
+        "Export": {
+          "Name": "sptnProdLogBucketName"
+        }
+      },
+      "BucketArn": {
+        "Value": {
+          "Fn::GetAtt": [
+            "Bucket83908E77",
+            "Arn"
+          ]
+        },
+        "Export": {
+          "Name": "sptnProdLogBucketArn"
+        }
+      }
+    }
+  },
   "prod": {
     "Resources": {
       "MyTestBucketEA41CB10": {
