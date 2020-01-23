@@ -29,4 +29,5 @@ const bucketprops = {
 };
 
   const app = new cdk.App();
-  const stack = new s3.Bucket(app,  { baseprops, bucketprops });
+  const stack = new util.BaseStack(app, { baseprops});
+  const myBucket = new s3.Bucket(stack,  { baseprops, bucketprops });
