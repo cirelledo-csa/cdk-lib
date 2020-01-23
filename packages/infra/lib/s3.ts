@@ -67,10 +67,10 @@ export function enableLogBucket(cfnBucket: s3.CfnBucket) {
   cfnBucket.addPropertyOverride('AccessControl', 'LogDeliveryWrite');
 }
 
-export class Bucket extends util.BaseStack {
+export class Bucket extends cdk.Construct {
   public readonly bucket: s3.Bucket;
   constructor(scope: cdk.Construct, props: IBucketStackProps) {
-    super(scope, props);
+    super(scope, util.makeStackName(props!.baseprops));
 
     // create a bucket resource with encryption and disable public access
     const getMeABucket = new s3.Bucket(this, 'Bucket', {

@@ -2,11 +2,11 @@ import iam = require('@aws-cdk/aws-iam');
 import cdk = require('@aws-cdk/core');
 import util = require('../lib/util');
 
-export class LakeformationAdminGroup extends util.BaseStack {
+export class LakeformationAdminGroup extends cdk.Construct {
   public readonly group: iam.Group;
   public readonly role: iam.Role;
   constructor(parent: cdk.Construct, props: util.IBaseStackProps) {
-    super(parent, props);
+    super(parent, util.makeStackName(props!.baseprops));
 
     // create workflow role
 
