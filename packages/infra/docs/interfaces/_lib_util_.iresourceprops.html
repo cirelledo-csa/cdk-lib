@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IResourceProps | @ucop-acme/aws-infra - v0.1.15</title>
+	<title>IResourceProps | @ucop-acme/aws-infra</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">@ucop-acme/aws-infra - v0.1.15</a>
+					<a href="../index.html" class="title">@ucop-acme/aws-infra</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -73,7 +73,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="_lib_util_.istackprops.html" class="tsd-signature-type">IStackProps</a>
+						<a href="_lib_util_.ibaseprops.html" class="tsd-signature-type">IBaseProps</a>
 						<ul class="tsd-hierarchy">
 							<li>
 								<span class="target">IResourceProps</span>
@@ -89,11 +89,13 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_lib_util_.iresourceprops.html#buildurl" class="tsd-kind-icon">build<wbr>Url</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_lib_util_.iresourceprops.html#description" class="tsd-kind-icon">description</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_lib_util_.iresourceprops.html#env" class="tsd-kind-icon">env</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_lib_util_.iresourceprops.html#label" class="tsd-kind-icon">label</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_lib_util_.iresourceprops.html#owner" class="tsd-kind-icon">owner</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_lib_util_.iresourceprops.html#product" class="tsd-kind-icon">product</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_lib_util_.iresourceprops.html#source" class="tsd-kind-icon">source</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_lib_util_.iresourceprops.html#type" class="tsd-kind-icon">type</a></li>
 							</ul>
 						</section>
@@ -103,13 +105,33 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="buildurl" class="tsd-anchor"></a>
+					<h3>build<wbr>Url</h3>
+					<div class="tsd-signature tsd-kind-icon">build<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="_lib_util_.iiacprops.html">IIACProps</a>.<a href="_lib_util_.iiacprops.html#buildurl">buildUrl</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/ucopacme/cdk-lib/blob/9bd2d70/packages/infra/lib/util.ts#L43">lib/util.ts:43</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>build url, you&#39;re automating right?</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>attribute</dt>
+							<dd></dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="description" class="tsd-anchor"></a>
 					<h3>description</h3>
 					<div class="tsd-signature tsd-kind-icon">description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_lib_util_.ibaseprops.html">IBaseProps</a>.<a href="_lib_util_.ibaseprops.html#description">description</a></p>
+						<p>Inherited from <a href="_lib_util_.idefaultprops.html">IDefaultProps</a>.<a href="_lib_util_.idefaultprops.html#description">description</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/ucopacme/cdk-lib/blob/622db27/packages/infra/lib/util.ts#L11">lib/util.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/ucopacme/cdk-lib/blob/9bd2d70/packages/infra/lib/util.ts#L17">lib/util.ts:17</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -127,9 +149,9 @@
 					<h3>env</h3>
 					<div class="tsd-signature tsd-kind-icon">env<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_lib_util_.ibaseprops.html">IBaseProps</a>.<a href="_lib_util_.ibaseprops.html#env">env</a></p>
+						<p>Inherited from <a href="_lib_util_.idefaultprops.html">IDefaultProps</a>.<a href="_lib_util_.idefaultprops.html#env">env</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/ucopacme/cdk-lib/blob/622db27/packages/infra/lib/util.ts#L17">lib/util.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/ucopacme/cdk-lib/blob/9bd2d70/packages/infra/lib/util.ts#L23">lib/util.ts:23</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -147,14 +169,14 @@
 					<h3>label</h3>
 					<div class="tsd-signature tsd-kind-icon">label<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_lib_util_.istackprops.html">IStackProps</a>.<a href="_lib_util_.istackprops.html#label">label</a></p>
+						<p>Inherited from <a href="_lib_util_.ibaseprops.html">IBaseProps</a>.<a href="_lib_util_.ibaseprops.html#label">label</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/ucopacme/cdk-lib/blob/622db27/packages/infra/lib/util.ts#L45">lib/util.ts:45</a></li>
+							<li>Defined in <a href="https://github.com/ucopacme/cdk-lib/blob/9bd2d70/packages/infra/lib/util.ts#L57">lib/util.ts:57</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The label applied to the Stack.</p>
+							<p>The label applied to a stack, eg network, buckets, iam</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt>attribute</dt>
@@ -167,9 +189,9 @@
 					<h3>owner</h3>
 					<div class="tsd-signature tsd-kind-icon">owner<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_lib_util_.ibaseprops.html">IBaseProps</a>.<a href="_lib_util_.ibaseprops.html#owner">owner</a></p>
+						<p>Inherited from <a href="_lib_util_.idefaultprops.html">IDefaultProps</a>.<a href="_lib_util_.idefaultprops.html#owner">owner</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/ucopacme/cdk-lib/blob/622db27/packages/infra/lib/util.ts#L23">lib/util.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/ucopacme/cdk-lib/blob/9bd2d70/packages/infra/lib/util.ts#L29">lib/util.ts:29</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -187,14 +209,34 @@
 					<h3>product</h3>
 					<div class="tsd-signature tsd-kind-icon">product<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_lib_util_.ibaseprops.html">IBaseProps</a>.<a href="_lib_util_.ibaseprops.html#product">product</a></p>
+						<p>Inherited from <a href="_lib_util_.idefaultprops.html">IDefaultProps</a>.<a href="_lib_util_.idefaultprops.html#product">product</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/ucopacme/cdk-lib/blob/622db27/packages/infra/lib/util.ts#L29">lib/util.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/ucopacme/cdk-lib/blob/9bd2d70/packages/infra/lib/util.ts#L35">lib/util.ts:35</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>The Product, aka app or service.</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>attribute</dt>
+							<dd></dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="source" class="tsd-anchor"></a>
+					<h3>source</h3>
+					<div class="tsd-signature tsd-kind-icon">source<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="_lib_util_.iiacprops.html">IIACProps</a>.<a href="_lib_util_.iiacprops.html#source">source</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/ucopacme/cdk-lib/blob/9bd2d70/packages/infra/lib/util.ts#L49">lib/util.ts:49</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>git repo product source</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt>attribute</dt>
@@ -208,12 +250,12 @@
 					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ucopacme/cdk-lib/blob/622db27/packages/infra/lib/util.ts#L53">lib/util.ts:53</a></li>
+							<li>Defined in <a href="https://github.com/ucopacme/cdk-lib/blob/9bd2d70/packages/infra/lib/util.ts#L73">lib/util.ts:73</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The type of Resource</p>
+							<p>The type of Resource, eg vpc, ec2, securitygroup</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt>attribute</dt>
@@ -229,8 +271,8 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
-					<li class="label tsd-is-external">
-						<span>Internals</span>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_app_app_.html">&quot;app/app&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_lib_index_.html">&quot;lib/index&quot;</a>
@@ -248,35 +290,44 @@
 						<a href="../modules/_lib_util_.html">&quot;lib/util&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="../modules/_test_infra_test_.html">&quot;test/infra.test&quot;</a>
+						<a href="../modules/_test_admin_group_test_.html">&quot;test/admin-<wbr>group.test&quot;</a>
 					</li>
-					<li class="label tsd-is-external">
-						<span>Externals</span>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_test_analyst_group_test_.html">&quot;test/analyst-<wbr>group.test&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="../modules/_test_config_.html">&quot;test/config&quot;</a>
-					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="../modules/_test_sample_bucket_.html">&quot;test/sample-<wbr>bucket&quot;</a>
-					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="../modules/_test_sample_lakeformation_admin_group_.html">&quot;test/sample-<wbr>lakeformation-<wbr>admin-<wbr>group&quot;</a>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_test_bucket_test_.html">&quot;test/bucket.test&quot;</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="../classes/_lib_util_.basestack.html" class="tsd-kind-icon">Base<wbr>Stack</a>
+					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 						<a href="_lib_util_.ibaseprops.html" class="tsd-kind-icon">IBase<wbr>Props</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_lib_util_.igroupprops.html" class="tsd-kind-icon">IGroup<wbr>Props</a>
+						<a href="_lib_util_.ibasestackprops.html" class="tsd-kind-icon">IBase<wbr>Stack<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_lib_util_.idefaultprops.html" class="tsd-kind-icon">IDefault<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_lib_util_.iiacprops.html" class="tsd-kind-icon">IIACProps</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_lib_util_.imynametags.html" class="tsd-kind-icon">IMy<wbr>Name<wbr>Tags</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
 						<a href="_lib_util_.iresourceprops.html" class="tsd-kind-icon">IResource<wbr>Props</a>
 						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="_lib_util_.iresourceprops.html#buildurl" class="tsd-kind-icon">build<wbr>Url</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 								<a href="_lib_util_.iresourceprops.html#description" class="tsd-kind-icon">description</a>
 							</li>
@@ -292,6 +343,9 @@
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 								<a href="_lib_util_.iresourceprops.html#product" class="tsd-kind-icon">product</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="_lib_util_.iresourceprops.html#source" class="tsd-kind-icon">source</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_lib_util_.iresourceprops.html#type" class="tsd-kind-icon">type</a>
 							</li>
@@ -299,11 +353,8 @@
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_lib_util_.istackprops.html" class="tsd-kind-icon">IStack<wbr>Props</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_lib_util_.istacktagsprops.html" class="tsd-kind-icon">IStack<wbr>Tags<wbr>Props</a>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="../modules/_lib_util_.html#cdk" class="tsd-kind-icon">cdk</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="../modules/_lib_util_.html#cap" class="tsd-kind-icon">cap</a>
@@ -322,9 +373,6 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="../modules/_lib_util_.html#mapbranchtoenvironment" class="tsd-kind-icon">map<wbr>Branch<wbr>ToEnvironment</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="../modules/_lib_util_.html#tagstack" class="tsd-kind-icon">tag<wbr>Stack</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="../modules/_lib_util_.html#touppercase" class="tsd-kind-icon">to<wbr>Upper<wbr>Case</a>
