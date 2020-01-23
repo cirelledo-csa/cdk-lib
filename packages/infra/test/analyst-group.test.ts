@@ -20,7 +20,8 @@ const baseprops = {
 test('Analyst Group Created', () => {
   // WHEN
   const app = new cdk.App();
-  const stack = new lakeformationAnalystGroup.LakeformationAnalystGroup(app, { baseprops });
+  const stack = new util.BaseStack(app, { baseprops });
+  const myAnalystGroup = new lakeformationAnalystGroup.LakeformationAnalystGroup(stack, { baseprops });
   // THEN
   expectCDK(stack).to(haveResource('AWS::IAM::Group'));
 });

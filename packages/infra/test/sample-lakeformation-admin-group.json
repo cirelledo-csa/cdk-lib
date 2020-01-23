@@ -1,4 +1,189 @@
 {
+  "junk2": {
+    "Resources": {
+      "sptnProdLogworkFlowRoleA5A707BB": {
+        "Type": "AWS::IAM::Role",
+        "Properties": {
+          "AssumeRolePolicyDocument": {
+            "Statement": [
+              {
+                "Action": "sts:AssumeRole",
+                "Effect": "Allow",
+                "Principal": {
+                  "Service": "glue.amazonaws.com"
+                }
+              }
+            ],
+            "Version": "2012-10-17"
+          },
+          "ManagedPolicyArns": [
+            {
+              "Fn::Join": [
+                "",
+                [
+                  "arn:",
+                  {
+                    "Ref": "AWS::Partition"
+                  },
+                  ":iam::aws:policy/service-role/AWSGlueServiceRole"
+                ]
+              ]
+            }
+          ],
+          "Tags": [
+            {
+              "Key": "buildUrl",
+              "Value": "nope"
+            },
+            {
+              "Key": "env",
+              "Value": "prod"
+            },
+            {
+              "Key": "owner",
+              "Value": "alfred smithee"
+            },
+            {
+              "Key": "product",
+              "Value": "sptn"
+            },
+            {
+              "Key": "source",
+              "Value": "git"
+            }
+          ]
+        }
+      },
+      "sptnProdLogworkFlowRoleDefaultPolicyFF84F6D4": {
+        "Type": "AWS::IAM::Policy",
+        "Properties": {
+          "PolicyDocument": {
+            "Statement": [
+              {
+                "Action": [
+                  "lakeformation:GetDataAccess",
+                  "lakeformation:GrantPermissions"
+                ],
+                "Effect": "Allow",
+                "Resource": "*"
+              },
+              {
+                "Action": "iam:PassRole",
+                "Effect": "Allow",
+                "Resource": {
+                  "Fn::GetAtt": [
+                    "sptnProdLogworkFlowRoleA5A707BB",
+                    "Arn"
+                  ]
+                }
+              }
+            ],
+            "Version": "2012-10-17"
+          },
+          "PolicyName": "sptnProdLogworkFlowRoleDefaultPolicyFF84F6D4",
+          "Roles": [
+            {
+              "Ref": "sptnProdLogworkFlowRoleA5A707BB"
+            }
+          ]
+        }
+      },
+      "sptnProdLoglog8A7A924F": {
+        "Type": "AWS::IAM::Group",
+        "Properties": {
+          "ManagedPolicyArns": [
+            {
+              "Fn::Join": [
+                "",
+                [
+                  "arn:",
+                  {
+                    "Ref": "AWS::Partition"
+                  },
+                  ":iam::aws:policy/AWSGlueConsoleFullAccess"
+                ]
+              ]
+            },
+            {
+              "Fn::Join": [
+                "",
+                [
+                  "arn:",
+                  {
+                    "Ref": "AWS::Partition"
+                  },
+                  ":iam::aws:policy/AmazonAthenaFullAccess"
+                ]
+              ]
+            }
+          ]
+        }
+      },
+      "sptnProdLoglogDefaultPolicy8443EA82": {
+        "Type": "AWS::IAM::Policy",
+        "Properties": {
+          "PolicyDocument": {
+            "Statement": [
+              {
+                "Action": [
+                  "lakeformation:*",
+                  "cloudtrail:DescribeTrails",
+                  "cloudtrail:LookupEvents",
+                  "iam:PutRolePolicy",
+                  "iam:CreateServiceLinkedRole"
+                ],
+                "Effect": "Allow",
+                "Resource": "*"
+              },
+              {
+                "Action": "lakeformation:PutDataLakeSettings",
+                "Effect": "Deny",
+                "Resource": "*"
+              },
+              {
+                "Action": "iam:PassRole",
+                "Effect": "Allow",
+                "Resource": {
+                  "Fn::GetAtt": [
+                    "sptnProdLogworkFlowRoleA5A707BB",
+                    "Arn"
+                  ]
+                }
+              }
+            ],
+            "Version": "2012-10-17"
+          },
+          "PolicyName": "sptnProdLoglogDefaultPolicy8443EA82",
+          "Groups": [
+            {
+              "Ref": "sptnProdLoglog8A7A924F"
+            }
+          ]
+        }
+      }
+    },
+    "Outputs": {
+      "sptnProdLogRoleArnE44966D2": {
+        "Value": {
+          "Fn::GetAtt": [
+            "sptnProdLogworkFlowRoleA5A707BB",
+            "Arn"
+          ]
+        },
+        "Export": {
+          "Name": "sptnProdLogWorkFlowRoleArn"
+        }
+      },
+      "sptnProdLogRoleName23DF2942": {
+        "Value": {
+          "Ref": "sptnProdLogworkFlowRoleA5A707BB"
+        },
+        "Export": {
+          "Name": "sptnProdLogWorkFlowRoleName"
+        }
+      }
+    }
+  },
   "junk": {
     "Resources": {
       "workFlowRole02EDE8BD": {

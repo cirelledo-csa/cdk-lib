@@ -1,4 +1,74 @@
 {
+  "junk2": {
+    "Resources": {
+      "sptnProdLogBucket442643F7": {
+        "Type": "AWS::S3::Bucket",
+        "Properties": {
+          "AccessControl": "LogDeliveryWrite",
+          "BucketEncryption": {
+            "ServerSideEncryptionConfiguration": [
+              {
+                "ServerSideEncryptionByDefault": {
+                  "SSEAlgorithm": "aws:kms"
+                }
+              }
+            ]
+          },
+          "PublicAccessBlockConfiguration": {
+            "BlockPublicAcls": true,
+            "BlockPublicPolicy": true,
+            "IgnorePublicAcls": true,
+            "RestrictPublicBuckets": true
+          },
+          "Tags": [
+            {
+              "Key": "Content",
+              "Value": "log"
+            },
+            {
+              "Key": "Description",
+              "Value": "Super Duper Data From the Earth"
+            },
+            {
+              "Key": "DataOwner",
+              "Value": "alfredette smithee"
+            },
+            {
+              "Key": "SecurityLevel",
+              "Value": "1"
+            },
+            {
+              "Key": "Zone",
+              "Value": "log"
+            }
+          ]
+        },
+        "UpdateReplacePolicy": "Retain",
+        "DeletionPolicy": "Retain"
+      }
+    },
+    "Outputs": {
+      "sptnProdLogBucketName84CFD34A": {
+        "Value": {
+          "Ref": "sptnProdLogBucket442643F7"
+        },
+        "Export": {
+          "Name": "sptnProdLogBucketName"
+        }
+      },
+      "sptnProdLogBucketArn5982CFC8": {
+        "Value": {
+          "Fn::GetAtt": [
+            "sptnProdLogBucket442643F7",
+            "Arn"
+          ]
+        },
+        "Export": {
+          "Name": "sptnProdLogBucketArn"
+        }
+      }
+    }
+  },
   "junk": {
     "Resources": {
       "Bucket83908E77": {

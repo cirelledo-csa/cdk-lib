@@ -29,8 +29,9 @@ test('Admin Group Created', () => {
     source: 'git',
   };
   const app = new cdk.App();
-  const stack = new lakeformationAdminGroup.LakeformationAdminGroup(app, { baseprops });
+  const stack = new util.BaseStack(app, { baseprops });
+  const myAdminGroup = new lakeformationAdminGroup.LakeformationAdminGroup(stack, { baseprops });
   // THEN
-  expectCDK(stack).toMatch(sampleLakeformationAdminGroup.junk);
+  expectCDK(stack).toMatch(sampleLakeformationAdminGroup.junk2);
   expectCDK(stack).to(haveResource('AWS::IAM::Group'));
 });

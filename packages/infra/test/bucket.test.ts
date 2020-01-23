@@ -33,8 +33,10 @@ test('Bucket Created', () => {
   const app = new cdk.App();
   const stackName = util.makeStackName(baseprops);
   // WHEN
-  const stack = new s3.Bucket(app, { baseprops, bucketprops });
+  const stack = new util.BaseStack(app, { baseprops });
+  const myBucket = new s3.Bucket(stack, { baseprops, bucketprops });
+  // const stack = new s3.Bucket(app, { baseprops, bucketprops });
   // THEN
   expectCDK(stack).to(haveResource('AWS::S3::Bucket'));
-  expectCDK(stack).toMatch(sampleBucket.junk);
+  expectCDK(stack).toMatch(sampleBucket.junk2);
 });
