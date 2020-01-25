@@ -114,7 +114,7 @@ export class Bucket extends cdk.Construct {
         owner: props.baseprops.owner,
         product: props.baseprops.product,
         source: props.baseprops.source,
-        type: resourceName + 'Name',
+        type: resourceName + 'BucketName',
       }),
       value: getMeABucket.bucketName,
     });
@@ -129,7 +129,7 @@ export class Bucket extends cdk.Construct {
         owner: props.baseprops.owner,
         product: props.baseprops.product,
         source: props.baseprops.source,
-        type: resourceName + 'Arn',
+        type: resourceName + 'BucketArn',
       }),
       value: getMeABucket.bucketArn,
     });

@@ -61,7 +61,7 @@
           "Ref": "MagmaBucketD1418673"
         },
         "Export": {
-          "Name": "sptnProdGetMeABucketMagmaName"
+          "Name": "sptnProdGetMeABucketMagmaBucketName"
         }
       },
       "MagmaBucketArnB65C5B7B": {
@@ -72,7 +72,7 @@
           ]
         },
         "Export": {
-          "Name": "sptnProdGetMeABucketMagmaArn"
+          "Name": "sptnProdGetMeABucketMagmaBucketArn"
         }
       }
     }
