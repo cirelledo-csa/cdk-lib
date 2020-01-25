@@ -1,0 +1,7 @@
+*/*.js
+*/*.d.ts
+*/*.d.ts.map
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
