@@ -20,6 +20,12 @@ export interface IBucketProps {
    * bucket log destination.
    * @attribute
    */
+  label: string;
+
+  /**
+   * bucket label, primary key
+   * @attribute
+   */
   log_bucket_name: string;
 
   /**
@@ -54,6 +60,8 @@ export function tagBucket(cfnBucket: s3.CfnBucket, props: IBucketProps) {
     { Key: 'Content', Value: props.content },
     { Key: 'Description', Value: props.description },
     { Key: 'DataOwner', Value: props.owner },
+    { Key: 'Label', Value: props.label },
+    { Key: 'Logging', Value: props.log_bucket_name },
     { Key: 'SecurityLevel', Value: props.security_level },
     { Key: 'Zone', Value: props.zone },
   ]);
@@ -73,7 +81,7 @@ export class Bucket extends cdk.Construct {
     super(scope, util.makeStackName(props!.baseprops));
 
     // create a bucket resource with encryption and disable public access
-    const getMeABucket = new s3.Bucket(this, 'Bucket', {
+    const getMeABucket = new s3.Bucket(this, props.bucketprops.label, {
       blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
       encryption: s3.BucketEncryption.KMS_MANAGED,
     });
@@ -100,7 +108,7 @@ export class Bucket extends cdk.Construct {
         buildUrl: props.baseprops.buildUrl,
         description: props.baseprops.description,
         env: props.baseprops.env,
-        label: props.baseprops.label,
+        label: props.bucketprops.label,
         owner: props.baseprops.owner,
         product: props.baseprops.product,
         source: props.baseprops.source,
@@ -115,7 +123,7 @@ export class Bucket extends cdk.Construct {
         buildUrl: props.baseprops.buildUrl,
         description: props.baseprops.description,
         env: props.baseprops.env,
-        label: props.baseprops.label,
+        label: props.bucketprops.label,
         owner: props.baseprops.owner,
         product: props.baseprops.product,
         source: props.baseprops.source,

@@ -4,17 +4,14 @@ import util = require('../lib/util');
 import params from '../test/config.json';
 import sampleBucket from '../test/sample-bucket.json';
 
-// const branchEnv = util.mapBranchToEnvironment().replace(/\n|\r/g, "");
 const branchEnv = util.mapBranchToEnvironment().trim();
-// const branchEnv = "dev";
 
 const baseprops = {
   buildUrl: 'nope',
   description: 'Stop Plate Tectonics Now',
-  // env: util.mapBranchToEnvironment(),
   env: branchEnv,
-  label: 'log',
-  owner: 'alfred smithee',
+  label: 'GetMeABucket',
+  owner: 'Mr Creosote',
   product: 'sptn',
   source: 'git',
 };
@@ -22,8 +19,9 @@ const baseprops = {
 const bucketprops = {
   content: 'log',
   description: 'Super Duper Data From the Earth',
+  label: 'logs',
   log_bucket_name: '',
-  owner: 'alfredette smithee',
+  owner: 'Ms Creosote',
   security_level: '1',
   zone: 'log',
 };
