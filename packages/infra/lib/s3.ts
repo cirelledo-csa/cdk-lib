@@ -81,7 +81,8 @@ export class Bucket extends cdk.Construct {
     super(scope, util.makeStackName(props!.baseprops));
 
     // create a bucket resource with encryption and disable public access
-    const getMeABucket = new s3.Bucket(this, props.bucketprops.label, {
+    const resourceName = util.cap(props.bucketprops.label);
+    const getMeABucket = new s3.Bucket(this, resourceName, {
       blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
       encryption: s3.BucketEncryption.KMS_MANAGED,
     });
@@ -103,31 +104,31 @@ export class Bucket extends cdk.Construct {
     }
 
     // output bucket name
-    const e1 = new cdk.CfnOutput(this, 'BucketName', {
+    const e1 = new cdk.CfnOutput(this, resourceName + 'Name', {
       exportName: util.makeExportName({
         buildUrl: props.baseprops.buildUrl,
         description: props.baseprops.description,
         env: props.baseprops.env,
-        label: props.bucketprops.label,
+        label: props.baseprops.label,
         owner: props.baseprops.owner,
         product: props.baseprops.product,
         source: props.baseprops.source,
-        type: 'BucketName',
+        type: resourceName + 'Name',
       }),
       value: getMeABucket.bucketName,
     });
 
     // output bucket arn
-    const e2 = new cdk.CfnOutput(this, 'BucketArn', {
+    const e2 = new cdk.CfnOutput(this, resourceName + 'Arn', {
       exportName: util.makeExportName({
         buildUrl: props.baseprops.buildUrl,
         description: props.baseprops.description,
         env: props.baseprops.env,
-        label: props.bucketprops.label,
+        label: props.baseprops.label,
         owner: props.baseprops.owner,
         product: props.baseprops.product,
         source: props.baseprops.source,
-        type: 'BucketArn',
+        type: resourceName + 'Arn',
       }),
       value: getMeABucket.bucketArn,
     });

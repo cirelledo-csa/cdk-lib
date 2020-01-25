@@ -10,13 +10,14 @@ export class LakeformationAdminGroup extends cdk.Construct {
 
     // create workflow role
 
-    const workFlowRole = new iam.Role(this, 'workFlowRole', {
+    const resourceName = 'WorkFlowRole';
+    const workFlowRole = new iam.Role(this, resourceName, {
       assumedBy: new iam.ServicePrincipal('glue.amazonaws.com'),
     });
     this.role = workFlowRole;
 
     // output role arn
-    const e1 = new cdk.CfnOutput(this, 'RoleArn', {
+    const e1 = new cdk.CfnOutput(this, resourceName + 'Arn', {
       exportName: util.makeExportName({
         buildUrl: props.baseprops.buildUrl,
         description: props.baseprops.description,
@@ -25,13 +26,13 @@ export class LakeformationAdminGroup extends cdk.Construct {
         owner: props.baseprops.owner,
         product: props.baseprops.product,
         source: props.baseprops.source,
-        type: 'WorkFlowRoleArn',
+        type: resourceName + 'Arn',
       }),
       value: this.role.roleArn,
     });
 
     // output role name
-    const e2 = new cdk.CfnOutput(this, 'RoleName', {
+    const e2 = new cdk.CfnOutput(this, resourceName + 'Name', {
       exportName: util.makeExportName({
         buildUrl: props.baseprops.buildUrl,
         description: props.baseprops.description,
@@ -40,7 +41,7 @@ export class LakeformationAdminGroup extends cdk.Construct {
         owner: props.baseprops.owner,
         product: props.baseprops.product,
         source: props.baseprops.source,
-        type: 'WorkFlowRoleName',
+        type: resourceName + 'Name',
       }),
       value: this.role.roleName,
     });

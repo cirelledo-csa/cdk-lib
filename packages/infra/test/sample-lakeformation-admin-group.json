@@ -1,7 +1,7 @@
 {
   "junk2": {
     "Resources": {
-      "sptnProdLogworkFlowRoleA5A707BB": {
+      "sptnProdLakeAdminsWorkFlowRole5A26F7E5": {
         "Type": "AWS::IAM::Role",
         "Properties": {
           "AssumeRolePolicyDocument": {
@@ -54,7 +54,7 @@
           ]
         }
       },
-      "sptnProdLogworkFlowRoleDefaultPolicyFF84F6D4": {
+      "sptnProdLakeAdminsWorkFlowRoleDefaultPolicyD80877F7": {
         "Type": "AWS::IAM::Policy",
         "Properties": {
           "PolicyDocument": {
@@ -72,7 +72,7 @@
                 "Effect": "Allow",
                 "Resource": {
                   "Fn::GetAtt": [
-                    "sptnProdLogworkFlowRoleA5A707BB",
+                    "sptnProdLakeAdminsWorkFlowRole5A26F7E5",
                     "Arn"
                   ]
                 }
@@ -80,15 +80,15 @@
             ],
             "Version": "2012-10-17"
           },
-          "PolicyName": "sptnProdLogworkFlowRoleDefaultPolicyFF84F6D4",
+          "PolicyName": "sptnProdLakeAdminsWorkFlowRoleDefaultPolicyD80877F7",
           "Roles": [
             {
-              "Ref": "sptnProdLogworkFlowRoleA5A707BB"
+              "Ref": "sptnProdLakeAdminsWorkFlowRole5A26F7E5"
             }
           ]
         }
       },
-      "sptnProdLoglog8A7A924F": {
+      "sptnProdLakeAdminsA8123AD1": {
         "Type": "AWS::IAM::Group",
         "Properties": {
           "ManagedPolicyArns": [
@@ -119,7 +119,7 @@
           ]
         }
       },
-      "sptnProdLoglogDefaultPolicy8443EA82": {
+      "sptnProdLakeAdminsDefaultPolicy0E34A4F6": {
         "Type": "AWS::IAM::Policy",
         "Properties": {
           "PolicyDocument": {
@@ -145,7 +145,7 @@
                 "Effect": "Allow",
                 "Resource": {
                   "Fn::GetAtt": [
-                    "sptnProdLogworkFlowRoleA5A707BB",
+                    "sptnProdLakeAdminsWorkFlowRole5A26F7E5",
                     "Arn"
                   ]
                 }
@@ -153,33 +153,33 @@
             ],
             "Version": "2012-10-17"
           },
-          "PolicyName": "sptnProdLoglogDefaultPolicy8443EA82",
+          "PolicyName": "sptnProdLakeAdminsDefaultPolicy0E34A4F6",
           "Groups": [
             {
-              "Ref": "sptnProdLoglog8A7A924F"
+              "Ref": "sptnProdLakeAdminsA8123AD1"
             }
           ]
         }
       }
     },
     "Outputs": {
-      "sptnProdLogRoleArnE44966D2": {
+      "sptnProdLakeAdminsWorkFlowRoleArnE2EA652A": {
         "Value": {
           "Fn::GetAtt": [
-            "sptnProdLogworkFlowRoleA5A707BB",
+            "sptnProdLakeAdminsWorkFlowRole5A26F7E5",
             "Arn"
           ]
         },
         "Export": {
-          "Name": "sptnProdLogWorkFlowRoleArn"
+          "Name": "sptnProdLakeAdminsWorkFlowRoleArn"
         }
       },
-      "sptnProdLogRoleName23DF2942": {
+      "sptnProdLakeAdminsWorkFlowRoleName8E373675": {
         "Value": {
-          "Ref": "sptnProdLogworkFlowRoleA5A707BB"
+          "Ref": "sptnProdLakeAdminsWorkFlowRole5A26F7E5"
         },
         "Export": {
-          "Name": "sptnProdLogWorkFlowRoleName"
+          "Name": "sptnProdLakeAdminsWorkFlowRoleName"
         }
       }
     }

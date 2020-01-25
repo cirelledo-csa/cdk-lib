@@ -21,7 +21,8 @@ export class LakeformationAnalystGroup extends cdk.Construct {
       effect: iam.Effect.ALLOW,
       resources: ['*'],
     });
-    const group = new iam.Group(this, props.baseprops.label, {});
+    const resourceName = 'AnalystGroup';
+    const group = new iam.Group(this, resourceName, {});
     this.group = group;
     group.addToPolicy(PolicyStatement);
   }

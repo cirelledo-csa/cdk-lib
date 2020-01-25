@@ -11,7 +11,7 @@ const baseprops = {
   buildUrl: 'nope',
   description: 'Stop Plate Tectonics Now',
   env: branchEnv,
-  label: 'log',
+  label: 'LakeAdmins',
   owner: 'alfred smithee',
   product: 'sptn',
   source: 'git',
@@ -19,15 +19,6 @@ const baseprops = {
 
 test('Admin Group Created', () => {
   // WHEN
-  const props = {
-    buildUrl: 'haha',
-    description: 'my lake group',
-    env: 'dev',
-    label: 'lfadmins',
-    owner: 'alfred smithee',
-    product: 'mydataproj',
-    source: 'git',
-  };
   const app = new cdk.App();
   const stack = new util.BaseStack(app, { baseprops });
   const myAdminGroup = new lakeformationAdminGroup.LakeformationAdminGroup(stack, { baseprops });

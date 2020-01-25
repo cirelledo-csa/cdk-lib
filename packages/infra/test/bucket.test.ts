@@ -12,7 +12,7 @@ const baseprops = {
   description: 'Stop Plate Tectonics Now',
   env: branchEnv,
   label: 'GetMeABucket',
-  owner: 'mr creosote',
+  owner: 'Mr Creosote',
   product: 'sptn',
   source: 'git',
 };
@@ -22,7 +22,7 @@ const bucketprops = {
   description: 'Super Duper Data From the Earth',
   label: 'magma',
   log_bucket_name: '',
-  owner: 'alfredette smithee',
+  owner: 'Ms Creosote',
   security_level: '1',
   zone: 'log',
 };
@@ -35,5 +35,5 @@ test('Bucket Created', () => {
   const myBucket = new s3.Bucket(stack, { baseprops, bucketprops });
   // THEN
   expectCDK(stack).to(haveResource('AWS::S3::Bucket'));
-  expectCDK(stack).toMatch(sampleBucket.junk2);
+  expectCDK(stack).toMatch(sampleBucket.junk3);
 });
