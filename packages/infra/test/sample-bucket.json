@@ -1,4 +1,82 @@
 {
+  "junk4": {
+    "Resources": {
+      "MagmaBucketD1418673": {
+        "Type": "AWS::S3::Bucket",
+        "Properties": {
+          "AccessControl": "LogDeliveryWrite",
+          "BucketEncryption": {
+            "ServerSideEncryptionConfiguration": [
+              {
+                "ServerSideEncryptionByDefault": {
+                  "SSEAlgorithm": "aws:kms"
+                }
+              }
+            ]
+          },
+          "PublicAccessBlockConfiguration": {
+            "BlockPublicAcls": true,
+            "BlockPublicPolicy": true,
+            "IgnorePublicAcls": true,
+            "RestrictPublicBuckets": true
+          },
+          "Tags": [
+            {
+              "Key": "Content",
+              "Value": "log"
+            },
+            {
+              "Key": "Description",
+              "Value": "Super Duper Data From the Earth"
+            },
+            {
+              "Key": "DataOwner",
+              "Value": "Ms Creosote"
+            },
+            {
+              "Key": "Label",
+              "Value": "magma"
+            },
+            {
+              "Key": "Logging",
+              "Value": ""
+            },
+            {
+              "Key": "SecurityLevel",
+              "Value": "1"
+            },
+            {
+              "Key": "Zone",
+              "Value": "log"
+            }
+          ]
+        },
+        "UpdateReplacePolicy": "Retain",
+        "DeletionPolicy": "Retain"
+      }
+    },
+    "Outputs": {
+      "MagmaBucketName9E8AB9EF": {
+        "Value": {
+          "Ref": "MagmaBucketD1418673"
+        },
+        "Export": {
+          "Name": "sptnProdGetMeABucketMagmaName"
+        }
+      },
+      "MagmaBucketArnB65C5B7B": {
+        "Value": {
+          "Fn::GetAtt": [
+            "MagmaBucketD1418673",
+            "Arn"
+          ]
+        },
+        "Export": {
+          "Name": "sptnProdGetMeABucketMagmaArn"
+        }
+      }
+    }
+  },
   "junk3": {
     "Resources": {
       "sptnProdGetMeABucketMagma3CF65BEB": {

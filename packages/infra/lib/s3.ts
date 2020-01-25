@@ -78,11 +78,12 @@ export function enableLogBucket(cfnBucket: s3.CfnBucket) {
 export class Bucket extends cdk.Construct {
   public readonly bucket: s3.Bucket;
   constructor(scope: cdk.Construct, props: IBucketStackProps) {
-    super(scope, util.makeStackName(props!.baseprops));
+    const constructName = util.cap(props.bucketprops.label);
+    super(scope, constructName);
 
     // create a bucket resource with encryption and disable public access
     const resourceName = util.cap(props.bucketprops.label);
-    const getMeABucket = new s3.Bucket(this, resourceName, {
+    const getMeABucket = new s3.Bucket(this, 'Bucket', {
       blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
       encryption: s3.BucketEncryption.KMS_MANAGED,
     });
@@ -104,7 +105,7 @@ export class Bucket extends cdk.Construct {
     }
 
     // output bucket name
-    const e1 = new cdk.CfnOutput(this, resourceName + 'Name', {
+    const e1 = new cdk.CfnOutput(this, 'BucketName', {
       exportName: util.makeExportName({
         buildUrl: props.baseprops.buildUrl,
         description: props.baseprops.description,
@@ -119,7 +120,7 @@ export class Bucket extends cdk.Construct {
     });
 
     // output bucket arn
-    const e2 = new cdk.CfnOutput(this, resourceName + 'Arn', {
+    const e2 = new cdk.CfnOutput(this, 'BucketArn', {
       exportName: util.makeExportName({
         buildUrl: props.baseprops.buildUrl,
         description: props.baseprops.description,

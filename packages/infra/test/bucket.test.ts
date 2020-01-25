@@ -35,5 +35,5 @@ test('Bucket Created', () => {
   const myBucket = new s3.Bucket(stack, { baseprops, bucketprops });
   // THEN
   expectCDK(stack).to(haveResource('AWS::S3::Bucket'));
-  expectCDK(stack).toMatch(sampleBucket.junk3);
+  expectCDK(stack).toMatch(sampleBucket.junk4);
 });

@@ -1,4 +1,21 @@
 {
+  "buckets": [
+  {
+    "content": "log",
+    "description": "data lake cloudtrail sample",
+    "label": "cloudtrail",
+    "owner": "mr.creosote@fancy.feast",
+    "security_level": "2",
+    "zone": "logs"
+  },
+  {
+    "content": "data",
+    "description": "data lake bucket",
+    "label": "magma",
+    "owner": "xerxes@asteroid.com",
+    "security_level": "2",
+    "zone": "source"
+  }],
   "tags": {
     "Description": "Stop Plate Tectonics Now",
     "Owner": "alfred.smithee@email.stinks",
