@@ -8,29 +8,29 @@
   },
   "description": "CDK libraries for basic infrastructure architecture patterns",
   "dependencies": {
-    "@aws-cdk/aws-sns": "^1.22.0",
-    "@aws-cdk/aws-sns-subscriptions": "^1.22.0",
-    "@aws-cdk/aws-sqs": "^1.22.0",
-    "@aws-cdk/core": "^1.22.0",
-    "@types/node": "^13.5.0",
-    "aws-cdk": "^1.22.0",
-    "aws-delivlib": "^4.5.1",
-    "cdk": "^1.22.0",
+    "@aws-cdk/aws-sns": "^1.23.0",
+    "@aws-cdk/aws-sns-subscriptions": "^1.23.0",
+    "@aws-cdk/aws-sqs": "^1.23.0",
+    "@aws-cdk/core": "^1.23.0",
+    "@types/node": "^13.7.1",
+    "aws-cdk": "^1.23.0",
+    "aws-delivlib": "^5.7.1",
+    "cdk": "^1.23.0",
     "git-branch": "^2.0.1",
-    "https-proxy-agent": "^4.0.0",
+    "https-proxy-agent": "^5.0.0",
     "lerna": "^3.20.2",
     "npm-check-updates": "^4.0.1",
-    "simple-git": "^1.130.0"
+    "simple-git": "^1.131.0"
   },
   "devDependencies": {
-    "@aws-cdk/assert": "^1.22.0",
-    "@types/jest": "^24.9.1",
+    "@aws-cdk/assert": "^1.23.0",
+    "@types/jest": "^25.1.2",
     "jest": "^25.1.0",
     "prettier": "^1.19.1",
-    "ts-jest": "^25.0.0",
+    "ts-jest": "^25.2.0",
     "tslint": "^6.0.0",
     "tslint-config-prettier": "^1.18.0",
-    "typedoc": "^0.16.8",
+    "typedoc": "^0.16.9",
     "typescript": "~3.7.5"
   },
   "homepage": "https://github.com/ucopacme/cdk-lib",
@@ -41,7 +41,7 @@
   "main": "lib/index.js",
   "name": "@ucop-acme/aws-infra",
   "peerDependencies": {
-    "@aws-cdk/core": "^1.22.0"
+    "@aws-cdk/core": "^1.23.0"
   },
   "repository": {
     "url": "https://github.com/ucopacme/cdk-lib.git",
@@ -58,5 +58,5 @@
     "watch": "tsc -w"
   },
   "types": "lib/index.d.ts",
-  "version": "0.1.20"
+  "version": "0.1.21"
 }
