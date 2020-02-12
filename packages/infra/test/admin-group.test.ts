@@ -9,6 +9,11 @@ const branchEnv = util.mapBranchToEnvironment().trim();
 
 const baseprops = {
   buildUrl: 'nope',
+  costprops: {
+    env: branchEnv,
+    owner: 'Mrs Creosote',
+    product: 'sptn',
+  },
   description: 'Stop Plate Tectonics Now',
   env: branchEnv,
   label: 'LakeAdmins',

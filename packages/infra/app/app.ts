@@ -9,6 +9,11 @@ const branchEnv = util.mapBranchToEnvironment().trim();
 
 const baseprops = {
   buildUrl: 'nope',
+  costprops: {
+    env: branchEnv,
+    owner: 'Mrs Creosote',
+    product: 'sptn',
+  },
   description: 'Stop Plate Tectonics Now',
   env: branchEnv,
   label: 'GetMeABucket',
@@ -33,6 +38,11 @@ const myStackProps: util.IBaseStackProps = {
   env: stackEnv,
   baseprops: {
     buildUrl: 'https://google.com',
+    costprops: {
+      env: branchEnv,
+      owner: 'Mrs Creosote',
+      product: 'sptn',
+    },
     description: 'Stop Plate Tectonics Now',
     env: branchEnv,
     label: 'Buckets',
@@ -45,6 +55,6 @@ const myStackProps: util.IBaseStackProps = {
 const app = new cdk.App();
 const stack = new util.BaseStack(app, { baseprops });
 const myBucket = new s3.Bucket(stack, { baseprops, bucketprops });
-      bucketprops.label = "other";
+bucketprops.label = 'other';
 const myOtherBucket = new s3.Bucket(stack, { baseprops, bucketprops });
 const buckets = new Buckets(app, myStackProps);

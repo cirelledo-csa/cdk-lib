@@ -3,12 +3,12 @@
  * using this as a guide https://docs.aws.amazon.com/lake-formation/latest/dg/getting-started-cloudtrail-tutorial.html
  */
 
-import iam = require("@aws-cdk/aws-iam");
-import s3 = require("@aws-cdk/aws-s3");
-import cdk = require("@aws-cdk/core");
+import iam = require('@aws-cdk/aws-iam');
+import s3 = require('@aws-cdk/aws-s3');
+import cdk = require('@aws-cdk/core');
 import util = require('../../lib/util');
 import DataBucket = require('../../lib/s3');
-import params from "../../test/config.json";
+import params from '../../test/config.json';
 
 export interface ILabeledBucketProps {
   /**
@@ -45,13 +45,13 @@ export class Buckets extends util.BaseStack {
     const stackprops = {
       baseprops: props.baseprops,
       bucketprops: {
-        content: "log",
-        description: "application logging",
-        label: "logs",
-        log_bucket_name: "",
+        content: 'log',
+        description: 'application logging',
+        label: 'logs',
+        log_bucket_name: '',
         owner: props.baseprops.owner,
-        security_level: "1",
-        zone: "log",
+        security_level: '1',
+        zone: 'log',
       },
     };
 
@@ -61,7 +61,6 @@ export class Buckets extends util.BaseStack {
 
     const bucketList = params[`buckets`];
     const bucketDict: IBucketHash = {};
-
 
     for (const bucket of bucketList) {
       stackprops.bucketprops.content = bucket.content;

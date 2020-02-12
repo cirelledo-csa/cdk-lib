@@ -9,6 +9,26 @@ export interface IMyNameTags {
   name: string;
 }
 
+export interface ICostProps {
+  /**
+   * The Product environment
+   * @attribute
+   */
+  env: string;
+
+  /**
+   * The Product Owner
+   * @attribute
+   */
+  owner: string;
+
+  /**
+   * The Product, aka app or service.
+   * @attribute
+   */
+  product: string;
+}
+
 export interface IDefaultProps {
   /**
    * The Product description.
@@ -55,6 +75,7 @@ export interface IBaseProps extends IIACProps {
    * @attribute
    */
   label: string;
+  readonly costprops: ICostProps;
 }
 
 export interface IBaseStackProps extends cdk.StackProps {
@@ -76,6 +97,7 @@ export interface IResourceProps extends IBaseProps {
 // standard tagged iac stack
 export class BaseStack extends cdk.Stack {
   protected readonly baseprops: IBaseProps;
+  protected readonly costprops: ICostProps;
   constructor(scope: cdk.Construct, props: IBaseStackProps) {
     super(scope, makeStackName(props!.baseprops), props);
     this.baseprops = props.baseprops;
@@ -84,6 +106,9 @@ export class BaseStack extends cdk.Stack {
     cdk.Tag.add(scope, 'owner', this.baseprops.owner);
     cdk.Tag.add(scope, 'product', this.baseprops.product);
     cdk.Tag.add(scope, 'source', this.baseprops.source);
+    cdk.Tag.add(scope, 'cost:env', props.baseprops.costprops.env);
+    cdk.Tag.add(scope, 'cost:owner', props.baseprops.costprops.owner);
+    cdk.Tag.add(scope, 'cost:product', props.baseprops.costprops.product);
   }
 }
 

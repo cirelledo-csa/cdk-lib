@@ -20,6 +20,7 @@ export class LakeformationAdminGroup extends cdk.Construct {
     const e1 = new cdk.CfnOutput(this, resourceName + 'Arn', {
       exportName: util.makeExportName({
         buildUrl: props.baseprops.buildUrl,
+        costprops: props.baseprops.costprops,
         description: props.baseprops.description,
         env: props.baseprops.env,
         label: props.baseprops.label,
@@ -35,6 +36,7 @@ export class LakeformationAdminGroup extends cdk.Construct {
     const e2 = new cdk.CfnOutput(this, resourceName + 'Name', {
       exportName: util.makeExportName({
         buildUrl: props.baseprops.buildUrl,
+        costprops: props.baseprops.costprops,
         description: props.baseprops.description,
         env: props.baseprops.env,
         label: props.baseprops.label,
