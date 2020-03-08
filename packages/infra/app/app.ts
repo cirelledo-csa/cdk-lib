@@ -35,6 +35,7 @@ const bucketprops = {
 const stackEnv = { account: '012345678910', region: 'us-east-2' };
 
 const myStackProps: util.IBaseStackProps = {
+  description: 'Stop Plate Tectonics Now' + util.makeBrand(),
   env: stackEnv,
   baseprops: {
     buildUrl: 'https://google.com',
@@ -53,7 +54,7 @@ const myStackProps: util.IBaseStackProps = {
 };
 
 const app = new cdk.App();
-const stack = new util.BaseStack(app, { baseprops });
+const stack = new util.BaseStack(app, { description: baseprops.description + util.makeBrand(),baseprops });
 const myBucket = new s3.Bucket(stack, { baseprops, bucketprops });
 bucketprops.label = 'other';
 const myOtherBucket = new s3.Bucket(stack, { baseprops, bucketprops });

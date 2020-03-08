@@ -92,6 +92,9 @@ export class Bucket extends cdk.Construct {
 
     // configure bucket resource properties
     const cfnBucket = getMeABucket.node.defaultChild as s3.CfnBucket;
+    if (props.bucketprops.log_bucket_name === '') {
+      props.bucketprops.log_bucket_name = '-';
+    }
     tagBucket(cfnBucket, props.bucketprops);
 
     // if data bucket then log data bucket to logging bucket

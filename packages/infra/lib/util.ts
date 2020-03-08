@@ -111,6 +111,9 @@ export class BaseStack extends cdk.Stack {
     cdk.Tag.add(scope, 'cost:product', props.baseprops.costprops.product);
   }
 }
+export function makeBrand() {
+  return ' proudly built in Oakland, California with @ucop-acme/aws-infra';
+}
 
 export function makeStackName(props: IBaseProps) {
   return props.product + cap(props.env) + cap(props.label);
