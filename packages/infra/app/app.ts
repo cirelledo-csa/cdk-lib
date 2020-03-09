@@ -25,6 +25,7 @@ const baseprops = {
 const bucketprops = {
   content: 'magma',
   description: 'Super Hot Data From the Earth',
+  encryption: 'KMS',
   label: 'sample',
   log_bucket_name: '/dev/null',
   owner: 'Ms Creosote',

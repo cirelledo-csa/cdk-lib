@@ -17,6 +17,12 @@ export interface IBucketProps {
   description: string;
 
   /**
+   * bucket encryption, hopefully informative to humans.
+   * @attribute
+   */
+  encryption?: string;
+
+  /**
    * bucket log destination.
    * @attribute
    */
@@ -83,9 +89,16 @@ export class Bucket extends cdk.Construct {
 
     // create a bucket resource with encryption and disable public access
     const resourceName = util.cap(props.bucketprops.label);
+    let bucketEncryption = s3.BucketEncryption.KMS_MANAGED;
+    if (props.bucketprops.encryption === 'KMS') {
+      bucketEncryption = s3.BucketEncryption.KMS;
+    }
+    if (props.bucketprops.encryption === 'S3_MANAGED') {
+      bucketEncryption = s3.BucketEncryption.S3_MANAGED;
+    }
     const getMeABucket = new s3.Bucket(this, 'Bucket', {
       blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
-      encryption: s3.BucketEncryption.KMS_MANAGED,
+      encryption: bucketEncryption,
     });
 
     this.bucket = getMeABucket;
