@@ -8,17 +8,13 @@ import sampleLakeformationAdminGroup from './sample-lakeformation-admin-group.js
 const branchEnv = util.mapBranchToEnvironment().trim();
 
 const baseprops = {
-  buildUrl: 'nope',
-  costprops: {
-    env: branchEnv,
-    owner: 'Mrs Creosote',
-    product: 'sptn',
-  },
+  app: 'sptn',
+  buildId: 'nope',
+  createdBy: 'Xerxes',
   description: 'Stop Plate Tectonics Now',
   env: branchEnv,
-  label: 'log',
-  owner: 'alfred smithee',
-  product: 'sptn',
+  label: 'LakeAdmins',
+  group: 'alfred smithee',
   source: 'git',
 };
 

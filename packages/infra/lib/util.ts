@@ -3,33 +3,19 @@ import { execSync } from 'child_process';
 
 // functions
 
-export interface IMyNameTags {
-  foo: string;
-  bar: string;
-  name: string;
-}
-
-export interface ICostProps {
+export interface IDefaultTags {
   /**
-   * The Product environment
+   * The application or service.
    * @attribute
    */
-  env: string;
+  app: string;
 
   /**
-   * The Product Owner
+   * The app resource creator
    * @attribute
    */
-  owner: string;
+  createdBy?: string;
 
-  /**
-   * The Product, aka app or service.
-   * @attribute
-   */
-  product: string;
-}
-
-export interface IDefaultProps {
   /**
    * The Product description.
    * @attribute
@@ -43,30 +29,36 @@ export interface IDefaultProps {
   env: string;
 
   /**
-   * The Product Owner
+   * The Product Group
    * @attribute
    */
-  owner: string;
+  group: string;
 
   /**
-   * The Product, aka app or service.
+   * The tag prefix.
    * @attribute
    */
-  product: string;
+  tagPrefix?: string;
+
+  /**
+   * The tag version.
+   * @attribute
+   */
+  tagVersion?: string;
 }
 
-export interface IIACProps extends IDefaultProps {
+export interface IIACProps extends IDefaultTags {
   /**
-   * build url, you're automating right?
+   * build id, you're automating right?
    * @attribute
    */
-  buildUrl: string;
+  buildId: string;
 
   /**
-   * git repo product source
+   * source code
    * @attribute
    */
-  source: string;
+  source?: string;
 }
 
 export interface IBaseProps extends IIACProps {
@@ -75,7 +67,6 @@ export interface IBaseProps extends IIACProps {
    * @attribute
    */
   label: string;
-  readonly costprops: ICostProps;
 }
 
 export interface IBaseStackProps extends cdk.StackProps {
@@ -97,18 +88,21 @@ export interface IResourceProps extends IBaseProps {
 // standard tagged iac stack
 export class BaseStack extends cdk.Stack {
   protected readonly baseprops: IBaseProps;
-  protected readonly costprops: ICostProps;
   constructor(scope: cdk.Construct, props: IBaseStackProps) {
     super(scope, makeStackName(props!.baseprops), props);
     this.baseprops = props.baseprops;
-    cdk.Tag.add(scope, 'buildUrl', this.baseprops.buildUrl);
-    cdk.Tag.add(scope, 'env', this.baseprops.env);
-    cdk.Tag.add(scope, 'owner', this.baseprops.owner);
-    cdk.Tag.add(scope, 'product', this.baseprops.product);
-    cdk.Tag.add(scope, 'source', this.baseprops.source);
-    cdk.Tag.add(scope, 'cost:env', props.baseprops.costprops.env);
-    cdk.Tag.add(scope, 'cost:owner', props.baseprops.costprops.owner);
-    cdk.Tag.add(scope, 'cost:product', props.baseprops.costprops.product);
+    const build = this.baseprops.buildId ? this.baseprops.buildId : '';
+    const creator = this.baseprops.createdBy ? this.baseprops.createdBy : '';
+    const prefix = this.baseprops.tagPrefix ? this.baseprops.tagPrefix : '';
+    const source = this.baseprops.source ? this.baseprops.source : '';
+    const version = this.baseprops.tagVersion ? this.baseprops.tagVersion : '0.0';
+    cdk.Tag.add(scope, prefix + 'app', this.baseprops.app);
+    cdk.Tag.add(scope, prefix + 'buildId', this.baseprops.buildId);
+    cdk.Tag.add(scope, prefix + 'createdBy', creator);
+    cdk.Tag.add(scope, prefix + 'env', this.baseprops.env);
+    cdk.Tag.add(scope, prefix + 'group', this.baseprops.group);
+    cdk.Tag.add(scope, prefix + 'source', source);
+    cdk.Tag.add(scope, prefix + 'tagVersion', version);
   }
 }
 export function makeBrand() {
@@ -116,7 +110,7 @@ export function makeBrand() {
 }
 
 export function makeStackName(props: IBaseProps) {
-  return props.product + cap(props.env) + cap(props.label);
+  return props.app + cap(props.env) + cap(props.label);
 }
 
 export function toUpperCase(str: string): string {
@@ -128,7 +122,7 @@ export function cap(word: string) {
 }
 
 export function makeExportName(props: IResourceProps) {
-  return props.product + cap(props.env) + cap(props.label) + cap(props.type);
+  return props.app + cap(props.env) + cap(props.label) + cap(props.type);
 }
 
 export function makeResourceName(prefix: string, name: string, postfix: string, separator: string) {

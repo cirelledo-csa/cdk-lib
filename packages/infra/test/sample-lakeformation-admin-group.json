@@ -1,201 +1,197 @@
 {
   "junk2": {
-  "Resources": {
-    "sptnProdLakeAdminsWorkFlowRole5A26F7E5": {
-      "Type": "AWS::IAM::Role",
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "glue.amazonaws.com"
+    "Resources": {
+      "sptnProdLakeAdminsWorkFlowRole5A26F7E5": {
+        "Type": "AWS::IAM::Role",
+        "Properties": {
+          "AssumeRolePolicyDocument": {
+            "Statement": [
+              {
+                "Action": "sts:AssumeRole",
+                "Effect": "Allow",
+                "Principal": {
+                  "Service": "glue.amazonaws.com"
+                }
               }
-            }
-          ],
-          "Version": "2012-10-17"
-        },
-        "ManagedPolicyArns": [
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition"
-                },
-                ":iam::aws:policy/service-role/AWSGlueServiceRole"
-              ]
-            ]
-          }
-        ],
-        "Tags": [
-          {
-            "Key": "buildUrl",
-            "Value": "nope"
+            ],
+            "Version": "2012-10-17"
           },
-          {
-            "Key": "env",
-            "Value": "prod"
-          },
-          {
-            "Key": "owner",
-            "Value": "alfred smithee"
-          },
-          {
-            "Key": "product",
-            "Value": "sptn"
-          },
-          {
-            "Key": "source",
-            "Value": "git"
-          },
-          {
-            "Key": "cost:env",
-            "Value": "prod"
-          },
-          {
-            "Key": "cost:owner",
-            "Value": "Mrs Creosote"
-          },
-          {
-            "Key": "cost:product",
-            "Value": "sptn"
-          }
-        ]
-      }
-    },
-    "sptnProdLakeAdminsWorkFlowRoleDefaultPolicyD80877F7": {
-      "Type": "AWS::IAM::Policy",
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
+          "ManagedPolicyArns": [
             {
-              "Action": [
-                "lakeformation:GetDataAccess",
-                "lakeformation:GrantPermissions"
-              ],
-              "Effect": "Allow",
-              "Resource": "*"
-            },
-            {
-              "Action": "iam:PassRole",
-              "Effect": "Allow",
-              "Resource": {
-                "Fn::GetAtt": [
-                  "sptnProdLakeAdminsWorkFlowRole5A26F7E5",
-                  "Arn"
+              "Fn::Join": [
+                "",
+                [
+                  "arn:",
+                  {
+                    "Ref": "AWS::Partition"
+                  },
+                  ":iam::aws:policy/service-role/AWSGlueServiceRole"
                 ]
-              }
+              ]
             }
           ],
-          "Version": "2012-10-17"
-        },
-        "PolicyName": "sptnProdLakeAdminsWorkFlowRoleDefaultPolicyD80877F7",
-        "Roles": [
-          {
-            "Ref": "sptnProdLakeAdminsWorkFlowRole5A26F7E5"
-          }
-        ]
-      }
-    },
-    "sptnProdLakeAdminsA8123AD1": {
-      "Type": "AWS::IAM::Group",
-      "Properties": {
-        "ManagedPolicyArns": [
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition"
-                },
-                ":iam::aws:policy/AWSGlueConsoleFullAccess"
-              ]
-            ]
+          "Tags": [
+            {
+              "Key": "app",
+              "Value": "sptn"
+            },
+            {
+              "Key": "buildId",
+              "Value": "nope"
+            },
+            {
+              "Key": "createdBy",
+              "Value": ""
+            },
+            {
+              "Key": "env",
+              "Value": "prod"
+            },
+            {
+              "Key": "group",
+              "Value": "Monty Python"
+            },
+            {
+              "Key": "source",
+              "Value": "git"
+            },
+            {
+              "Key": "tagVersion",
+              "Value": "0.0"
+            }
+          ]
+        }
+      },
+      "sptnProdLakeAdminsWorkFlowRoleDefaultPolicyD80877F7": {
+        "Type": "AWS::IAM::Policy",
+        "Properties": {
+          "PolicyDocument": {
+            "Statement": [
+              {
+                "Action": [
+                  "lakeformation:GetDataAccess",
+                  "lakeformation:GrantPermissions"
+                ],
+                "Effect": "Allow",
+                "Resource": "*"
+              },
+              {
+                "Action": "iam:PassRole",
+                "Effect": "Allow",
+                "Resource": {
+                  "Fn::GetAtt": [
+                    "sptnProdLakeAdminsWorkFlowRole5A26F7E5",
+                    "Arn"
+                  ]
+                }
+              }
+            ],
+            "Version": "2012-10-17"
           },
-          {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition"
-                },
-                ":iam::aws:policy/AmazonAthenaFullAccess"
+          "PolicyName": "sptnProdLakeAdminsWorkFlowRoleDefaultPolicyD80877F7",
+          "Roles": [
+            {
+              "Ref": "sptnProdLakeAdminsWorkFlowRole5A26F7E5"
+            }
+          ]
+        }
+      },
+      "sptnProdLakeAdminsA8123AD1": {
+        "Type": "AWS::IAM::Group",
+        "Properties": {
+          "ManagedPolicyArns": [
+            {
+              "Fn::Join": [
+                "",
+                [
+                  "arn:",
+                  {
+                    "Ref": "AWS::Partition"
+                  },
+                  ":iam::aws:policy/AWSGlueConsoleFullAccess"
+                ]
               ]
-            ]
-          }
-        ]
+            },
+            {
+              "Fn::Join": [
+                "",
+                [
+                  "arn:",
+                  {
+                    "Ref": "AWS::Partition"
+                  },
+                  ":iam::aws:policy/AmazonAthenaFullAccess"
+                ]
+              ]
+            }
+          ]
+        }
+      },
+      "sptnProdLakeAdminsDefaultPolicy0E34A4F6": {
+        "Type": "AWS::IAM::Policy",
+        "Properties": {
+          "PolicyDocument": {
+            "Statement": [
+              {
+                "Action": [
+                  "lakeformation:*",
+                  "cloudtrail:DescribeTrails",
+                  "cloudtrail:LookupEvents",
+                  "iam:PutRolePolicy",
+                  "iam:CreateServiceLinkedRole"
+                ],
+                "Effect": "Allow",
+                "Resource": "*"
+              },
+              {
+                "Action": "lakeformation:PutDataLakeSettings",
+                "Effect": "Deny",
+                "Resource": "*"
+              },
+              {
+                "Action": "iam:PassRole",
+                "Effect": "Allow",
+                "Resource": {
+                  "Fn::GetAtt": [
+                    "sptnProdLakeAdminsWorkFlowRole5A26F7E5",
+                    "Arn"
+                  ]
+                }
+              }
+            ],
+            "Version": "2012-10-17"
+          },
+          "PolicyName": "sptnProdLakeAdminsDefaultPolicy0E34A4F6",
+          "Groups": [
+            {
+              "Ref": "sptnProdLakeAdminsA8123AD1"
+            }
+          ]
+        }
       }
     },
-    "sptnProdLakeAdminsDefaultPolicy0E34A4F6": {
-      "Type": "AWS::IAM::Policy",
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "lakeformation:*",
-                "cloudtrail:DescribeTrails",
-                "cloudtrail:LookupEvents",
-                "iam:PutRolePolicy",
-                "iam:CreateServiceLinkedRole"
-              ],
-              "Effect": "Allow",
-              "Resource": "*"
-            },
-            {
-              "Action": "lakeformation:PutDataLakeSettings",
-              "Effect": "Deny",
-              "Resource": "*"
-            },
-            {
-              "Action": "iam:PassRole",
-              "Effect": "Allow",
-              "Resource": {
-                "Fn::GetAtt": [
-                  "sptnProdLakeAdminsWorkFlowRole5A26F7E5",
-                  "Arn"
-                ]
-              }
-            }
-          ],
-          "Version": "2012-10-17"
+    "Outputs": {
+      "sptnProdLakeAdminsWorkFlowRoleArnE2EA652A": {
+        "Value": {
+          "Fn::GetAtt": [
+            "sptnProdLakeAdminsWorkFlowRole5A26F7E5",
+            "Arn"
+          ]
         },
-        "PolicyName": "sptnProdLakeAdminsDefaultPolicy0E34A4F6",
-        "Groups": [
-          {
-            "Ref": "sptnProdLakeAdminsA8123AD1"
-          }
-        ]
+        "Export": {
+          "Name": "sptnProdLakeAdminsWorkFlowRoleArn"
+        }
+      },
+      "sptnProdLakeAdminsWorkFlowRoleName8E373675": {
+        "Value": {
+          "Ref": "sptnProdLakeAdminsWorkFlowRole5A26F7E5"
+        },
+        "Export": {
+          "Name": "sptnProdLakeAdminsWorkFlowRoleName"
+        }
       }
     }
   },
-  "Outputs": {
-    "sptnProdLakeAdminsWorkFlowRoleArnE2EA652A": {
-      "Value": {
-        "Fn::GetAtt": [
-          "sptnProdLakeAdminsWorkFlowRole5A26F7E5",
-          "Arn"
-        ]
-      },
-      "Export": {
-        "Name": "sptnProdLakeAdminsWorkFlowRoleArn"
-      }
-    },
-    "sptnProdLakeAdminsWorkFlowRoleName8E373675": {
-      "Value": {
-        "Ref": "sptnProdLakeAdminsWorkFlowRole5A26F7E5"
-      },
-      "Export": {
-        "Name": "sptnProdLakeAdminsWorkFlowRoleName"
-      }
-    }
-  }
-},
   "junk": {
     "Resources": {
       "workFlowRole02EDE8BD": {

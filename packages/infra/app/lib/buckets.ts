@@ -49,7 +49,7 @@ export class Buckets extends util.BaseStack {
         description: 'application logging',
         label: 'logs',
         log_bucket_name: '',
-        owner: props.baseprops.owner,
+        owner: props.baseprops.group,
         security_level: '1',
         zone: 'log',
       },
