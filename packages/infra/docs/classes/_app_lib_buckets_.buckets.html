@@ -86,6 +86,7 @@
 				<h3>Implements</h3>
 				<ul class="tsd-hierarchy">
 					<li><span class="tsd-signature-type">IConstruct</span></li>
+					<li><span class="tsd-signature-type">IConstruct</span></li>
 					<li><span class="tsd-signature-type">ITaggable</span></li>
 				</ul>
 			</section>
@@ -107,7 +108,6 @@
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_app_lib_buckets_.buckets.html#baseprops" class="tsd-kind-icon">baseprops</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_app_lib_buckets_.buckets.html#bucketsarndict" class="tsd-kind-icon">buckets<wbr>Arn<wbr>Dict</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_app_lib_buckets_.buckets.html#bucketsarnlist" class="tsd-kind-icon">buckets<wbr>Arn<wbr>List</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_app_lib_buckets_.buckets.html#costprops" class="tsd-kind-icon">costprops</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_app_lib_buckets_.buckets.html#environment" class="tsd-kind-icon">environment</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_app_lib_buckets_.buckets.html#labeledbuckets" class="tsd-kind-icon">labeled<wbr>Buckets</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_app_lib_buckets_.buckets.html#nestedstackresource" class="tsd-kind-icon">nested<wbr>Stack<wbr>Resource</a></li>
@@ -144,6 +144,9 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_app_lib_buckets_.buckets.html#allocatelogicalid" class="tsd-kind-icon">allocate<wbr>Logical<wbr>Id</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_app_lib_buckets_.buckets.html#formatarn" class="tsd-kind-icon">format<wbr>Arn</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_app_lib_buckets_.buckets.html#getlogicalid" class="tsd-kind-icon">get<wbr>Logical<wbr>Id</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-protected"><a href="_app_lib_buckets_.buckets.html#onprepare" class="tsd-kind-icon">on<wbr>Prepare</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-protected"><a href="_app_lib_buckets_.buckets.html#onsynthesize" class="tsd-kind-icon">on<wbr>Synthesize</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-protected"><a href="_app_lib_buckets_.buckets.html#onvalidate" class="tsd-kind-icon">on<wbr>Validate</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_app_lib_buckets_.buckets.html#parsearn" class="tsd-kind-icon">parse<wbr>Arn</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-protected"><a href="_app_lib_buckets_.buckets.html#prepare" class="tsd-kind-icon">prepare</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_app_lib_buckets_.buckets.html#preparecrossreference" class="tsd-kind-icon">prepare<wbr>Cross<wbr>Reference</a></li>
@@ -175,7 +178,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/ucopacme/cdk-lib/blob/2b0ece5/packages/infra/app/lib/buckets.ts#L33">app/lib/buckets.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/ucopacme/cdk-lib/blob/89b6e94/packages/infra/app/lib/buckets.ts#L33">app/lib/buckets.ts:33</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -249,7 +252,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#baseprops">baseprops</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/ucopacme/cdk-lib/blob/2b0ece5/packages/infra/lib/util.ts#L99">lib/util.ts:99</a></li>
+							<li>Defined in <a href="https://github.com/ucopacme/cdk-lib/blob/89b6e94/packages/infra/lib/util.ts#L90">lib/util.ts:90</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -259,7 +262,7 @@
 					<div class="tsd-signature tsd-kind-icon">buckets<wbr>Arn<wbr>Dict<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_app_lib_buckets_.ibuckethash.html" class="tsd-signature-type">IBucketHash</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ucopacme/cdk-lib/blob/2b0ece5/packages/infra/app/lib/buckets.ts#L32">app/lib/buckets.ts:32</a></li>
+							<li>Defined in <a href="https://github.com/ucopacme/cdk-lib/blob/89b6e94/packages/infra/app/lib/buckets.ts#L32">app/lib/buckets.ts:32</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -269,18 +272,7 @@
 					<div class="tsd-signature tsd-kind-icon">buckets<wbr>Arn<wbr>List<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ucopacme/cdk-lib/blob/2b0ece5/packages/infra/app/lib/buckets.ts#L31">app/lib/buckets.ts:31</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-					<a name="costprops" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> costprops</h3>
-					<div class="tsd-signature tsd-kind-icon">costprops<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_lib_util_.icostprops.html" class="tsd-signature-type">ICostProps</a></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#costprops">costprops</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/ucopacme/cdk-lib/blob/2b0ece5/packages/infra/lib/util.ts#L100">lib/util.ts:100</a></li>
+							<li>Defined in <a href="https://github.com/ucopacme/cdk-lib/blob/89b6e94/packages/infra/app/lib/buckets.ts#L31">app/lib/buckets.ts:31</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -314,7 +306,7 @@
 					<div class="tsd-signature tsd-kind-icon">labeled<wbr>Buckets<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_app_lib_buckets_.ilabeledbucketprops.html" class="tsd-signature-type">ILabeledBucketProps</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ucopacme/cdk-lib/blob/2b0ece5/packages/infra/app/lib/buckets.ts#L33">app/lib/buckets.ts:33</a></li>
+							<li>Defined in <a href="https://github.com/ucopacme/cdk-lib/blob/89b6e94/packages/infra/app/lib/buckets.ts#L33">app/lib/buckets.ts:33</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -346,12 +338,12 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#node">node</a></p>
 						<ul>
-							<li>Defined in node_modules/@aws-cdk/core/lib/construct.d.ts:234</li>
+							<li>Defined in node_modules/@aws-cdk/core/lib/construct-compat.d.ts:52</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Construct tree node which offers APIs for interacting with the construct tree.</p>
+							<p>The construct tree node associated with this construct.</p>
 						</div>
 					</div>
 				</section>
@@ -987,6 +979,97 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-protected">
+					<a name="onprepare" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> on<wbr>Prepare</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Prepare<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#onprepare">onPrepare</a></p>
+								<p>Overrides Construct.onPrepare</p>
+								<ul>
+									<li>Defined in node_modules/@aws-cdk/core/lib/construct-compat.d.ts:73</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Perform final modifications before synthesis</p>
+								</div>
+								<p>This method can be implemented by derived constructs in order to perform
+									final changes before synthesis. prepare() will be called after child
+								constructs have been prepared.</p>
+								<p>This is an advanced framework feature. Only use this if you
+								understand the implications.</p>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-protected">
+					<a name="onsynthesize" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> on<wbr>Synthesize</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Synthesize<span class="tsd-signature-symbol">(</span>session<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ISynthesisSession</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#onsynthesize">onSynthesize</a></p>
+								<p>Overrides Construct.onSynthesize</p>
+								<ul>
+									<li>Defined in node_modules/@aws-cdk/core/lib/construct-compat.d.ts:82</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Allows this construct to emit artifacts into the cloud assembly during synthesis.</p>
+								</div>
+								<p>This method is usually implemented by framework-level constructs such as <code>Stack</code> and <code>Asset</code>
+								as they participate in synthesizing the cloud assembly.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>session: <span class="tsd-signature-type">ISynthesisSession</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The synthesis session.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-protected">
+					<a name="onvalidate" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> on<wbr>Validate</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Validate<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#onvalidate">onValidate</a></p>
+								<p>Overrides Construct.onValidate</p>
+								<ul>
+									<li>Defined in node_modules/@aws-cdk/core/lib/construct-compat.d.ts:62</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Validate the current construct.</p>
+								</div>
+								<p>This method can be implemented by derived constructs in order to perform
+								validation logic. It is called on all constructs before synthesis.</p>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
+							<p>An array of validation error messages, or an empty array if there the construct is valid.</p>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="parsearn" class="tsd-anchor"></a>
 					<h3>parse<wbr>Arn</h3>
@@ -1278,7 +1361,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#tostring">toString</a></p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/construct.d.ts:247</li>
+									<li>Defined in node_modules/constructs/lib/construct.d.ts:237</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1301,7 +1384,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#validate">validate</a></p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/construct.d.ts:256</li>
+									<li>Defined in node_modules/@aws-cdk/core/lib/construct-compat.d.ts:91</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1327,7 +1410,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#isconstruct">isConstruct</a></p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/construct.d.ts:230</li>
+									<li>Defined in node_modules/@aws-cdk/core/lib/construct-compat.d.ts:48</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1418,46 +1501,46 @@
 					<li class="label tsd-is-external">
 						<span>Internals</span>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class=" tsd-kind-module">
 						<a href="../modules/_app_app_.html">&quot;app/app&quot;</a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class="current tsd-kind-module">
 						<a href="../modules/_app_lib_buckets_.html">&quot;app/lib/buckets&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class=" tsd-kind-module">
 						<a href="../modules/_lib_index_.html">&quot;lib/index&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class=" tsd-kind-module">
 						<a href="../modules/_lib_lakeformationadmingroup_.html">&quot;lib/lakeformation<wbr>Admin<wbr>Group&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class=" tsd-kind-module">
 						<a href="../modules/_lib_lakeformationanalystgroup_.html">&quot;lib/lakeformation<wbr>Analyst<wbr>Group&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class=" tsd-kind-module">
 						<a href="../modules/_lib_s3_.html">&quot;lib/s3&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class=" tsd-kind-module">
 						<a href="../modules/_lib_util_.html">&quot;lib/util&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class=" tsd-kind-module">
 						<a href="../modules/_test_admin_group_test_.html">&quot;test/admin-<wbr>group.test&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class=" tsd-kind-module">
 						<a href="../modules/_test_analyst_group_test_.html">&quot;test/analyst-<wbr>group.test&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class=" tsd-kind-module">
 						<a href="../modules/_test_bucket_test_.html">&quot;test/bucket.test&quot;</a>
 					</li>
 					<li class="label tsd-is-external">
 						<span>Externals</span>
 					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
+					<li class=" tsd-kind-module tsd-is-external">
 						<a href="../modules/_test_config_.html">&quot;test/config&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
+					<li class=" tsd-kind-module tsd-is-external">
 						<a href="../modules/_test_sample_bucket_.html">&quot;test/sample-<wbr>bucket&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
+					<li class=" tsd-kind-module tsd-is-external">
 						<a href="../modules/_test_sample_lakeformation_admin_group_.html">&quot;test/sample-<wbr>lakeformation-<wbr>admin-<wbr>group&quot;</a>
 					</li>
 				</ul>
@@ -1466,7 +1549,7 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class tsd-parent-kind-external-module">
+					<li class="current tsd-kind-class tsd-parent-kind-module">
 						<a href="_app_lib_buckets_.buckets.html" class="tsd-kind-icon">Buckets</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
@@ -1486,9 +1569,6 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_app_lib_buckets_.buckets.html#bucketsarnlist" class="tsd-kind-icon">buckets<wbr>Arn<wbr>List</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-								<a href="_app_lib_buckets_.buckets.html#costprops" class="tsd-kind-icon">costprops</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="_app_lib_buckets_.buckets.html#environment" class="tsd-kind-icon">environment</a>
@@ -1568,6 +1648,15 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_app_lib_buckets_.buckets.html#getlogicalid" class="tsd-kind-icon">get<wbr>Logical<wbr>Id</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-protected">
+								<a href="_app_lib_buckets_.buckets.html#onprepare" class="tsd-kind-icon">on<wbr>Prepare</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-protected">
+								<a href="_app_lib_buckets_.buckets.html#onsynthesize" class="tsd-kind-icon">on<wbr>Synthesize</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-protected">
+								<a href="_app_lib_buckets_.buckets.html#onvalidate" class="tsd-kind-icon">on<wbr>Validate</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_app_lib_buckets_.buckets.html#parsearn" class="tsd-kind-icon">parse<wbr>Arn</a>
 							</li>
@@ -1611,25 +1700,25 @@
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="../interfaces/_app_lib_buckets_.ibuckethash.html" class="tsd-kind-icon">IBucket<wbr>Hash</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="../interfaces/_app_lib_buckets_.ilabeledbucketprops.html" class="tsd-kind-icon">ILabeled<wbr>Bucket<wbr>Props</a>
 					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
+					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
 						<a href="../modules/_app_lib_buckets_.html#databucket" class="tsd-kind-icon">Data<wbr>Bucket</a>
 					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
+					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
 						<a href="../modules/_app_lib_buckets_.html#cdk" class="tsd-kind-icon">cdk</a>
 					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
+					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
 						<a href="../modules/_app_lib_buckets_.html#iam" class="tsd-kind-icon">iam</a>
 					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
+					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
 						<a href="../modules/_app_lib_buckets_.html#s3" class="tsd-kind-icon">s3</a>
 					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
+					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
 						<a href="../modules/_app_lib_buckets_.html#util" class="tsd-kind-icon">util</a>
 					</li>
 				</ul>
@@ -1642,57 +1731,21 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
-				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
 				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
 				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
-				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
-				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
-				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
-				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
-				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
-				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
-				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
 				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
 				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
-				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 			</ul>
 		</div>
 	</div>
