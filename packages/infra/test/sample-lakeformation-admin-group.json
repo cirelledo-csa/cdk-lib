@@ -41,7 +41,7 @@
             },
             {
               "Key": "createdBy",
-              "Value": ""
+              "Value": "null"
             },
             {
               "Key": "env",
