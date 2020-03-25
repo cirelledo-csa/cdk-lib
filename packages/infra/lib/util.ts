@@ -93,7 +93,7 @@ export class BaseStack extends cdk.Stack {
     this.baseprops = props.baseprops;
     const build = this.baseprops.buildId ? this.baseprops.buildId : 'null';
     const creator = this.baseprops.createdBy ? this.baseprops.createdBy : 'null';
-    const prefix = this.baseprops.tagPrefix ? this.baseprops.tagPrefix : '';
+    const prefix = this.baseprops.tagPrefix ? this.baseprops.tagPrefix : 'ucop:';
     const source = this.baseprops.source ? this.baseprops.source : 'null';
     const version = this.baseprops.tagVersion ? this.baseprops.tagVersion : '0.0';
     cdk.Tag.add(scope, prefix + 'app', this.baseprops.app);

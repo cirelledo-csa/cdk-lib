@@ -32,31 +32,31 @@
           ],
           "Tags": [
             {
-              "Key": "app",
+              "Key": "ucop:app",
               "Value": "sptn"
             },
             {
-              "Key": "buildId",
+              "Key": "ucop:buildId",
               "Value": "nope"
             },
             {
-              "Key": "createdBy",
+              "Key": "ucop:createdBy",
               "Value": "null"
             },
             {
-              "Key": "env",
+              "Key": "ucop:env",
               "Value": "prod"
             },
             {
-              "Key": "group",
+              "Key": "ucop:group",
               "Value": "Monty Python"
             },
             {
-              "Key": "source",
+              "Key": "ucop:source",
               "Value": "git"
             },
             {
-              "Key": "tagVersion",
+              "Key": "ucop:tagVersion",
               "Value": "0.0"
             }
           ]
