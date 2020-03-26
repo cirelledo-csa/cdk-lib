@@ -1,197 +1,201 @@
 {
   "junk2": {
-    "Resources": {
-      "sptnProdLakeAdminsWorkFlowRole5A26F7E5": {
-        "Type": "AWS::IAM::Role",
-        "Properties": {
-          "AssumeRolePolicyDocument": {
-            "Statement": [
-              {
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Principal": {
-                  "Service": "glue.amazonaws.com"
-                }
-              }
-            ],
-            "Version": "2012-10-17"
-          },
-          "ManagedPolicyArns": [
+  "Resources": {
+    "sptnProdLakeAdminsWorkFlowRole5A26F7E5": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
             {
-              "Fn::Join": [
-                "",
-                [
-                  "arn:",
-                  {
-                    "Ref": "AWS::Partition"
-                  },
-                  ":iam::aws:policy/service-role/AWSGlueServiceRole"
-                ]
-              ]
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "glue.amazonaws.com"
+              }
             }
           ],
-          "Tags": [
-            {
-              "Key": "ucop:app",
-              "Value": "sptn"
-            },
-            {
-              "Key": "ucop:buildId",
-              "Value": "nope"
-            },
-            {
-              "Key": "ucop:createdBy",
-              "Value": "null"
-            },
-            {
-              "Key": "ucop:env",
-              "Value": "prod"
-            },
-            {
-              "Key": "ucop:group",
-              "Value": "Monty Python"
-            },
-            {
-              "Key": "ucop:source",
-              "Value": "git"
-            },
-            {
-              "Key": "ucop:tagVersion",
-              "Value": "0.0"
-            }
-          ]
-        }
-      },
-      "sptnProdLakeAdminsWorkFlowRoleDefaultPolicyD80877F7": {
-        "Type": "AWS::IAM::Policy",
-        "Properties": {
-          "PolicyDocument": {
-            "Statement": [
-              {
-                "Action": [
-                  "lakeformation:GetDataAccess",
-                  "lakeformation:GrantPermissions"
-                ],
-                "Effect": "Allow",
-                "Resource": "*"
-              },
-              {
-                "Action": "iam:PassRole",
-                "Effect": "Allow",
-                "Resource": {
-                  "Fn::GetAtt": [
-                    "sptnProdLakeAdminsWorkFlowRole5A26F7E5",
-                    "Arn"
-                  ]
-                }
-              }
-            ],
-            "Version": "2012-10-17"
-          },
-          "PolicyName": "sptnProdLakeAdminsWorkFlowRoleDefaultPolicyD80877F7",
-          "Roles": [
-            {
-              "Ref": "sptnProdLakeAdminsWorkFlowRole5A26F7E5"
-            }
-          ]
-        }
-      },
-      "sptnProdLakeAdminsA8123AD1": {
-        "Type": "AWS::IAM::Group",
-        "Properties": {
-          "ManagedPolicyArns": [
-            {
-              "Fn::Join": [
-                "",
-                [
-                  "arn:",
-                  {
-                    "Ref": "AWS::Partition"
-                  },
-                  ":iam::aws:policy/AWSGlueConsoleFullAccess"
-                ]
+          "Version": "2012-10-17"
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/service-role/AWSGlueServiceRole"
               ]
-            },
-            {
-              "Fn::Join": [
-                "",
-                [
-                  "arn:",
-                  {
-                    "Ref": "AWS::Partition"
-                  },
-                  ":iam::aws:policy/AmazonAthenaFullAccess"
-                ]
-              ]
-            }
-          ]
-        }
-      },
-      "sptnProdLakeAdminsDefaultPolicy0E34A4F6": {
-        "Type": "AWS::IAM::Policy",
-        "Properties": {
-          "PolicyDocument": {
-            "Statement": [
-              {
-                "Action": [
-                  "lakeformation:*",
-                  "cloudtrail:DescribeTrails",
-                  "cloudtrail:LookupEvents",
-                  "iam:PutRolePolicy",
-                  "iam:CreateServiceLinkedRole"
-                ],
-                "Effect": "Allow",
-                "Resource": "*"
-              },
-              {
-                "Action": "lakeformation:PutDataLakeSettings",
-                "Effect": "Deny",
-                "Resource": "*"
-              },
-              {
-                "Action": "iam:PassRole",
-                "Effect": "Allow",
-                "Resource": {
-                  "Fn::GetAtt": [
-                    "sptnProdLakeAdminsWorkFlowRole5A26F7E5",
-                    "Arn"
-                  ]
-                }
-              }
-            ],
-            "Version": "2012-10-17"
+            ]
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "ucop:application",
+            "Value": "sptn"
           },
-          "PolicyName": "sptnProdLakeAdminsDefaultPolicy0E34A4F6",
-          "Groups": [
-            {
-              "Ref": "sptnProdLakeAdminsA8123AD1"
-            }
-          ]
-        }
+          {
+            "Key": "ucop:buildId",
+            "Value": "nope"
+          },
+          {
+            "Key": "ucop:createdBy",
+            "Value": "null"
+          },
+          {
+            "Key": "ucop:environment",
+            "Value": "prod"
+          },
+          {
+            "Key": "ucop:group",
+            "Value": "Monty Python"
+          },
+          {
+            "Key": "ucop:owner",
+            "Value": "King Khalid"
+          },
+          {
+            "Key": "ucop:source",
+            "Value": "git"
+          },
+          {
+            "Key": "ucop:tagVersion",
+            "Value": "0.1"
+          }
+        ]
       }
     },
-    "Outputs": {
-      "sptnProdLakeAdminsWorkFlowRoleArnE2EA652A": {
-        "Value": {
-          "Fn::GetAtt": [
-            "sptnProdLakeAdminsWorkFlowRole5A26F7E5",
-            "Arn"
-          ]
+    "sptnProdLakeAdminsWorkFlowRoleDefaultPolicyD80877F7": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "lakeformation:GetDataAccess",
+                "lakeformation:GrantPermissions"
+              ],
+              "Effect": "Allow",
+              "Resource": "*"
+            },
+            {
+              "Action": "iam:PassRole",
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "sptnProdLakeAdminsWorkFlowRole5A26F7E5",
+                  "Arn"
+                ]
+              }
+            }
+          ],
+          "Version": "2012-10-17"
         },
-        "Export": {
-          "Name": "sptnProdLakeAdminsWorkFlowRoleArn"
-        }
-      },
-      "sptnProdLakeAdminsWorkFlowRoleName8E373675": {
-        "Value": {
-          "Ref": "sptnProdLakeAdminsWorkFlowRole5A26F7E5"
+        "PolicyName": "sptnProdLakeAdminsWorkFlowRoleDefaultPolicyD80877F7",
+        "Roles": [
+          {
+            "Ref": "sptnProdLakeAdminsWorkFlowRole5A26F7E5"
+          }
+        ]
+      }
+    },
+    "sptnProdLakeAdminsA8123AD1": {
+      "Type": "AWS::IAM::Group",
+      "Properties": {
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/AWSGlueConsoleFullAccess"
+              ]
+            ]
+          },
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/AmazonAthenaFullAccess"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "sptnProdLakeAdminsDefaultPolicy0E34A4F6": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "lakeformation:*",
+                "cloudtrail:DescribeTrails",
+                "cloudtrail:LookupEvents",
+                "iam:PutRolePolicy",
+                "iam:CreateServiceLinkedRole"
+              ],
+              "Effect": "Allow",
+              "Resource": "*"
+            },
+            {
+              "Action": "lakeformation:PutDataLakeSettings",
+              "Effect": "Deny",
+              "Resource": "*"
+            },
+            {
+              "Action": "iam:PassRole",
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "sptnProdLakeAdminsWorkFlowRole5A26F7E5",
+                  "Arn"
+                ]
+              }
+            }
+          ],
+          "Version": "2012-10-17"
         },
-        "Export": {
-          "Name": "sptnProdLakeAdminsWorkFlowRoleName"
-        }
+        "PolicyName": "sptnProdLakeAdminsDefaultPolicy0E34A4F6",
+        "Groups": [
+          {
+            "Ref": "sptnProdLakeAdminsA8123AD1"
+          }
+        ]
       }
     }
   },
+  "Outputs": {
+    "sptnProdLakeAdminsWorkFlowRoleArnE2EA652A": {
+      "Value": {
+        "Fn::GetAtt": [
+          "sptnProdLakeAdminsWorkFlowRole5A26F7E5",
+          "Arn"
+        ]
+      },
+      "Export": {
+        "Name": "sptnProdLakeAdminsWorkFlowRoleArn"
+      }
+    },
+    "sptnProdLakeAdminsWorkFlowRoleName8E373675": {
+      "Value": {
+        "Ref": "sptnProdLakeAdminsWorkFlowRole5A26F7E5"
+      },
+      "Export": {
+        "Name": "sptnProdLakeAdminsWorkFlowRoleName"
+      }
+    }
+  }
+},
   "junk": {
     "Resources": {
       "workFlowRole02EDE8BD": {

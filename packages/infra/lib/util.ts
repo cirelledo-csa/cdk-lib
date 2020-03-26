@@ -8,7 +8,7 @@ export interface IDefaultTags {
    * The application or service.
    * @attribute
    */
-  app: string;
+  application: string;
 
   /**
    * The app resource creator
@@ -26,13 +26,19 @@ export interface IDefaultTags {
    * The Product environment
    * @attribute
    */
-  env: string;
+  environment: string;
 
   /**
    * The Product Group
    * @attribute
    */
   group: string;
+
+  /**
+   * The Product owner
+   * @attribute
+   */
+  owner: string;
 
   /**
    * The tag prefix.
@@ -95,12 +101,13 @@ export class BaseStack extends cdk.Stack {
     const creator = this.baseprops.createdBy ? this.baseprops.createdBy : 'null';
     const prefix = this.baseprops.tagPrefix ? this.baseprops.tagPrefix : 'ucop:';
     const source = this.baseprops.source ? this.baseprops.source : 'null';
-    const version = this.baseprops.tagVersion ? this.baseprops.tagVersion : '0.0';
-    cdk.Tag.add(scope, prefix + 'app', this.baseprops.app);
+    const version = this.baseprops.tagVersion ? this.baseprops.tagVersion : '0.1';
+    cdk.Tag.add(scope, prefix + 'application', this.baseprops.application);
     cdk.Tag.add(scope, prefix + 'buildId', this.baseprops.buildId);
     cdk.Tag.add(scope, prefix + 'createdBy', creator);
-    cdk.Tag.add(scope, prefix + 'env', this.baseprops.env);
+    cdk.Tag.add(scope, prefix + 'environment', this.baseprops.environment);
     cdk.Tag.add(scope, prefix + 'group', this.baseprops.group);
+    cdk.Tag.add(scope, prefix + 'owner', this.baseprops.owner);
     cdk.Tag.add(scope, prefix + 'source', source);
     cdk.Tag.add(scope, prefix + 'tagVersion', version);
   }
@@ -110,7 +117,7 @@ export function makeBrand() {
 }
 
 export function makeStackName(props: IBaseProps) {
-  return props.app + cap(props.env) + cap(props.label);
+  return props.application + cap(props.environment) + cap(props.label);
 }
 
 export function toUpperCase(str: string): string {
@@ -122,7 +129,7 @@ export function cap(word: string) {
 }
 
 export function makeExportName(props: IResourceProps) {
-  return props.app + cap(props.env) + cap(props.label) + cap(props.type);
+  return props.application + cap(props.environment) + cap(props.label) + cap(props.type);
 }
 
 export function makeResourceName(prefix: string, name: string, postfix: string, separator: string) {

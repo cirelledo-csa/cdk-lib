@@ -8,11 +8,12 @@ import sampleLakeformationAdminGroup from './sample-lakeformation-admin-group.js
 const branchEnv = util.mapBranchToEnvironment().trim();
 
 const baseprops = {
-  app: 'sptn',
+  application: 'sptn',
   buildId: 'nope',
   description: 'Stop Plate Tectonics Now',
-  env: branchEnv,
+  environment: branchEnv,
   label: 'LakeAdmins',
+  owner: 'King Khalid',
   group: 'Monty Python',
   source: 'git',
 };

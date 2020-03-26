@@ -8,12 +8,13 @@ import sampleBucket from './sample-bucket.json';
 const branchEnv = util.mapBranchToEnvironment().trim();
 
 const baseprops = {
-  app: 'sptn',
+  application: 'sptn',
   buildId: 'nope',
   createdBy: 'Terry Jones',
   description: 'The Meaning of Life',
-  env: branchEnv,
+  environment: branchEnv,
   label: 'GetMeABucket',
+  owner: 'King Khalid',
   group: 'Monty Python',
   source: 'git',
 };

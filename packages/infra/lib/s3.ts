@@ -123,13 +123,14 @@ export class Bucket extends cdk.Construct {
     // output bucket name
     const e1 = new cdk.CfnOutput(this, 'BucketName', {
       exportName: util.makeExportName({
-        app: props.baseprops.app,
+        application: props.baseprops.application,
         buildId: props.baseprops.buildId,
         createdBy: props.baseprops.createdBy,
         description: props.baseprops.description,
-        env: props.baseprops.env,
+        environment: props.baseprops.environment,
         group: props.baseprops.group,
         label: props.baseprops.label,
+        owner: props.baseprops.owner,
         source: props.baseprops.source,
         type: resourceName + 'BucketName',
       }),
@@ -139,13 +140,14 @@ export class Bucket extends cdk.Construct {
     // output bucket arn
     const e2 = new cdk.CfnOutput(this, 'BucketArn', {
       exportName: util.makeExportName({
-        app: props.baseprops.app,
+        application: props.baseprops.application,
         buildId: props.baseprops.buildId,
         createdBy: props.baseprops.createdBy,
         description: props.baseprops.description,
-        env: props.baseprops.env,
+        environment: props.baseprops.environment,
         group: props.baseprops.group,
         label: props.baseprops.label,
+        owner: props.baseprops.owner,
         source: props.baseprops.source,
         type: resourceName + 'BucketArn',
       }),

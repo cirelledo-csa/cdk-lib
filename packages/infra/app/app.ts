@@ -8,13 +8,14 @@ import { Buckets } from './lib/buckets';
 const branchEnv = util.mapBranchToEnvironment().trim();
 
 const baseprops = {
-  app: 'sptn',
+  application: 'sptn',
   buildId: 'nope',
       createdBy: "alfred smithee",
   description: 'Stop Plate Tectonics Now',
-  env: branchEnv,
+  environment: branchEnv,
   group: 'montyPython',
   label: 'GetMeABucket',
+    owner: 'King Khalid',
   source: 'git',
 };
 
@@ -35,13 +36,14 @@ const myStackProps: util.IBaseStackProps = {
   description: 'Stop Plate Tectonics Now' + util.makeBrand(),
   env: stackEnv,
   baseprops: {
-    app: "sptn",
+    application: "sptn",
     buildId: 'https://google.com',
       createdBy: "alfred smithee",
     description: 'Stop Plate Tectonics Now',
-    env: branchEnv,
+    environment: branchEnv,
     group: 'Mr Creosote',
     label: 'Buckets',
+    owner: 'King Khalid',
     source: 'git',
   },
 };
