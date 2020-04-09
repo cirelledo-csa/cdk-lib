@@ -72,38 +72,103 @@
 				<a href="#example-useage-of-stack-tagging" id="example-useage-of-stack-tagging" style="color: inherit; text-decoration: none;">
 					<h1>Example useage of stack tagging</h1>
 				</a>
-				<pre><code class="language-ts">#!<span class="hljs-regexp">/usr/</span>bin/env node
-<span class="hljs-keyword">import</span> cdk = <span class="hljs-built_in">require</span>(<span class="hljs-string">"@aws-cdk/core"</span>);
-<span class="hljs-keyword">import</span> infra = <span class="hljs-built_in">require</span>(<span class="hljs-string">"@ucop-acme/aws-infra"</span>);
-<span class="hljs-keyword">import</span> <span class="hljs-string">"source-map-support/register"</span>;
-<span class="hljs-keyword">import</span> config <span class="hljs-keyword">from</span> <span class="hljs-string">"../config.json"</span>;
-<span class="hljs-keyword">import</span> { AppBase } <span class="hljs-keyword">from</span> <span class="hljs-string">"../lib/app-base"</span>;
+				<pre><code class="language-ts"><span class="hljs-keyword">import</span> cdk = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@aws-cdk/core'</span>);
+<span class="hljs-keyword">import</span> s3 = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../lib/s3'</span>);
+<span class="hljs-keyword">import</span> util = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../lib/util'</span>);
+<span class="hljs-keyword">import</span> params <span class="hljs-keyword">from</span> <span class="hljs-string">'../test/config.json'</span>;
+<span class="hljs-keyword">import</span> sampleBucket <span class="hljs-keyword">from</span> <span class="hljs-string">'../test/sample-bucket.json'</span>;
+<span class="hljs-keyword">import</span> { Buckets } <span class="hljs-keyword">from</span> <span class="hljs-string">'./lib/buckets'</span>;
 
-<span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> cdk.App();
-<span class="hljs-keyword">const</span> Infra = <span class="hljs-keyword">new</span> AppBase(app, <span class="hljs-string">"Infra"</span>);
-<span class="hljs-keyword">const</span> tags = config[<span class="hljs-string">`tags`</span>];
+<span class="hljs-keyword">const</span> branchEnv = util.mapBranchToEnvironment().trim();
 
-<span class="hljs-comment">/**
- * get the CODEBUILD_BUILD_URL environment variable
- */</span>
-<span class="hljs-keyword">const</span> codebuildUrl: <span class="hljs-built_in">string</span> = process.env.CODEBUILD_BUILD_URL || <span class="hljs-string">""</span>;
-
-<span class="hljs-comment">/**
- * create a IStackTagsProps dictionary
- */</span>
-<span class="hljs-keyword">const</span> props: infra.IStackTagsProps = {
-  buildUrl: codebuildUrl,
-  description: tags.Description,
-  env: infra.mapBranchToEnvironment(),
-  owner: tags.Owner,
-  product: tags.Product,
-  source: <span class="hljs-string">"https://git-codecommit.us-west-2.amazonaws.com/v1/repos/stpn"</span>
+<span class="hljs-keyword">const</span> baseprops = {
+  application: <span class="hljs-string">'sptn'</span>,
+  buildId: <span class="hljs-string">'nope'</span>,
+  createdBy: <span class="hljs-string">'alfred smithee'</span>,
+  description: <span class="hljs-string">'Stop Plate Tectonics Now'</span>,
+  environment: branchEnv,
+  group: <span class="hljs-string">'montyPython'</span>,
+  label: <span class="hljs-string">'GetMeABucket'</span>,
+  owner: <span class="hljs-string">'King Khalid'</span>,
+  source: <span class="hljs-string">'codecommit:us-west-2:012345678910:sptn'</span>,
 };
 
-<span class="hljs-comment">/**
- * tag stack with IStackTagsProps dictionary
- */</span>
-infra.tagStack(Infra, props);</code></pre>
+<span class="hljs-keyword">const</span> bucketprops = {
+  content: <span class="hljs-string">'magma'</span>,
+  description: <span class="hljs-string">'Super Hot Data From the Earth'</span>,
+  encryption: <span class="hljs-string">'KMS'</span>,
+  label: <span class="hljs-string">'sample'</span>,
+  log_bucket_name: <span class="hljs-string">'/dev/null'</span>,
+  owner: <span class="hljs-string">'Ms Creosote'</span>,
+  security_level: <span class="hljs-string">'1'</span>,
+  zone: <span class="hljs-string">'core'</span>,
+};
+
+<span class="hljs-keyword">const</span> stackEnv = { account: <span class="hljs-string">'012345678910'</span>, region: <span class="hljs-string">'us-east-2'</span> };
+
+<span class="hljs-keyword">const</span> myStackProps: util.IBaseStackProps = {
+  description: <span class="hljs-string">'Stop Plate Tectonics Now'</span> + util.makeBrand(),
+  env: stackEnv,
+  baseprops: {
+    application: <span class="hljs-string">'sptn'</span>,
+    buildId: <span class="hljs-string">'https://google.com'</span>,
+    createdBy: <span class="hljs-string">'alfred smithee'</span>,
+    description: <span class="hljs-string">'Stop Plate Tectonics Now'</span>,
+    environment: branchEnv,
+    group: <span class="hljs-string">'Mr Creosote'</span>,
+    label: <span class="hljs-string">'Buckets'</span>,
+    owner: <span class="hljs-string">'King Khalid'</span>,
+    source: <span class="hljs-string">'codecommit:us-west-2:012345678910:sptn'</span>,
+  },
+};
+
+<span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> cdk.App();
+<span class="hljs-comment">// add standard tags to all constructs in app</span>
+util.tagApp(app, myStackProps);
+<span class="hljs-keyword">const</span> stack = <span class="hljs-keyword">new</span> util.BaseStack(app, { description: baseprops.description + util.makeBrand(), baseprops });
+<span class="hljs-keyword">const</span> myBucket = <span class="hljs-keyword">new</span> s3.Bucket(stack, { baseprops, bucketprops });
+bucketprops.label = <span class="hljs-string">'other'</span>;
+<span class="hljs-keyword">const</span> myOtherBucket = <span class="hljs-keyword">new</span> s3.Bucket(stack, { baseprops, bucketprops });
+<span class="hljs-keyword">const</span> buckets = <span class="hljs-keyword">new</span> Buckets(app, myStackProps);</code></pre>
+				<p> This will create two stacks:</p>
+				<pre><code><span class="hljs-attribute">cdk ls
+sptnProdBuckets
+sptnProdGetMeABucket</span></code></pre><p>Notice that the generated templates contain standard tag meta:</p>
+				<pre><code>cat cdk.<span class="hljs-keyword">out</span>/manifest.json | jq <span class="hljs-string">'.artifacts.sptnProdGetMeABucket.metadata["/sptnProdGetMeABucket"][].data'</span>
+[<span class="hljs-meta">
+  {
+    <span class="hljs-meta-string">"Key"</span>: <span class="hljs-meta-string">"ucop:application"</span>,
+    <span class="hljs-meta-string">"Value"</span>: <span class="hljs-meta-string">"sptn"</span>
+  },
+  {
+    <span class="hljs-meta-string">"Key"</span>: <span class="hljs-meta-string">"ucop:buildId"</span>,
+    <span class="hljs-meta-string">"Value"</span>: <span class="hljs-meta-string">"https://google.com"</span>
+  },
+  {
+    <span class="hljs-meta-string">"Key"</span>: <span class="hljs-meta-string">"ucop:createdBy"</span>,
+    <span class="hljs-meta-string">"Value"</span>: <span class="hljs-meta-string">"alfred smithee"</span>
+  },
+  {
+    <span class="hljs-meta-string">"Key"</span>: <span class="hljs-meta-string">"ucop:environment"</span>,
+    <span class="hljs-meta-string">"Value"</span>: <span class="hljs-meta-string">"prod"</span>
+  },
+  {
+    <span class="hljs-meta-string">"Key"</span>: <span class="hljs-meta-string">"ucop:group"</span>,
+    <span class="hljs-meta-string">"Value"</span>: <span class="hljs-meta-string">"Mr Creosote"</span>
+  },
+  {
+    <span class="hljs-meta-string">"Key"</span>: <span class="hljs-meta-string">"ucop:owner"</span>,
+    <span class="hljs-meta-string">"Value"</span>: <span class="hljs-meta-string">"King Khalid"</span>
+  },
+  {
+    <span class="hljs-meta-string">"Key"</span>: <span class="hljs-meta-string">"ucop:source"</span>,
+    <span class="hljs-meta-string">"Value"</span>: <span class="hljs-meta-string">"codecommit:us-west-2:012345678910:sptn"</span>
+  },
+  {
+    <span class="hljs-meta-string">"Key"</span>: <span class="hljs-meta-string">"ucop:tagVersion"</span>,
+    <span class="hljs-meta-string">"Value"</span>: <span class="hljs-meta-string">"0.1"</span>
+  }
+</span>]</code></pre>
 				<a href="#tags-from-json-file" id="tags-from-json-file" style="color: inherit; text-decoration: none;">
 					<h1>Tags from json file:</h1>
 				</a>
