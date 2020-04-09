@@ -17,8 +17,10 @@
     "zone": "source"
   }],
   "tags": {
+    "Application": "sptn",
+    "CreatedBy": "alfred.smithee@email.stinks",
     "Description": "Stop Plate Tectonics Now",
-    "Owner": "alfred.smithee@email.stinks",
-    "Product": "sptn"
+    "Group": "AcmeGeo",
+    "Owner": "alfred.smithee@email.stinks"
   }
 }
