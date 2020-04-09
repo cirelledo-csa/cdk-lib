@@ -31,6 +31,7 @@ const bucketprops = {
 
 test('Bucket Created', () => {
   const app = new cdk.App();
+  util.tagApp(app, { baseprops });
   const stackName = util.makeStackName(baseprops);
   // WHEN
   const stack = new util.BaseStack(app, { baseprops });

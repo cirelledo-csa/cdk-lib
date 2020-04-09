@@ -21,6 +21,7 @@ const baseprops = {
 test('Admin Group Created', () => {
   // WHEN
   const app = new cdk.App();
+  util.tagApp(app, { baseprops });
   const stack = new util.BaseStack(app, { baseprops });
   const myAdminGroup = new lakeformationAdminGroup.LakeformationAdminGroup(stack, { baseprops });
   // THEN

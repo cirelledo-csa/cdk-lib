@@ -49,6 +49,7 @@ const myStackProps: util.IBaseStackProps = {
 };
 
 const app = new cdk.App();
+util.tagApp(app, { baseprops });
 const stack = new util.BaseStack(app, { description: baseprops.description + util.makeBrand(),baseprops });
 const myBucket = new s3.Bucket(stack, { baseprops, bucketprops });
 bucketprops.label = 'other';

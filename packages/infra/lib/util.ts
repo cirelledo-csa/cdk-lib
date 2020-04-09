@@ -96,22 +96,26 @@ export class BaseStack extends cdk.Stack {
   protected readonly baseprops: IBaseProps;
   constructor(scope: cdk.Construct, props: IBaseStackProps) {
     super(scope, makeStackName(props!.baseprops), props);
-    this.baseprops = props.baseprops;
-    const build = this.baseprops.buildId ? this.baseprops.buildId : 'null';
-    const creator = this.baseprops.createdBy ? this.baseprops.createdBy : 'null';
-    const prefix = this.baseprops.tagPrefix ? this.baseprops.tagPrefix : 'ucop:';
-    const source = this.baseprops.source ? this.baseprops.source : 'null';
-    const version = this.baseprops.tagVersion ? this.baseprops.tagVersion : '0.1';
-    cdk.Tag.add(scope, prefix + 'application', this.baseprops.application);
-    cdk.Tag.add(scope, prefix + 'buildId', this.baseprops.buildId);
-    cdk.Tag.add(scope, prefix + 'createdBy', creator);
-    cdk.Tag.add(scope, prefix + 'environment', this.baseprops.environment);
-    cdk.Tag.add(scope, prefix + 'group', this.baseprops.group);
-    cdk.Tag.add(scope, prefix + 'owner', this.baseprops.owner);
-    cdk.Tag.add(scope, prefix + 'source', source);
-    cdk.Tag.add(scope, prefix + 'tagVersion', version);
   }
 }
+
+export function tagApp(app: cdk.App, props: IBaseStackProps) {
+  const baseprops = props.baseprops;
+  const build = baseprops.buildId ? baseprops.buildId : 'null';
+  const creator = baseprops.createdBy ? baseprops.createdBy : 'null';
+  const prefix = baseprops.tagPrefix ? baseprops.tagPrefix : 'ucop:';
+  const source = baseprops.source ? baseprops.source : 'null';
+  const version = baseprops.tagVersion ? baseprops.tagVersion : '0.1';
+  cdk.Tag.add(app, prefix + 'application', baseprops.application);
+  cdk.Tag.add(app, prefix + 'buildId', baseprops.buildId);
+  cdk.Tag.add(app, prefix + 'createdBy', creator);
+  cdk.Tag.add(app, prefix + 'environment', baseprops.environment);
+  cdk.Tag.add(app, prefix + 'group', baseprops.group);
+  cdk.Tag.add(app, prefix + 'owner', baseprops.owner);
+  cdk.Tag.add(app, prefix + 'source', source);
+  cdk.Tag.add(app, prefix + 'tagVersion', version);
+}
+
 export function makeBrand() {
   return ' proudly built in Oakland, California with @ucop-acme/aws-infra';
 }
