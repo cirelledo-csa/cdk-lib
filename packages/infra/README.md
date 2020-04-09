@@ -5,39 +5,113 @@ Intended for use with codepipeline/codebuild
 # Example useage of stack tagging
 
  ```ts
-#!/usr/bin/env node
-import cdk = require("@aws-cdk/core");
-import infra = require("@ucop-acme/aws-infra");
-import "source-map-support/register";
-import config from "../config.json";
-import { AppBase } from "../lib/app-base";
+import cdk = require('@aws-cdk/core');
+import s3 = require('../lib/s3');
+import util = require('../lib/util');
+import params from '../test/config.json';
+import sampleBucket from '../test/sample-bucket.json';
+import { Buckets } from './lib/buckets';
 
-const app = new cdk.App();
-const Infra = new AppBase(app, "Infra");
-const tags = config[`tags`];
+const branchEnv = util.mapBranchToEnvironment().trim();
 
-/**
- * get the CODEBUILD_BUILD_URL environment variable
- */
-const codebuildUrl: string = process.env.CODEBUILD_BUILD_URL || "";
-
-/**
- * create a IStackTagsProps dictionary
- */
-const props: infra.IStackTagsProps = {
-  buildUrl: codebuildUrl,
-  description: tags.Description,
-  env: infra.mapBranchToEnvironment(),
-  owner: tags.Owner,
-  product: tags.Product,
-  source: "https://git-codecommit.us-west-2.amazonaws.com/v1/repos/stpn"
+const baseprops = {
+  application: 'sptn',
+  buildId: 'nope',
+  createdBy: 'alfred smithee',
+  description: 'Stop Plate Tectonics Now',
+  environment: branchEnv,
+  group: 'montyPython',
+  label: 'GetMeABucket',
+  owner: 'King Khalid',
+  source: 'codecommit:us-west-2:012345678910:sptn',
 };
 
-/**
- * tag stack with IStackTagsProps dictionary
- */
-infra.tagStack(Infra, props);
+const bucketprops = {
+  content: 'magma',
+  description: 'Super Hot Data From the Earth',
+  encryption: 'KMS',
+  label: 'sample',
+  log_bucket_name: '/dev/null',
+  owner: 'Ms Creosote',
+  security_level: '1',
+  zone: 'core',
+};
+
+const stackEnv = { account: '012345678910', region: 'us-east-2' };
+
+const myStackProps: util.IBaseStackProps = {
+  description: 'Stop Plate Tectonics Now' + util.makeBrand(),
+  env: stackEnv,
+  baseprops: {
+    application: 'sptn',
+    buildId: 'https://google.com',
+    createdBy: 'alfred smithee',
+    description: 'Stop Plate Tectonics Now',
+    environment: branchEnv,
+    group: 'Mr Creosote',
+    label: 'Buckets',
+    owner: 'King Khalid',
+    source: 'codecommit:us-west-2:012345678910:sptn',
+  },
+};
+
+const app = new cdk.App();
+// add standard tags to all constructs in app
+util.tagApp(app, myStackProps);
+const stack = new util.BaseStack(app, { description: baseprops.description + util.makeBrand(), baseprops });
+const myBucket = new s3.Bucket(stack, { baseprops, bucketprops });
+bucketprops.label = 'other';
+const myOtherBucket = new s3.Bucket(stack, { baseprops, bucketprops });
+const buckets = new Buckets(app, myStackProps);
  ```
+
+ This will create two stacks:
+
+ ```
+cdk ls
+sptnProdBuckets
+sptnProdGetMeABucket
+```
+
+Notice that the generated templates contain standard tag meta:
+
+```
+cat cdk.out/manifest.json | jq '.artifacts.sptnProdGetMeABucket.metadata["/sptnProdGetMeABucket"][].data'
+[
+  {
+    "Key": "ucop:application",
+    "Value": "sptn"
+  },
+  {
+    "Key": "ucop:buildId",
+    "Value": "https://google.com"
+  },
+  {
+    "Key": "ucop:createdBy",
+    "Value": "alfred smithee"
+  },
+  {
+    "Key": "ucop:environment",
+    "Value": "prod"
+  },
+  {
+    "Key": "ucop:group",
+    "Value": "Mr Creosote"
+  },
+  {
+    "Key": "ucop:owner",
+    "Value": "King Khalid"
+  },
+  {
+    "Key": "ucop:source",
+    "Value": "codecommit:us-west-2:012345678910:sptn"
+  },
+  {
+    "Key": "ucop:tagVersion",
+    "Value": "0.1"
+  }
+]
+```
 
  # Tags from json file:
 
