@@ -2,14 +2,19 @@
 These are helper libraries to unify some of the basic stack operations in AWS.
 Intended for use with codepipeline/codebuild
 
-# Example useage of stack tagging
+## install
+
+``` 
+npm i @ucop-acme/aws-infra
+```
+
+## Example usage of stack tagging, cf sample app directory
 
  ```ts
 import cdk = require('@aws-cdk/core');
 import s3 = require('../lib/s3');
-import util = require('../lib/util');
+import util = require('@ucop-acme/aws-infra');
 import params from '../test/config.json';
-import sampleBucket from '../test/sample-bucket.json';
 import { Buckets } from './lib/buckets';
 
 const branchEnv = util.mapBranchToEnvironment().trim();
