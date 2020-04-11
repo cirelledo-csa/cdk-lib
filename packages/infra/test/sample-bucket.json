@@ -1,86 +1,424 @@
 {
-  "junk4": 
-{
-  "Resources": {
-    "MagmaBucketD1418673": {
-      "Type": "AWS::S3::Bucket",
-      "Properties": {
-        "AccessControl": "LogDeliveryWrite",
-        "BucketEncryption": {
-          "ServerSideEncryptionConfiguration": [
-            {
-              "ServerSideEncryptionByDefault": {
-                "SSEAlgorithm": "aws:kms"
+  "s3managed": {
+    "Resources": {
+      "MagmaBucketD1418673": {
+        "Type": "AWS::S3::Bucket",
+        "Properties": {
+          "AccessControl": "LogDeliveryWrite",
+          "BucketEncryption": {
+            "ServerSideEncryptionConfiguration": [
+              {
+                "ServerSideEncryptionByDefault": {
+                  "SSEAlgorithm": "AES256"
+                }
               }
+            ]
+          },
+          "PublicAccessBlockConfiguration": {
+            "BlockPublicAcls": true,
+            "BlockPublicPolicy": true,
+            "IgnorePublicAcls": true,
+            "RestrictPublicBuckets": true
+          },
+          "Tags": [
+            {
+              "Key": "Content",
+              "Value": "log"
+            },
+            {
+              "Key": "Description",
+              "Value": "Super Duper Data From the Earth"
+            },
+            {
+              "Key": "DataOwner",
+              "Value": "Ms Creosote"
+            },
+            {
+              "Key": "Label",
+              "Value": "magma"
+            },
+            {
+              "Key": "Logging",
+              "Value": "-"
+            },
+            {
+              "Key": "SecurityLevel",
+              "Value": "1"
+            },
+            {
+              "Key": "Zone",
+              "Value": "log"
             }
           ]
         },
-        "PublicAccessBlockConfiguration": {
-          "BlockPublicAcls": true,
-          "BlockPublicPolicy": true,
-          "IgnorePublicAcls": true,
-          "RestrictPublicBuckets": true
-        },
-        "Tags": [
-          {
-            "Key": "Content",
-            "Value": "log"
-          },
-          {
-            "Key": "Description",
-            "Value": "Super Duper Data From the Earth"
-          },
-          {
-            "Key": "DataOwner",
-            "Value": "Ms Creosote"
-          },
-          {
-            "Key": "Label",
-            "Value": "magma"
-          },
-          {
-            "Key": "Logging",
-            "Value": "-"
-          },
-          {
-            "Key": "SecurityLevel",
-            "Value": "1"
-          },
-          {
-            "Key": "Zone",
-            "Value": "log"
-          }
-        ]
-      },
-      "UpdateReplacePolicy": "Retain",
-      "DeletionPolicy": "Retain"
-    }
-  },
-  "Outputs": {
-    "MagmaBucketName9E8AB9EF": {
-      "Value": {
-        "Ref": "MagmaBucketD1418673"
-      },
-      "Export": {
-        "Name": "sptnProdGetMeABucketMagmaBucketName"
+        "UpdateReplacePolicy": "Retain",
+        "DeletionPolicy": "Retain"
       }
     },
-    "MagmaBucketArnB65C5B7B": {
-      "Value": {
-        "Fn::GetAtt": [
-          "MagmaBucketD1418673",
-          "Arn"
-        ]
+    "Outputs": {
+      "MagmaBucketName9E8AB9EF": {
+        "Value": {
+          "Ref": "MagmaBucketD1418673"
+        },
+        "Export": {
+          "Name": "sptnProdGetMeABucketMagmaBucketName"
+        }
       },
-      "Export": {
-        "Name": "sptnProdGetMeABucketMagmaBucketArn"
+      "MagmaBucketArnB65C5B7B": {
+        "Value": {
+          "Fn::GetAtt": [
+            "MagmaBucketD1418673",
+            "Arn"
+          ]
+        },
+        "Export": {
+          "Name": "sptnProdGetMeABucketMagmaBucketArn"
+        }
       }
     }
-  }
-},
-  "junk3": {
+  },
+  "kms": {
     "Resources": {
-      "sptnProdGetMeABucketMagma3CF65BEB": {
+      "MagmaBucketKeyD7EC2B1F": {
+        "Type": "AWS::KMS::Key",
+        "Properties": {
+          "KeyPolicy": {
+            "Statement": [
+              {
+                "Action": [
+                  "kms:Create*",
+                  "kms:Describe*",
+                  "kms:Enable*",
+                  "kms:List*",
+                  "kms:Put*",
+                  "kms:Update*",
+                  "kms:Revoke*",
+                  "kms:Disable*",
+                  "kms:Get*",
+                  "kms:Delete*",
+                  "kms:ScheduleKeyDeletion",
+                  "kms:CancelKeyDeletion",
+                  "kms:GenerateDataKey",
+                  "kms:TagResource",
+                  "kms:UntagResource"
+                ],
+                "Effect": "Allow",
+                "Principal": {
+                  "AWS": {
+                    "Fn::Join": [
+                      "",
+                      [
+                        "arn:",
+                        {
+                          "Ref": "AWS::Partition"
+                        },
+                        ":iam::",
+                        {
+                          "Ref": "AWS::AccountId"
+                        },
+                        ":root"
+                      ]
+                    ]
+                  }
+                },
+                "Resource": "*"
+              }
+            ],
+            "Version": "2012-10-17"
+          },
+          "Description": "Created by sptnProdGetMeABucket/Magma/Bucket",
+          "Tags": [
+            {
+              "Key": "ucop:application",
+              "Value": "sptn"
+            },
+            {
+              "Key": "ucop:buildId",
+              "Value": "nope"
+            },
+            {
+              "Key": "ucop:createdBy",
+              "Value": "Terry Jones"
+            },
+            {
+              "Key": "ucop:environment",
+              "Value": "prod"
+            },
+            {
+              "Key": "ucop:group",
+              "Value": "Monty Python"
+            },
+            {
+              "Key": "ucop:owner",
+              "Value": "King Khalid"
+            },
+            {
+              "Key": "ucop:source",
+              "Value": "git"
+            },
+            {
+              "Key": "ucop:tagVersion",
+              "Value": "0.1"
+            }
+          ]
+        },
+        "UpdateReplacePolicy": "Retain",
+        "DeletionPolicy": "Retain"
+      },
+      "MagmaBucketD1418673": {
+        "Type": "AWS::S3::Bucket",
+        "Properties": {
+          "AccessControl": "LogDeliveryWrite",
+          "BucketEncryption": {
+            "ServerSideEncryptionConfiguration": [
+              {
+                "ServerSideEncryptionByDefault": {
+                  "KMSMasterKeyID": {
+                    "Fn::GetAtt": [
+                      "MagmaBucketKeyD7EC2B1F",
+                      "Arn"
+                    ]
+                  },
+                  "SSEAlgorithm": "aws:kms"
+                }
+              }
+            ]
+          },
+          "PublicAccessBlockConfiguration": {
+            "BlockPublicAcls": true,
+            "BlockPublicPolicy": true,
+            "IgnorePublicAcls": true,
+            "RestrictPublicBuckets": true
+          },
+          "Tags": [
+            {
+              "Key": "Content",
+              "Value": "log"
+            },
+            {
+              "Key": "Description",
+              "Value": "Super Duper Data From the Earth"
+            },
+            {
+              "Key": "DataOwner",
+              "Value": "Ms Creosote"
+            },
+            {
+              "Key": "Label",
+              "Value": "magma"
+            },
+            {
+              "Key": "Logging",
+              "Value": "-"
+            },
+            {
+              "Key": "SecurityLevel",
+              "Value": "1"
+            },
+            {
+              "Key": "Zone",
+              "Value": "log"
+            }
+          ]
+        },
+        "UpdateReplacePolicy": "Retain",
+        "DeletionPolicy": "Retain"
+      }
+    },
+    "Outputs": {
+      "MagmaBucketName9E8AB9EF": {
+        "Value": {
+          "Ref": "MagmaBucketD1418673"
+        },
+        "Export": {
+          "Name": "sptnProdGetMeABucketMagmaBucketName"
+        }
+      },
+      "MagmaBucketArnB65C5B7B": {
+        "Value": {
+          "Fn::GetAtt": [
+            "MagmaBucketD1418673",
+            "Arn"
+          ]
+        },
+        "Export": {
+          "Name": "sptnProdGetMeABucketMagmaBucketArn"
+        }
+      }
+    }
+  },
+  "byokey": {
+    "Resources": {
+      "MyKey6AB29FA6": {
+        "Type": "AWS::KMS::Key",
+        "Properties": {
+          "KeyPolicy": {
+            "Statement": [
+              {
+                "Action": [
+                  "kms:Create*",
+                  "kms:Describe*",
+                  "kms:Enable*",
+                  "kms:List*",
+                  "kms:Put*",
+                  "kms:Update*",
+                  "kms:Revoke*",
+                  "kms:Disable*",
+                  "kms:Get*",
+                  "kms:Delete*",
+                  "kms:ScheduleKeyDeletion",
+                  "kms:CancelKeyDeletion",
+                  "kms:GenerateDataKey",
+                  "kms:TagResource",
+                  "kms:UntagResource"
+                ],
+                "Effect": "Allow",
+                "Principal": {
+                  "AWS": {
+                    "Fn::Join": [
+                      "",
+                      [
+                        "arn:",
+                        {
+                          "Ref": "AWS::Partition"
+                        },
+                        ":iam::",
+                        {
+                          "Ref": "AWS::AccountId"
+                        },
+                        ":root"
+                      ]
+                    ]
+                  }
+                },
+                "Resource": "*"
+              }
+            ],
+            "Version": "2012-10-17"
+          },
+          "Tags": [
+            {
+              "Key": "ucop:application",
+              "Value": "sptn"
+            },
+            {
+              "Key": "ucop:buildId",
+              "Value": "nope"
+            },
+            {
+              "Key": "ucop:createdBy",
+              "Value": "Terry Jones"
+            },
+            {
+              "Key": "ucop:environment",
+              "Value": "prod"
+            },
+            {
+              "Key": "ucop:group",
+              "Value": "Monty Python"
+            },
+            {
+              "Key": "ucop:owner",
+              "Value": "King Khalid"
+            },
+            {
+              "Key": "ucop:source",
+              "Value": "git"
+            },
+            {
+              "Key": "ucop:tagVersion",
+              "Value": "0.1"
+            }
+          ]
+        },
+        "UpdateReplacePolicy": "Retain",
+        "DeletionPolicy": "Retain"
+      },
+      "MagmaBucketD1418673": {
+        "Type": "AWS::S3::Bucket",
+        "Properties": {
+          "AccessControl": "LogDeliveryWrite",
+          "BucketEncryption": {
+            "ServerSideEncryptionConfiguration": [
+              {
+                "ServerSideEncryptionByDefault": {
+                  "KMSMasterKeyID": {
+                    "Fn::GetAtt": [
+                      "MyKey6AB29FA6",
+                      "Arn"
+                    ]
+                  },
+                  "SSEAlgorithm": "aws:kms"
+                }
+              }
+            ]
+          },
+          "PublicAccessBlockConfiguration": {
+            "BlockPublicAcls": true,
+            "BlockPublicPolicy": true,
+            "IgnorePublicAcls": true,
+            "RestrictPublicBuckets": true
+          },
+          "Tags": [
+            {
+              "Key": "Content",
+              "Value": "log"
+            },
+            {
+              "Key": "Description",
+              "Value": "Super Duper Data From the Earth"
+            },
+            {
+              "Key": "DataOwner",
+              "Value": "Ms Creosote"
+            },
+            {
+              "Key": "Label",
+              "Value": "magma"
+            },
+            {
+              "Key": "Logging",
+              "Value": "-"
+            },
+            {
+              "Key": "SecurityLevel",
+              "Value": "1"
+            },
+            {
+              "Key": "Zone",
+              "Value": "log"
+            }
+          ]
+        },
+        "UpdateReplacePolicy": "Retain",
+        "DeletionPolicy": "Retain"
+      }
+    },
+    "Outputs": {
+      "MagmaBucketName9E8AB9EF": {
+        "Value": {
+          "Ref": "MagmaBucketD1418673"
+        },
+        "Export": {
+          "Name": "sptnProdGetMeABucketMagmaBucketName"
+        }
+      },
+      "MagmaBucketArnB65C5B7B": {
+        "Value": {
+          "Fn::GetAtt": [
+            "MagmaBucketD1418673",
+            "Arn"
+          ]
+        },
+        "Export": {
+          "Name": "sptnProdGetMeABucketMagmaBucketArn"
+        }
+      }
+    }
+  },
+  "default": {
+    "Resources": {
+      "MagmaBucketD1418673": {
         "Type": "AWS::S3::Bucket",
         "Properties": {
           "AccessControl": "LogDeliveryWrite",
@@ -118,7 +456,7 @@
             },
             {
               "Key": "Logging",
-              "Value": ""
+              "Value": "-"
             },
             {
               "Key": "SecurityLevel",
@@ -135,319 +473,23 @@
       }
     },
     "Outputs": {
-      "sptnProdGetMeABucketMagmaNameC734E57B": {
+      "MagmaBucketName9E8AB9EF": {
         "Value": {
-          "Ref": "sptnProdGetMeABucketMagma3CF65BEB"
+          "Ref": "MagmaBucketD1418673"
         },
         "Export": {
-          "Name": "sptnProdGetMeABucketMagmaName"
+          "Name": "sptnProdGetMeABucketMagmaBucketName"
         }
       },
-      "sptnProdGetMeABucketMagmaArnF71D55AE": {
+      "MagmaBucketArnB65C5B7B": {
         "Value": {
           "Fn::GetAtt": [
-            "sptnProdGetMeABucketMagma3CF65BEB",
+            "MagmaBucketD1418673",
             "Arn"
           ]
         },
         "Export": {
-          "Name": "sptnProdGetMeABucketMagmaArn"
-        }
-      }
-    }
-  },
-  "junk2": {
-    "Resources": {
-      "sptnProdLogBucket442643F7": {
-        "Type": "AWS::S3::Bucket",
-        "Properties": {
-          "AccessControl": "LogDeliveryWrite",
-          "BucketEncryption": {
-            "ServerSideEncryptionConfiguration": [
-              {
-                "ServerSideEncryptionByDefault": {
-                  "SSEAlgorithm": "aws:kms"
-                }
-              }
-            ]
-          },
-          "PublicAccessBlockConfiguration": {
-            "BlockPublicAcls": true,
-            "BlockPublicPolicy": true,
-            "IgnorePublicAcls": true,
-            "RestrictPublicBuckets": true
-          },
-          "Tags": [
-            {
-              "Key": "Content",
-              "Value": "log"
-            },
-            {
-              "Key": "Description",
-              "Value": "Super Duper Data From the Earth"
-            },
-            {
-              "Key": "DataOwner",
-              "Value": "alfredette smithee"
-            },
-            {
-              "Key": "SecurityLevel",
-              "Value": "1"
-            },
-            {
-              "Key": "Zone",
-              "Value": "log"
-            }
-          ]
-        },
-        "UpdateReplacePolicy": "Retain",
-        "DeletionPolicy": "Retain"
-      }
-    },
-    "Outputs": {
-      "sptnProdLogBucketName84CFD34A": {
-        "Value": {
-          "Ref": "sptnProdLogBucket442643F7"
-        },
-        "Export": {
-          "Name": "sptnProdLogBucketName"
-        }
-      },
-      "sptnProdLogBucketArn5982CFC8": {
-        "Value": {
-          "Fn::GetAtt": [
-            "sptnProdLogBucket442643F7",
-            "Arn"
-          ]
-        },
-        "Export": {
-          "Name": "sptnProdLogBucketArn"
-        }
-      }
-    }
-  },
-  "junk": {
-    "Resources": {
-      "Bucket83908E77": {
-        "Type": "AWS::S3::Bucket",
-        "Properties": {
-          "AccessControl": "LogDeliveryWrite",
-          "BucketEncryption": {
-            "ServerSideEncryptionConfiguration": [
-              {
-                "ServerSideEncryptionByDefault": {
-                  "SSEAlgorithm": "aws:kms"
-                }
-              }
-            ]
-          },
-          "PublicAccessBlockConfiguration": {
-            "BlockPublicAcls": true,
-            "BlockPublicPolicy": true,
-            "IgnorePublicAcls": true,
-            "RestrictPublicBuckets": true
-          },
-          "Tags": [
-            {
-              "Key": "Content",
-              "Value": "log"
-            },
-            {
-              "Key": "Description",
-              "Value": "Super Duper Data From the Earth"
-            },
-            {
-              "Key": "DataOwner",
-              "Value": "alfredette smithee"
-            },
-            {
-              "Key": "SecurityLevel",
-              "Value": "1"
-            },
-            {
-              "Key": "Zone",
-              "Value": "log"
-            }
-          ]
-        },
-        "UpdateReplacePolicy": "Retain",
-        "DeletionPolicy": "Retain"
-      }
-    },
-    "Outputs": {
-      "BucketName": {
-        "Value": {
-          "Ref": "Bucket83908E77"
-        },
-        "Export": {
-          "Name": "sptnProdLogBucketName"
-        }
-      },
-      "BucketArn": {
-        "Value": {
-          "Fn::GetAtt": [
-            "Bucket83908E77",
-            "Arn"
-          ]
-        },
-        "Export": {
-          "Name": "sptnProdLogBucketArn"
-        }
-      }
-    }
-  },
-  "prod": {
-    "Resources": {
-      "MyTestBucketEA41CB10": {
-        "Type": "AWS::S3::Bucket",
-        "Properties": {
-          "AccessControl": "LogDeliveryWrite",
-          "BucketEncryption": {
-            "ServerSideEncryptionConfiguration": [
-              {
-                "ServerSideEncryptionByDefault": {
-                  "SSEAlgorithm": "aws:kms"
-                }
-              }
-            ]
-          },
-          "PublicAccessBlockConfiguration": {
-            "BlockPublicAcls": true,
-            "BlockPublicPolicy": true,
-            "IgnorePublicAcls": true,
-            "RestrictPublicBuckets": true
-          },
-          "Tags": [
-            {
-              "Key": "Content",
-              "Value": "log"
-            },
-            {
-              "Key": "Description",
-              "Value": "logging"
-            },
-            {
-              "Key": "Environment",
-              "Value": "prod"
-            },
-            {
-              "Key": "DataOwner",
-              "Value": "log"
-            },
-            {
-              "Key": "Product",
-              "Value": "mywidget"
-            },
-            {
-              "Key": "SecurityLevel",
-              "Value": "1"
-            },
-            {
-              "Key": "Zone",
-              "Value": "log"
-            }
-          ]
-        },
-        "UpdateReplacePolicy": "Retain",
-        "DeletionPolicy": "Retain"
-      }
-    },
-    "Outputs": {
-      "MyTestBucketBucketName488FA3E8": {
-        "Value": {
-          "Ref": "MyTestBucketEA41CB10"
-        },
-        "Export": {
-          "Name": "mywidgetProdLogBucketName"
-        }
-      },
-      "MyTestBucketBucketArn8507BCE2": {
-        "Value": {
-          "Fn::GetAtt": [
-            "MyTestBucketEA41CB10",
-            "Arn"
-          ]
-        },
-        "Export": {
-          "Name": "mywidgetProdLogBucketArn"
-        }
-      }
-    }
-  },
-  "dev": {
-    "Resources": {
-      "MyTestBucketEA41CB10": {
-        "Type": "AWS::S3::Bucket",
-        "Properties": {
-          "AccessControl": "LogDeliveryWrite",
-          "BucketEncryption": {
-            "ServerSideEncryptionConfiguration": [
-              {
-                "ServerSideEncryptionByDefault": {
-                  "SSEAlgorithm": "aws:kms"
-                }
-              }
-            ]
-          },
-          "PublicAccessBlockConfiguration": {
-            "BlockPublicAcls": true,
-            "BlockPublicPolicy": true,
-            "IgnorePublicAcls": true,
-            "RestrictPublicBuckets": true
-          },
-          "Tags": [
-            {
-              "Key": "Content",
-              "Value": "log"
-            },
-            {
-              "Key": "Description",
-              "Value": "logging"
-            },
-            {
-              "Key": "Environment",
-              "Value": "dev"
-            },
-            {
-              "Key": "DataOwner",
-              "Value": "log"
-            },
-            {
-              "Key": "Product",
-              "Value": "mywidget"
-            },
-            {
-              "Key": "SecurityLevel",
-              "Value": "1"
-            },
-            {
-              "Key": "Zone",
-              "Value": "log"
-            }
-          ]
-        },
-        "UpdateReplacePolicy": "Retain",
-        "DeletionPolicy": "Retain"
-      }
-    },
-    "Outputs": {
-      "MyTestBucketBucketName488FA3E8": {
-        "Value": {
-          "Ref": "MyTestBucketEA41CB10"
-        },
-        "Export": {
-          "Name": "mywidgetDevLogBucketName"
-        }
-      },
-      "MyTestBucketBucketArn8507BCE2": {
-        "Value": {
-          "Fn::GetAtt": [
-            "MyTestBucketEA41CB10",
-            "Arn"
-          ]
-        },
-        "Export": {
-          "Name": "mywidgetDevLogBucketArn"
+          "Name": "sptnProdGetMeABucketMagmaBucketArn"
         }
       }
     }
