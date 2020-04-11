@@ -1,5 +1,6 @@
 import s3 = require('@aws-cdk/aws-s3');
 import cdk = require('@aws-cdk/core');
+import kms = require('@aws-cdk/aws-kms');
 import util = require('../lib/util');
 
 export interface IBucketProps {
@@ -17,10 +18,16 @@ export interface IBucketProps {
   description: string;
 
   /**
-   * bucket encryption, hopefully informative to humans.
+   * bucket encryption type
    * @attribute
    */
   encryption?: string;
+
+  /**
+   * bucket encryption key
+   * @attribute
+   */
+  encryptionKey?: kms.Key;
 
   /**
    * bucket log destination.
@@ -99,6 +106,7 @@ export class Bucket extends cdk.Construct {
     const getMeABucket = new s3.Bucket(this, 'Bucket', {
       blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
       encryption: bucketEncryption,
+      encryptionKey: props.bucketprops.encryptionKey,
     });
 
     this.bucket = getMeABucket;
