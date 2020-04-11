@@ -69,14 +69,17 @@
 				</a>
 				<p>These are helper libraries to unify some of the basic stack operations in AWS.
 				Intended for use with codepipeline/codebuild</p>
-				<a href="#example-useage-of-stack-tagging" id="example-useage-of-stack-tagging" style="color: inherit; text-decoration: none;">
-					<h1>Example useage of stack tagging</h1>
+				<a href="#install" id="install" style="color: inherit; text-decoration: none;">
+					<h2>install</h2>
+				</a>
+				<pre><code><span class="hljs-built_in">npm</span> i @ucop-acme/aws-infra</code></pre>
+				<a href="#example-usage-of-stack-tagging-cf-sample-app-directory" id="example-usage-of-stack-tagging-cf-sample-app-directory" style="color: inherit; text-decoration: none;">
+					<h2>Example usage of stack tagging, cf sample app directory</h2>
 				</a>
 				<pre><code class="language-ts"><span class="hljs-keyword">import</span> cdk = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@aws-cdk/core'</span>);
 <span class="hljs-keyword">import</span> s3 = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../lib/s3'</span>);
-<span class="hljs-keyword">import</span> util = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../lib/util'</span>);
+<span class="hljs-keyword">import</span> util = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@ucop-acme/aws-infra'</span>);
 <span class="hljs-keyword">import</span> params <span class="hljs-keyword">from</span> <span class="hljs-string">'../test/config.json'</span>;
-<span class="hljs-keyword">import</span> sampleBucket <span class="hljs-keyword">from</span> <span class="hljs-string">'../test/sample-bucket.json'</span>;
 <span class="hljs-keyword">import</span> { Buckets } <span class="hljs-keyword">from</span> <span class="hljs-string">'./lib/buckets'</span>;
 
 <span class="hljs-keyword">const</span> branchEnv = util.mapBranchToEnvironment().trim();
