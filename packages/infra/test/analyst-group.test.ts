@@ -14,7 +14,6 @@ const baseprops = {
   description: 'Stop Plate Tectonics Now',
   environment: branchEnv,
   label: 'LakeAdmins',
-  owner: 'King Khalid',
   group: 'alfred smithee',
   source: 'git',
 };

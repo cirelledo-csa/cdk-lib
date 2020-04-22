@@ -15,7 +15,6 @@ const baseprops = {
   environment: branchEnv,
   group: 'montyPython',
   label: 'GetMeABucket',
-  owner: 'King Khalid',
   source: 'codecommit:us-west-2:012345678910:sptn',
 };
 
@@ -43,7 +42,6 @@ const myStackProps: util.IBaseStackProps = {
     environment: branchEnv,
     group: 'Mr Creosote',
     label: 'Buckets',
-    owner: 'King Khalid',
     source: 'codecommit:us-west-2:012345678910:sptn',
   },
 };

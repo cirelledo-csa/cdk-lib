@@ -13,7 +13,6 @@ const baseprops = {
   description: 'Stop Plate Tectonics Now',
   environment: branchEnv,
   label: 'LakeAdmins',
-  owner: 'King Khalid',
   group: 'Monty Python',
   source: 'git',
 };

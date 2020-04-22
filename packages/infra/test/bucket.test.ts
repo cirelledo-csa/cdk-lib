@@ -15,7 +15,6 @@ const baseprops = {
   description: 'The Meaning of Life',
   environment: branchEnv,
   label: 'GetMeABucket',
-  owner: 'King Khalid',
   group: 'Monty Python',
   source: 'git',
 };

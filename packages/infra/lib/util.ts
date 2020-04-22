@@ -35,12 +35,6 @@ export interface IDefaultTags {
   group: string;
 
   /**
-   * The Product owner
-   * @attribute
-   */
-  owner: string;
-
-  /**
    * The tag prefix.
    * @attribute
    */
@@ -105,13 +99,12 @@ export function tagApp(app: cdk.App, props: IBaseStackProps) {
   const creator = baseprops.createdBy ? baseprops.createdBy : 'null';
   const prefix = baseprops.tagPrefix ? baseprops.tagPrefix : 'ucop:';
   const source = baseprops.source ? baseprops.source : 'null';
-  const version = baseprops.tagVersion ? baseprops.tagVersion : '0.1';
+  const version = baseprops.tagVersion ? baseprops.tagVersion : '0.2';
   cdk.Tag.add(app, prefix + 'application', baseprops.application);
   cdk.Tag.add(app, prefix + 'buildId', baseprops.buildId);
   cdk.Tag.add(app, prefix + 'createdBy', creator);
   cdk.Tag.add(app, prefix + 'environment', baseprops.environment);
   cdk.Tag.add(app, prefix + 'group', baseprops.group);
-  cdk.Tag.add(app, prefix + 'owner', baseprops.owner);
   cdk.Tag.add(app, prefix + 'source', source);
   cdk.Tag.add(app, prefix + 'tagVersion', version);
 }

@@ -149,16 +149,12 @@
               "Value": "Monty Python"
             },
             {
-              "Key": "ucop:owner",
-              "Value": "King Khalid"
-            },
-            {
               "Key": "ucop:source",
               "Value": "git"
             },
             {
               "Key": "ucop:tagVersion",
-              "Value": "0.1"
+              "Value": "0.2"
             }
           ]
         },
@@ -318,16 +314,12 @@
               "Value": "Monty Python"
             },
             {
-              "Key": "ucop:owner",
-              "Value": "King Khalid"
-            },
-            {
               "Key": "ucop:source",
               "Value": "git"
             },
             {
               "Key": "ucop:tagVersion",
-              "Value": "0.1"
+              "Value": "0.2"
             }
           ]
         },
