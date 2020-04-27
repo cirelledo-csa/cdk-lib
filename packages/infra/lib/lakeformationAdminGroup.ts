@@ -20,14 +20,9 @@ export class LakeformationAdminGroup extends cdk.Construct {
     const e1 = new cdk.CfnOutput(this, resourceName + 'Arn', {
       exportName: util.makeExportName({
         application: props.baseprops.application,
-        buildId: props.baseprops.buildId,
-        createdBy: props.baseprops.createdBy,
-        description: props.baseprops.description,
         environment: props.baseprops.environment,
-        group: props.baseprops.group,
-        label: props.baseprops.label,
-        source: props.baseprops.source,
-        type: resourceName + 'Arn',
+        resourceLabel: props.baseprops.label,
+        resourceType: resourceName + 'Arn',
       }),
       value: this.role.roleArn,
     });
@@ -36,14 +31,9 @@ export class LakeformationAdminGroup extends cdk.Construct {
     const e2 = new cdk.CfnOutput(this, resourceName + 'Name', {
       exportName: util.makeExportName({
         application: props.baseprops.application,
-        buildId: props.baseprops.buildId,
-        createdBy: props.baseprops.createdBy,
-        description: props.baseprops.description,
         environment: props.baseprops.environment,
-        group: props.baseprops.group,
-        label: props.baseprops.label,
-        source: props.baseprops.source,
-        type: resourceName + 'Name',
+        resourceLabel: props.baseprops.label,
+        resourceType: resourceName + 'Name',
       }),
       value: this.role.roleName,
     });

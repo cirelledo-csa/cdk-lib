@@ -14,6 +14,7 @@
               }
             ]
           },
+          "BucketName": "sptn.prod.magma.bucket",
           "PublicAccessBlockConfiguration": {
             "BlockPublicAcls": true,
             "BlockPublicPolicy": true,
@@ -61,7 +62,7 @@
           "Ref": "MagmaBucketD1418673"
         },
         "Export": {
-          "Name": "sptnProdGetMeABucketMagmaBucketName"
+          "Name": "sptnProdMagmaBucketName"
         }
       },
       "MagmaBucketArnB65C5B7B": {
@@ -72,7 +73,7 @@
           ]
         },
         "Export": {
-          "Name": "sptnProdGetMeABucketMagmaBucketArn"
+          "Name": "sptnProdMagmaBucketArn"
         }
       }
     }
@@ -180,6 +181,7 @@
               }
             ]
           },
+          "BucketName": "sptn.prod.magma.bucket",
           "PublicAccessBlockConfiguration": {
             "BlockPublicAcls": true,
             "BlockPublicPolicy": true,
@@ -227,7 +229,7 @@
           "Ref": "MagmaBucketD1418673"
         },
         "Export": {
-          "Name": "sptnProdGetMeABucketMagmaBucketName"
+          "Name": "sptnProdMagmaBucketName"
         }
       },
       "MagmaBucketArnB65C5B7B": {
@@ -238,7 +240,7 @@
           ]
         },
         "Export": {
-          "Name": "sptnProdGetMeABucketMagmaBucketArn"
+          "Name": "sptnProdMagmaBucketArn"
         }
       }
     }
@@ -345,6 +347,7 @@
               }
             ]
           },
+          "BucketName": "sptn.prod.magma.bucket",
           "PublicAccessBlockConfiguration": {
             "BlockPublicAcls": true,
             "BlockPublicPolicy": true,
@@ -392,7 +395,7 @@
           "Ref": "MagmaBucketD1418673"
         },
         "Export": {
-          "Name": "sptnProdGetMeABucketMagmaBucketName"
+          "Name": "sptnProdMagmaBucketName"
         }
       },
       "MagmaBucketArnB65C5B7B": {
@@ -403,7 +406,7 @@
           ]
         },
         "Export": {
-          "Name": "sptnProdGetMeABucketMagmaBucketArn"
+          "Name": "sptnProdMagmaBucketArn"
         }
       }
     }
@@ -423,6 +426,7 @@
               }
             ]
           },
+          "BucketName": "sptn.prod.magma.bucket",
           "PublicAccessBlockConfiguration": {
             "BlockPublicAcls": true,
             "BlockPublicPolicy": true,
@@ -470,7 +474,7 @@
           "Ref": "MagmaBucketD1418673"
         },
         "Export": {
-          "Name": "sptnProdGetMeABucketMagmaBucketName"
+          "Name": "sptnProdMagmaBucketName"
         }
       },
       "MagmaBucketArnB65C5B7B": {
@@ -481,7 +485,7 @@
           ]
         },
         "Export": {
-          "Name": "sptnProdGetMeABucketMagmaBucketArn"
+          "Name": "sptnProdMagmaBucketArn"
         }
       }
     }

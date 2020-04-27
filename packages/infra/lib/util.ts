@@ -47,6 +47,55 @@ export interface IDefaultTags {
   tagVersion?: string;
 }
 
+export interface IResourceName {
+  /**
+   * The application or service.
+   * @attribute
+   */
+  application: string;
+
+  /**
+   * Optional delimiter, default to .
+   * @attribute
+   */
+  delim?: string;
+
+  /**
+   * The Product environment
+   * @attribute
+   */
+  environment: string;
+
+  /**
+   * The Resource label
+   * @attribute
+   */
+  resourceLabel: string;
+
+  /**
+   * The Resource type, eg ec2, bucket, lambda
+   * @attribute
+   */
+  resourceType: string;
+}
+
+export function makeDelim(props: string | undefined) {
+  const defaultDelim = '.';
+  const delim = props || defaultDelim;
+  return delim;
+}
+
+export function makeResourceName(props: IResourceName) {
+  const delim = makeDelim(props.delim);
+  return toLowerCase(
+    props.application + delim + props.environment + delim + props.resourceLabel + delim + props.resourceType,
+  );
+}
+
+export function makeExportName(props: IResourceName) {
+  return props.application + cap(props.environment) + cap(props.resourceLabel) + cap(props.resourceType);
+}
+
 export interface IIACProps extends IDefaultTags {
   /**
    * build id, you're automating right?
@@ -117,20 +166,16 @@ export function makeStackName(props: IBaseProps) {
   return props.application + cap(props.environment) + cap(props.label);
 }
 
+export function toLowerCase(str: string): string {
+  return str.toLowerCase();
+}
+
 export function toUpperCase(str: string): string {
   return str.toUpperCase();
 }
 
 export function cap(word: string) {
   return word.charAt(0).toUpperCase() + word.slice(1);
-}
-
-export function makeExportName(props: IResourceProps) {
-  return props.application + cap(props.environment) + cap(props.label) + cap(props.type);
-}
-
-export function makeResourceName(prefix: string, name: string, postfix: string, separator: string) {
-  return prefix + separator + name + separator + postfix;
 }
 
 export default function getGitBranch() {
@@ -144,25 +189,17 @@ export function translateBranchToEnvironment(branch: string) {
   if (branch.match('master')) {
     return 'prod';
   }
-  //  console.info("git branch maps to  " + env_branch + " environment");
   return branch;
 }
 
 export function mapBranchToEnvironment() {
   try {
     const gitBranch = getGitBranch();
-    // console.info("git branch is " + gitBranch);
     return translateBranchToEnvironment(gitBranch);
   } catch (error) {
     if (error.stderr.toString().startsWith('fatal')) {
       const envBranch: string = process.env.CODEPIPELINE_GIT_BRANCH_NAME || '';
-      // console.log('error stderr to string is ' + error.stderr.toString()); // Holds the stderr output. Use `.toString()`.
       return translateBranchToEnvironment(envBranch);
-    } else {
-      // console.log('error status ' + error.status); // Might be 127 in your example.
-      // console.log('error message ' + error.message); // Holds the message you typically want.
-      // console.log('error stderr ' + error.stderr); // Holds the stderr output. Use `.toString()`.
-      // console.log('error stdout ' + error.stdout);
     }
   }
   return '';

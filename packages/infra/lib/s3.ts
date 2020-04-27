@@ -42,6 +42,12 @@ export interface IBucketProps {
   log_bucket_name: string;
 
   /**
+   * optonal bucket name.
+   * @attribute
+   */
+  name?: string;
+
+  /**
    * owner of bucket data.
    * @attribute
    */
@@ -95,7 +101,13 @@ export class Bucket extends cdk.Construct {
     super(scope, constructName);
 
     // create a bucket resource with encryption and disable public access
-    const resourceName = util.cap(props.bucketprops.label);
+    // const resourceName = util.cap(props.bucketprops.label);
+    const resourceName = util.makeResourceName({
+      application: props.baseprops.application,
+      environment: props.baseprops.environment,
+      resourceLabel: props.bucketprops.label,
+      resourceType: 'Bucket',
+    });
     let bucketEncryption = s3.BucketEncryption.KMS_MANAGED;
     if (props.bucketprops.encryption === 'KMS') {
       bucketEncryption = s3.BucketEncryption.KMS;
@@ -107,6 +119,7 @@ export class Bucket extends cdk.Construct {
       blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
       encryption: bucketEncryption,
       encryptionKey: props.bucketprops.encryptionKey,
+      bucketName: resourceName,
     });
 
     this.bucket = getMeABucket;
@@ -128,35 +141,22 @@ export class Bucket extends cdk.Construct {
       enableLogBucket(cfnBucket);
     }
 
+    const exportProps: util.IResourceName = {
+      application: props.baseprops.application,
+      environment: props.baseprops.environment,
+      resourceLabel: props.bucketprops.label,
+      resourceType: 'BucketName',
+    };
     // output bucket name
-    const e1 = new cdk.CfnOutput(this, 'BucketName', {
-      exportName: util.makeExportName({
-        application: props.baseprops.application,
-        buildId: props.baseprops.buildId,
-        createdBy: props.baseprops.createdBy,
-        description: props.baseprops.description,
-        environment: props.baseprops.environment,
-        group: props.baseprops.group,
-        label: props.baseprops.label,
-        source: props.baseprops.source,
-        type: resourceName + 'BucketName',
-      }),
+    const name = new cdk.CfnOutput(this, 'BucketName', {
+      exportName: util.makeExportName(exportProps),
       value: getMeABucket.bucketName,
     });
+    exportProps.resourceType = 'BucketArn';
 
     // output bucket arn
-    const e2 = new cdk.CfnOutput(this, 'BucketArn', {
-      exportName: util.makeExportName({
-        application: props.baseprops.application,
-        buildId: props.baseprops.buildId,
-        createdBy: props.baseprops.createdBy,
-        description: props.baseprops.description,
-        environment: props.baseprops.environment,
-        group: props.baseprops.group,
-        label: props.baseprops.label,
-        source: props.baseprops.source,
-        type: resourceName + 'BucketArn',
-      }),
+    const arn = new cdk.CfnOutput(this, 'BucketArn', {
+      exportName: util.makeExportName(exportProps),
       value: getMeABucket.bucketArn,
     });
   }
