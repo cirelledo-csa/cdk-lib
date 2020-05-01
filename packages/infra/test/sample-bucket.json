@@ -14,7 +14,7 @@
               }
             ]
           },
-          "BucketName": "sptn.prod.magma.bucket",
+          "BucketName": "sptn-prod-magma-bucket",
           "PublicAccessBlockConfiguration": {
             "BlockPublicAcls": true,
             "BlockPublicPolicy": true,
@@ -181,7 +181,7 @@
               }
             ]
           },
-          "BucketName": "sptn.prod.magma.bucket",
+          "BucketName": "sptn-prod-magma-bucket",
           "PublicAccessBlockConfiguration": {
             "BlockPublicAcls": true,
             "BlockPublicPolicy": true,
@@ -347,7 +347,7 @@
               }
             ]
           },
-          "BucketName": "sptn.prod.magma.bucket",
+          "BucketName": "sptn-prod-magma-bucket",
           "PublicAccessBlockConfiguration": {
             "BlockPublicAcls": true,
             "BlockPublicPolicy": true,
@@ -426,7 +426,7 @@
               }
             ]
           },
-          "BucketName": "sptn.prod.magma.bucket",
+          "BucketName": "sptn-prod-magma-bucket",
           "PublicAccessBlockConfiguration": {
             "BlockPublicAcls": true,
             "BlockPublicPolicy": true,

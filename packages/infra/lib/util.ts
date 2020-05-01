@@ -80,7 +80,7 @@ export interface IResourceName {
 }
 
 export function makeDelim(props: string | undefined) {
-  const defaultDelim = '.';
+  const defaultDelim = '-';
   const delim = props || defaultDelim;
   return delim;
 }
