@@ -102,12 +102,15 @@ export class Bucket extends cdk.Construct {
 
     // create a bucket resource with encryption and disable public access
     // const resourceName = util.cap(props.bucketprops.label);
-    const resourceName = util.makeResourceName({
+    let resourceName = util.makeResourceName({
       application: props.baseprops.application,
       environment: props.baseprops.environment,
       resourceLabel: props.bucketprops.label,
       resourceType: 'Bucket',
     });
+    if (props.bucketprops.name) {
+      resourceName = props.bucketprops.name;
+    }
     let bucketEncryption = s3.BucketEncryption.KMS_MANAGED;
     if (props.bucketprops.encryption === 'KMS') {
       bucketEncryption = s3.BucketEncryption.KMS;

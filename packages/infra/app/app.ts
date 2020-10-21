@@ -24,6 +24,7 @@ const bucketprops = {
   encryption: 'KMS',
   label: 'sample',
   log_bucket_name: '/dev/null',
+    name: "get-me-a-bucket",
   owner: 'Ms Creosote',
   security_level: '1',
   zone: 'core',

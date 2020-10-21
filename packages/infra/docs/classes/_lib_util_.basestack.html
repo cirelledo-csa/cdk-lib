@@ -115,9 +115,11 @@
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_lib_util_.basestack.html#nestedstackresource" class="tsd-kind-icon">nested<wbr>Stack<wbr>Resource</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_lib_util_.basestack.html#node" class="tsd-kind-icon">node</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_lib_util_.basestack.html#region" class="tsd-kind-icon">region</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_lib_util_.basestack.html#synthesizer" class="tsd-kind-icon">synthesizer</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_lib_util_.basestack.html#tags" class="tsd-kind-icon">tags</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_lib_util_.basestack.html#templatefile" class="tsd-kind-icon">template<wbr>File</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_lib_util_.basestack.html#templateoptions" class="tsd-kind-icon">template<wbr>Options</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_lib_util_.basestack.html#terminationprotection" class="tsd-kind-icon">termination<wbr>Protection</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-inherited">
@@ -149,12 +151,12 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-protected"><a href="_lib_util_.basestack.html#onsynthesize" class="tsd-kind-icon">on<wbr>Synthesize</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-protected"><a href="_lib_util_.basestack.html#onvalidate" class="tsd-kind-icon">on<wbr>Validate</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_lib_util_.basestack.html#parsearn" class="tsd-kind-icon">parse<wbr>Arn</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-protected"><a href="_lib_util_.basestack.html#prepare" class="tsd-kind-icon">prepare</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_lib_util_.basestack.html#prepare" class="tsd-kind-icon">prepare</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_lib_util_.basestack.html#preparecrossreference" class="tsd-kind-icon">prepare<wbr>Cross<wbr>Reference</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_lib_util_.basestack.html#renamelogicalid" class="tsd-kind-icon">rename<wbr>Logical<wbr>Id</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_lib_util_.basestack.html#reportmissingcontext" class="tsd-kind-icon">report<wbr>Missing<wbr>Context</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_lib_util_.basestack.html#resolve" class="tsd-kind-icon">resolve</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-protected"><a href="_lib_util_.basestack.html#synthesize" class="tsd-kind-icon">synthesize</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_lib_util_.basestack.html#synthesize" class="tsd-kind-icon">synthesize</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_lib_util_.basestack.html#tojsonstring" class="tsd-kind-icon">to<wbr>Json<wbr>String</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_lib_util_.basestack.html#tostring" class="tsd-kind-icon">to<wbr>String</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_lib_util_.basestack.html#validate" class="tsd-kind-icon">validate</a></li>
@@ -179,7 +181,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Stack.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/ucopacme/cdk-lib/blob/f889845/packages/infra/lib/util.ts#L139">lib/util.ts:139</a></li>
+									<li>Defined in <a href="https://github.com/ucopacme/cdk-lib/blob/27faeac/packages/infra/lib/util.ts#L139">lib/util.ts:139</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -205,7 +207,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#account">account</a></p>
 						<ul>
-							<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:98</li>
+							<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:185</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -226,7 +228,7 @@
 							value is an unresolved token (<code>Token.isUnresolved(stack.account)</code> returns
 							<code>true</code>), this implies that the user wishes that this stack will synthesize
 							into a <strong>account-agnostic template</strong>. In this case, your code should either
-							fail (throw an error, emit a synth error using <code>node.addError</code>) or
+							fail (throw an error, emit a synth error using <code>Annotations.of(construct).addError()</code>) or
 						implement some other region-agnostic behavior.</p>
 					</div>
 				</section>
@@ -237,7 +239,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#artifactid">artifactId</a></p>
 						<ul>
-							<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:130</li>
+							<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:225</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -252,7 +254,7 @@
 					<div class="tsd-signature tsd-kind-icon">baseprops<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_lib_util_.ibaseprops.html" class="tsd-signature-type">IBaseProps</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ucopacme/cdk-lib/blob/f889845/packages/infra/lib/util.ts#L139">lib/util.ts:139</a></li>
+							<li>Defined in <a href="https://github.com/ucopacme/cdk-lib/blob/27faeac/packages/infra/lib/util.ts#L139">lib/util.ts:139</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -263,15 +265,16 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#environment">environment</a></p>
 						<ul>
-							<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:112</li>
+							<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:201</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The environment coordinates in which this stack is deployed. In the form
-								<code>aws://account/region</code>. Use <code>stack.account</code> and <code>stack.region</code> to obtain
-							the specific values, no need to parse.</p>
+							<p>The environment coordinates in which this stack is deployed.</p>
 						</div>
+						<p>In the form
+							<code>aws://account/region</code>. Use <code>stack.account</code> and <code>stack.region</code> to obtain
+						the specific values, no need to parse.</p>
 						<p>You can use this value to determine if two stacks are targeting the same
 						environment.</p>
 						<p>If either <code>stack.account</code> or <code>stack.region</code> are not concrete values (e.g.
@@ -287,14 +290,14 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#nestedstackresource">nestedStackResource</a></p>
 						<ul>
-							<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:119</li>
+							<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:213</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>If this is a nested stack, this represents its <code>AWS::CloudFormation::Stack</code>
-							resource. <code>undefined</code> for top-level (non-nested) stacks.</p>
+							<p>(experimental) If this is a nested stack, this represents its <code>AWS::CloudFormation::Stack</code> resource.</p>
 						</div>
+						<p><code>undefined</code> for top-level (non-nested) stacks.</p>
 						<dl class="tsd-comment-tags">
 							<dt>experimental</dt>
 							<dd></dd>
@@ -308,7 +311,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#node">node</a></p>
 						<ul>
-							<li>Defined in node_modules/@aws-cdk/core/lib/construct-compat.d.ts:52</li>
+							<li>Defined in node_modules/@aws-cdk/core/lib/construct-compat.d.ts:54</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -324,7 +327,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#region">region</a></p>
 						<ul>
-							<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:77</li>
+							<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:164</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -345,8 +348,28 @@
 							value is an unresolved token (<code>Token.isUnresolved(stack.region)</code> returns
 							<code>true</code>), this implies that the user wishes that this stack will synthesize
 							into a <strong>region-agnostic template</strong>. In this case, your code should either
-							fail (throw an error, emit a synth error using <code>node.addError</code>) or
+							fail (throw an error, emit a synth error using <code>Annotations.of(construct).addError()</code>) or
 						implement some other region-agnostic behavior.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="synthesizer" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> synthesizer</h3>
+					<div class="tsd-signature tsd-kind-icon">synthesizer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">IStackSynthesizer</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#synthesizer">synthesizer</a></p>
+						<ul>
+							<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:231</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>(experimental) Synthesis method for this stack.</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>experimental</dt>
+							<dd></dd>
+						</dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
@@ -356,7 +379,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#tags">tags</a></p>
 						<ul>
-							<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:52</li>
+							<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:139</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -372,13 +395,12 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#templatefile">templateFile</a></p>
 						<ul>
-							<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:126</li>
+							<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:221</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The name of the CloudFormation template file emitted to the output
-							directory during synthesis.</p>
+							<p>The name of the CloudFormation template file emitted to the output directory during synthesis.</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt>example</dt>
@@ -394,12 +416,28 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#templateoptions">templateOptions</a></p>
 						<ul>
-							<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:56</li>
+							<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:143</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>Options for CloudFormation template (like version, transform, description).</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="terminationprotection" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> termination<wbr>Protection</h3>
+					<div class="tsd-signature tsd-kind-icon">termination<wbr>Protection<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#terminationprotection">terminationProtection</a></p>
+						<ul>
+							<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:205</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Whether termination protection is enabled for this stack.</p>
 						</div>
 					</div>
 				</section>
@@ -417,13 +455,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#availabilityzones">availabilityZones</a></p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:321</li>
+									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:406</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returnst the list of AZs that are availability in the AWS environment
-									(account/region) associated with this stack.</p>
+									<p>Returns the list of AZs that are available in the AWS environment (account/region) associated with this stack.</p>
 								</div>
 								<p>If the stack is environment-agnostic (either account and/or region are
 									tokens), this property will return an array with 2 tokens that will resolve
@@ -432,6 +469,7 @@
 								<p>If they are not available in the context, returns a set of dummy values and
 									reports them as missing, and let the CLI resolve them by calling EC2
 								<code>DescribeAvailabilityZones</code> on the target environment.</p>
+								<p>To specify a different strategy for selecting availability zones override this method.</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
 						</li>
@@ -448,12 +486,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#dependencies">dependencies</a></p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:215</li>
+									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:303</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Return the stacks this stack depends on</p>
+									<p>Return the stacks this stack depends on.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Stack</span><span class="tsd-signature-symbol">[]</span></h4>
@@ -471,7 +509,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#nested">nested</a></p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:250</li>
+									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:340</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -494,7 +532,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#nestedstackparent">nestedStackParent</a></p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:327</li>
+									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:424</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -517,7 +555,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#notificationarns">notificationArns</a></p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:246</li>
+									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:336</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -540,12 +578,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#parentstack">parentStack</a></p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:333</li>
+									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:430</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the parent of a nested stack.</p>
+									<p>(deprecated) Returns the parent of a nested stack.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>deprecated</dt>
@@ -568,12 +606,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#partition">partition</a></p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:232</li>
+									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:320</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The partition in which this stack is defined</p>
+									<p>The partition in which this stack is defined.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -591,12 +629,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#stackid">stackId</a></p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:242</li>
+									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:332</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The ID of the stack</p>
+									<p>The ID of the stack.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
@@ -619,7 +657,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#stackname">stackName</a></p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:228</li>
+									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:316</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -649,12 +687,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#urlsuffix">urlSuffix</a></p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:236</li>
+									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:324</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The Amazon domain suffix for the region in which this stack is defined</p>
+									<p>The Amazon domain suffix for the region in which this stack is defined.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -675,7 +713,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#adddependency">addDependency</a></p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:211</li>
+									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:299</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -709,9 +747,20 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#adddockerimageasset">addDockerImageAsset</a></p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:323</li>
+									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:420</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>(deprecated) Register a docker image asset on this Stack.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>deprecated</dt>
+									<dd><p>Use <code>stack.synthesizer.addDockerImageAsset()</code> if you are calling,
+										and a different <code>IStackSynthesizer</code> class if you are implementing.</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -733,9 +782,20 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#addfileasset">addFileAsset</a></p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:322</li>
+									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:413</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>(deprecated) Register a file asset on this Stack.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>deprecated</dt>
+									<dd><p>Use <code>stack.synthesizer.addFileAsset()</code> if you are calling,
+										and a different IStackSynthesizer class if you are implementing.</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -757,21 +817,20 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#addtransform">addTransform</a></p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:346</li>
+									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:442</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Add a Transform to this stack. A Transform is a macro that AWS
-									CloudFormation uses to process your template.</p>
+									<p>Add a Transform to this stack. A Transform is a macro that AWS CloudFormation uses to process your template.</p>
 								</div>
 								<p>Duplicate values are removed when stack is synthesized.</p>
 								<dl class="tsd-comment-tags">
-									<dt>example</dt>
-									<dd><p>addTransform(&#39;AWS::Serverless-2016-10-31&#39;)</p>
-									</dd>
 									<dt>see</dt>
 									<dd><p><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-section-structure.html">https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-section-structure.html</a></p>
+									</dd>
+									<dt>example</dt>
+									<dd><p>addTransform(&#39;AWS::Serverless-2016-10-31&#39;)</p>
 									</dd>
 								</dl>
 							</div>
@@ -780,7 +839,7 @@
 								<li>
 									<h5>transform: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The transform to add</p>
+										<p>The transform to add.</p>
 									</div>
 								</li>
 							</ul>
@@ -799,21 +858,22 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#allocatelogicalid">allocateLogicalId</a></p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:387</li>
+									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:485</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the naming scheme used to allocate logical IDs. By default, uses
-										the <code>HashedAddressingScheme</code> but this method can be overridden to customize
-									this behavior.</p>
+									<p>Returns the naming scheme used to allocate logical IDs.</p>
 								</div>
+								<p>By default, uses
+									the <code>HashedAddressingScheme</code> but this method can be overridden to customize
+								this behavior.</p>
 								<p>In order to make sure logical IDs are unique and stable, we hash the resource
 									construct tree path (i.e. toplevel/secondlevel/.../myresource) and add it as
 									a suffix to the path components joined without a separator (CloudFormation
 								IDs only allow alphanumeric characters).</p>
 								<p>The result will be:</p>
-								<p>  &lt;path.join(&#39;&#39;)&gt;&lt;md5(path.join(&#39;/&#39;)&gt;
+								<p>   &lt;path.join(&#39;&#39;)&gt;&lt;md5(path.join(&#39;/&#39;)&gt;
 								&quot;human&quot;      &quot;hash&quot;</p>
 								<p>If the &quot;human&quot; part of the ID exceeds 240 characters, we simply trim it so
 								the total ID doesn&#39;t exceed CloudFormation&#39;s 255 character limit.</p>
@@ -861,7 +921,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#formatarn">formatArn</a></p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:268</li>
+									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:358</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -873,7 +933,7 @@
 								<p>If any component is the empty string, an empty string will be inserted
 								into the generated ARN at the location that component corresponds to.</p>
 								<p>The ARN will be formatted as follows:</p>
-								<p>  arn:{partition}:{service}:{region}:{account}:{resource}{sep}}{resource-name}</p>
+								<p>   arn:{partition}:{service}:{region}:{account}:{resource}{sep}}{resource-name}</p>
 								<p>The required ARN pieces that are omitted will be taken from the stack that
 									the &#39;scope&#39; is attached to. If all ARN pieces are supplied, the supplied scope
 								can be &#39;undefined&#39;.</p>
@@ -899,13 +959,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#getlogicalid">getLogicalId</a></p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:204</li>
+									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:292</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Allocates a stack-unique CloudFormation-compatible logical identity for a
-									specific resource.</p>
+									<p>Allocates a stack-unique CloudFormation-compatible logical identity for a specific resource.</p>
 								</div>
 								<p>This method is called when a <code>CfnElement</code> is created and used to render the
 									initial logical identity of resources. Logical ID renames are applied at
@@ -919,8 +978,7 @@
 								<li>
 									<h5>element: <span class="tsd-signature-type">CfnElement</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The CloudFormation element for which a logical identity is
-										needed.</p>
+										<p>The CloudFormation element for which a logical identity is needed.</p>
 									</div>
 								</li>
 							</ul>
@@ -940,12 +998,12 @@
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#onprepare">onPrepare</a></p>
 								<p>Overrides Construct.onPrepare</p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/construct-compat.d.ts:73</li>
+									<li>Defined in node_modules/@aws-cdk/core/lib/construct-compat.d.ts:78</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Perform final modifications before synthesis</p>
+									<p>Perform final modifications before synthesis.</p>
 								</div>
 								<p>This method can be implemented by derived constructs in order to perform
 									final changes before synthesis. prepare() will be called after child
@@ -969,7 +1027,7 @@
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#onsynthesize">onSynthesize</a></p>
 								<p>Overrides Construct.onSynthesize</p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/construct-compat.d.ts:82</li>
+									<li>Defined in node_modules/@aws-cdk/core/lib/construct-compat.d.ts:87</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1004,7 +1062,7 @@
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#onvalidate">onValidate</a></p>
 								<p>Overrides Construct.onValidate</p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/construct-compat.d.ts:62</li>
+									<li>Defined in node_modules/@aws-cdk/core/lib/construct-compat.d.ts:67</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1015,7 +1073,7 @@
 								validation logic. It is called on all constructs before synthesis.</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>An array of validation error messages, or an empty array if there the construct is valid.</p>
+							<p>An array of validation error messages, or an empty array if the construct is valid.</p>
 						</li>
 					</ul>
 				</section>
@@ -1030,7 +1088,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#parsearn">parseArn</a></p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:307</li>
+									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:391</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1052,7 +1110,7 @@
 									of ARNs that use &#39;/&#39; to both separate the &#39;resource&#39; from the
 									&#39;resourceName&#39; AND to subdivide the resourceName further. For example, in
 								S3 ARNs:</p>
-								<p>   arn:aws:s3:::my_corporate_bucket/path/to/exampleobject.png</p>
+								<pre><code><span class="hljs-symbol">arn:</span><span class="hljs-symbol">aws:</span>s3::<span class="hljs-symbol">:my_corporate_bucket/path/to/exampleobject</span>.png</code></pre>
 								<p>After parsing the resourceName will not contain
 									&#39;path/to/exampleobject.png&#39; but simply &#39;path&#39;. This is a limitation
 								because there is no slicing functionality in CloudFormation templates.</p>
@@ -1062,21 +1120,19 @@
 								<li>
 									<h5>arn: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The ARN string to parse</p>
+										<p>The ARN string to parse.</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> sepIfToken: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The separator used to separate resource from resourceName</p>
+										<p>The separator used to separate resource from resourceName.</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> hasName: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Whether there is a name component in the ARN at all. For
-											example, SNS Topics ARNs have the &#39;resource&#39; component contain the topic
-										name, and no &#39;resourceName&#39; component.</p>
+										<p>Whether there is a name component in the ARN at all.</p>
 									</div>
 								</li>
 							</ul>
@@ -1086,27 +1142,29 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-protected">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a name="prepare" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> prepare</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-protected">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 						<li class="tsd-signature tsd-kind-icon">prepare<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#prepare">prepare</a></p>
-								<p>Overrides <a href="_lib_s3_.bucket.html">Bucket</a>.<a href="_lib_s3_.bucket.html#prepare">prepare</a></p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:395</li>
+									<li>Defined in node_modules/@aws-cdk/core/lib/construct-compat.d.ts:107</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Prepare stack</p>
+									<p>Perform final modifications before synthesis.</p>
 								</div>
-								<p>Find all CloudFormation references and tell them we&#39;re consuming them.</p>
-								<p>Find all dependencies as well and add the appropriate DependsOn fields.</p>
+								<p>This method can be implemented by derived constructs in order to perform
+									final changes before synthesis. prepare() will be called after child
+								constructs have been prepared.</p>
+								<p>This is an advanced framework feature. Only use this if you
+								understand the implications.</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
@@ -1123,12 +1181,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#preparecrossreference">prepareCrossReference</a></p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:404</li>
+									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:493</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Deprecated.</p>
+									<p>(deprecated) Deprecated.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1164,15 +1222,15 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#renamelogicalid">renameLogicalId</a></p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:188</li>
+									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:278</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Rename a generated logical identities</p>
+									<p>Rename a generated logical identities.</p>
 								</div>
 								<p>To modify the naming scheme strategy, extend the <code>Stack</code> class and
-								override the <code>createNamingScheme</code> method.</p>
+								override the <code>allocateLogicalId</code> method.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -1198,12 +1256,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#reportmissingcontext">reportMissingContext</a></p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:181</li>
+									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:271</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Indicate that a context key was expected</p>
+									<p>Indicate that a context key was expected.</p>
 								</div>
 								<p>Contains instructions which will be emitted into the cloud assembly on how
 								the key should be supplied.</p>
@@ -1213,7 +1271,7 @@
 								<li>
 									<h5>report: <span class="tsd-signature-type">MissingContext</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The set of parameters needed to obtain the context</p>
+										<p>The set of parameters needed to obtain the context.</p>
 									</div>
 								</li>
 							</ul>
@@ -1232,7 +1290,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#resolve">resolve</a></p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:168</li>
+									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:258</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1250,25 +1308,34 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-protected">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a name="synthesize" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> synthesize</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-protected">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 						<li class="tsd-signature tsd-kind-icon">synthesize<span class="tsd-signature-symbol">(</span>session<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ISynthesisSession</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#synthesize">synthesize</a></p>
-								<p>Overrides <a href="_lib_s3_.bucket.html">Bucket</a>.<a href="_lib_s3_.bucket.html#synthesize">synthesize</a></p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:396</li>
+									<li>Defined in node_modules/@aws-cdk/core/lib/construct-compat.d.ts:116</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Allows this construct to emit artifacts into the cloud assembly during synthesis.</p>
+								</div>
+								<p>This method is usually implemented by framework-level constructs such as <code>Stack</code> and <code>Asset</code>
+								as they participate in synthesizing the cloud assembly.</p>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>session: <span class="tsd-signature-type">ISynthesisSession</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The synthesis session.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1286,12 +1353,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#tojsonstring">toJsonString</a></p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:172</li>
+									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:262</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Convert an object, potentially containing tokens, to a JSON string</p>
+									<p>Convert an object, potentially containing tokens, to a JSON string.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1318,7 +1385,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#tostring">toString</a></p>
 								<ul>
-									<li>Defined in node_modules/constructs/lib/construct.d.ts:237</li>
+									<li>Defined in node_modules/constructs/lib/construct.d.ts:268</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1341,7 +1408,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#validate">validate</a></p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/construct-compat.d.ts:91</li>
+									<li>Defined in node_modules/@aws-cdk/core/lib/construct-compat.d.ts:96</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1352,7 +1419,7 @@
 								validation logic. It is called on all constructs before synthesis.</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>An array of validation error messages, or an empty array if there the construct is valid.</p>
+							<p>An array of validation error messages, or an empty array if the construct is valid.</p>
 						</li>
 					</ul>
 				</section>
@@ -1367,12 +1434,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#isconstruct">isConstruct</a></p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/construct-compat.d.ts:48</li>
+									<li>Defined in node_modules/@aws-cdk/core/lib/construct-compat.d.ts:50</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Return whether the given object is a Construct</p>
+									<p>Return whether the given object is a Construct.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1396,7 +1463,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#isstack">isStack</a></p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:43</li>
+									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:127</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1426,13 +1493,14 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_util_.basestack.html">BaseStack</a>.<a href="_lib_util_.basestack.html#of">of</a></p>
 								<ul>
-									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:48</li>
+									<li>Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:135</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Looks up the first stack scope in which <code>construct</code> is defined. Fails if there is no stack up the tree.</p>
+									<p>Looks up the first stack scope in which <code>construct</code> is defined.</p>
 								</div>
+								<p>Fails if there is no stack up the tree.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -1537,6 +1605,9 @@
 								<a href="_lib_util_.basestack.html#region" class="tsd-kind-icon">region</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="_lib_util_.basestack.html#synthesizer" class="tsd-kind-icon">synthesizer</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="_lib_util_.basestack.html#tags" class="tsd-kind-icon">tags</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
@@ -1544,6 +1615,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="_lib_util_.basestack.html#templateoptions" class="tsd-kind-icon">template<wbr>Options</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="_lib_util_.basestack.html#terminationprotection" class="tsd-kind-icon">termination<wbr>Protection</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
 								<a href="_lib_util_.basestack.html#availabilityzones" class="tsd-kind-icon">availability<wbr>Zones</a>
@@ -1608,7 +1682,7 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_lib_util_.basestack.html#parsearn" class="tsd-kind-icon">parse<wbr>Arn</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-protected">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 								<a href="_lib_util_.basestack.html#prepare" class="tsd-kind-icon">prepare</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
@@ -1623,7 +1697,7 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_lib_util_.basestack.html#resolve" class="tsd-kind-icon">resolve</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-protected">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 								<a href="_lib_util_.basestack.html#synthesize" class="tsd-kind-icon">synthesize</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
@@ -1741,6 +1815,5 @@
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>
