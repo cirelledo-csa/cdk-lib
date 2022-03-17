@@ -21,7 +21,7 @@
     "https-proxy-agent": "^5.0.0",
     "lerna": "^3.22.1",
     "npm-check-updates": "^9.1.2",
-    "simple-git": "^2.21.0"
+    "simple-git": "^3.3.0"
   },
   "devDependencies": {
     "@aws-cdk/assert": "^1.69.0",
